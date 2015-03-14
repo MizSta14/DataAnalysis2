@@ -1,0 +1,8 @@
+data q3nlin;
+set da.h2q3;
+y=rep1;
+output;
+y=rep2;
+output;
+drop Rep1 Rep2;
+run;

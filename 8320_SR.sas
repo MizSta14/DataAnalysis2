@@ -18,16 +18,6 @@
 /* Start program with a null title. */
 title;
 
-proc genmod data = da.h3q1;
-model daysabs = male math langarts /dist=negbin;
-run;
-proc genmod data = da.h3q1;
-model daysabs = / dist=negbin;
-run;
-quit;
-
-%write(h3re5a,store=class,type=listing) 
-
 %write(scatter,store=class,type=graphic) 
 
 %output(class)

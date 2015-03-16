@@ -1,0 +1,73 @@
+\documentclass[letterpaper, 12pt]{article}
+
+
+\usepackage{parskip,xspace}
+\usepackage{amsmath,amsthm,amsfonts,amssymb} 
+\usepackage{caption}
+\usepackage{xcolor} 
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{rotating}
+\usepackage{multirow}
+\usepackage{makecell}
+\usepackage{ltxtable}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{bm}
+\usepackage{listings}
+\usepackage[]{statrep}
+\usepackage{enumerate}
+\usepackage{subfigure}
+\graphicspath{{eps/}}
+
+\lstset{
+  language=R,
+  basicstyle=\small,
+  numbers=left,
+  keywordstyle=\color{blue},
+  numberstyle={\tiny\color{lightgray}},
+  stepnumber=1, %?????????
+  numbersep=5pt,
+  backgroundcolor=\color[rgb]{0.95,1.0,1.0},
+  showspaces=false,
+  showtabs=false,
+  frame=shadowbox, rulesepcolor=\color{red!20!green!20!blue!20!},
+% frame=single,
+% TABframe=single,
+  tabsize=4,
+  breaklines=tr,
+  extendedchars=false %???????????????????????????????
+}
+
+
+
+
+
+\pagestyle{fancy}
+\lhead{Peng Shao 14221765}
+\chead{}
+\rhead{\bfseries STAT 8320 Spring 2015 Assignment 2}
+\renewcommand{\headrulewidth}{0.4 pt}
+\setlength{\parindent}{2em}
+
+\begin{document}
+\title{STAT 8320 Spring 2015 Assignment 2}
+\author{Peng Shao 14221765}
+\maketitle
+\indent
+
+
+
+\begin{Sascode}[store=class]
+libname da2 'C:\Users\psy6b\Desktop\8320 datasets';ods graphics on;options ls=70 ps=35;data split;set da2.h4q4;run;data alzheim;set da2.h4q5;drop score1-score5;run;PROC MIXED DATA=split;CLASS plot past min;MODEL milk=past|min;RANDOM plot plot*past;RUN;PROC MIXED DATA=split;CLASS plot past min;MODEL milk=past|min / ddfm=kenwardroger;RANDOM plot plot*past;LSMEANS past / adjust=tukey;RUN;symbol1 interpol=join color=black line=1 repeat=47;proc gplot data=alzheim;where group=1;plot score*visit=idno;run;proc gplot data=alzheim;where group=2;plot score*visit=idno;run;
+\end{Sascode}
+
+
+\Listing[store=class,
+         caption={Regression Analysis}]{h3re}
+
+\Graphic[store=class, scale=0.9,
+         caption={Graphs for Regression Analysis}]{h3re}
+
+\end{document}

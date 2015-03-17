@@ -153,131 +153,90 @@ $$
 
 
 
-(c). Nothing. 
+(c). Nothing. Because in the restricted likelihood function there is no parameters other than those from variance and covariance matrix, we can only test the variances and covariances, but no the parameters of fixed and random effects based on REML. 
+
 
 $\blacktriangleright$ \textbf{3.\quad Solution.} 
+(a). The intercepts should be same among the different graphs, but the increments of different graphs should be different, and the time points of the maximum weights should be different.
 
 
-(a). From the scatterplots (Figure.\ref{scatter}), we can see that the displacement, horsepower, weight and acceleration seem to have effects the level of gas milage because most one of mpg01 distributed in low level of displacement, horsepower and weight, or the high level of acceleration. But these variables have some multicollinearity, so maybe only one or two variable of them will be selected into the model.
-
-From the boxplots (Figure \ref{boxplot}), the boxes of variable acceleration, model year and origin have some overlap, so this means that these variables may not have significant effects on the gas milage, then they may not be selected into the models.
-
-That is all that can be found from the plots.
-
-\Graphic[store=class, scale=0.6,
-         caption={Scatterplots of Variables}]{scatter}
-(b). Since we do not have too may variables, just to be safe, I will ignore the results from part(a), and still treat all independent variables as potential predictors to select the appropriate ones. I use the 'selection=' option of model statement to preform a predictor selection, as the code below,
-\begin{Sascode}[store=class]
-PROC LOGISTIC DATA=q31 DESCENDING;
-class cylinders modelyear origin;
-MODEL mpg01=cylinders displacement horsepower weight
- acceleration modelyear origin/selection=stepwise;
-RUN;
-\end{Sascode}
-where I treat "cylinders", "modeler" and "origin" as indictor variables. The variable of selection result is \{cylinders, modelyear, weight\}, which is inn accordence with what we got from part(a), except "modelyear" becoming a significant predictor. So the model becomes 
+(b). We have the form of model 
 $$
-Model~1:~Gas~Mileage=Overallmean+Weight+Cylinder+Modelyear
+\bm{Y}_i=\bm{X}_i\bm{\beta}+\bm{Z}_i\bm{b}_i+\bm{e}_i
 $$
-with the 17 parameters (Figure \ref{h3re34}).
-\Listing[store=class,
-         caption={Predictors Selected}]{h3re34}
-
-Then I score the training dataset under this model, the result shows that the error rate is only 5.56\%, so I have to say that it is really a good prediction model. But I still try the other models,
+where 
 \ba
-Model~2&:~Gas~Mileage=Overallmean+Weight+Cylinder+Modelyear+Interaction\\
-Model~3&:~Gas~Mileage=Overallmean+Weight+Cylinder\\
-Model~4&:~Gas~Mileage=Overallmean+Weight+Horsepower+Modelyear\\
+\bm{Y}_i&=(y_{i1},\dots,y_{in_i})',\\
+\bm{X}_i&=\left(\begin{matrix}
+1&t_{i1}&t_{i1}^2\\
+\vdots&\vdots&\vdots\\
+1&t_{in_i}&t_{in_i}^2\end{matrix}\right),\\
+\bm{Z}&=(t_{i1},\dots,t_{in_i})',\\
+\bm{\beta}&=(\beta_0,\beta_1,\beta_2)',\\
+\bm{b}_i&=b_{1i},\\
+\bm{e}&=(e_1,\dots,e_{in_i})',\\
+var(\bm{e}_i)&=\bm{\Sigma}=\left(\begin{matrix}
+\sigma^2\\
+&\ddots\\
+&&\sigma^2\end{matrix}\right)=\sigma^2\bm{I}_{n_i\times n_i},\\
+var(\bm{b}_i)&=\bm{D}=\left(\begin{matrix}
+\sigma_b^2\\
+&\ddots\\
+&&\sigma_b^2\end{matrix}\right)=\sigma_b^2\bm{I}_{n_i\times n_i},\\
 \ea
 
-Here, Model 2 extends Model 1 by adding interaction; Model 3 drop the variable model year, since we did not want to consider this variable from part(a); and Model 4 is obtained from model selection procedure without treating discrete variables as indicator variables (which may make the model hard to interpret). 
-\Listing[store=class,
-         caption={Score for Training Dataset}]{h3re38}
 
-I scored data under different models. Model 4 and Model 3 has worse performance in predicting, with the error rates about 10\% and 12\% respectively. So compared to Model 1, they cannot be better model. Model 2, however, has a little lower error rate about 4\%, which improves Model 1 slightly. But Model 2 has two problems: 1) the number of parameters become 57. This may cause model overfitted the data because of two many variable. The decision boundary of the model becomes more complicated and make the prediction for new data more uncertain; 2) the interaction term is very hard to be interpreted. For example, it may be a little difficult to understand than why the number of cylinders has some interaction with model year. Thus, I prefer the Model 1 to be the best model for this problem
-
-The confusion matrix of this model is Figure \ref{h3re39}. Then
+(c). The marginal variance/covariance matrix of $\bm{Y}$ is that
 \ba
-TP=160,\quad FN=11,\quad FP=8,\quad TN=163
+Var(\bm{Y}_i)&=\bm{Z}_i\bm{DZ}_i^T+\bm{\Sigma}\\
+&=\left(\begin{matrix}
+t_{i1}\\
+\vdots\\
+t_{in_i}\end{matrix}\right)
+\left(\begin{matrix}
+\sigma_b^2\\
+&\ddots\\
+&&\sigma_b^2\end{matrix}\right)
+(t_{i1},\dots,t_{in_i})+\left(\begin{matrix}
+\sigma^2\\
+&\ddots\\
+&&\sigma^2\end{matrix}\right)\\
+&=\left(\begin{matrix}
+t_{i1}^2\sigma_b^2+\sigma^2&t_{i1}t_{i2}\sigma_b^2&\cdots&t_{i1}t_{in_i}\sigma_b^2\\
+t_{i2}t_{i1}\sigma_b^2&t_{i2}^2\sigma_b^2+\sigma^2&\cdots&t_{i2}t_{in_i}\sigma_b^2\\
+\vdots&\vdots&\ddots&\vdots\\
+t_{in_i}t_{i1}\sigma_b^2&t_{in_i}t_{i2}\sigma_b^2&\cdots&t_{in_i}^2\sigma_b^2+\sigma^2\\
+\end{matrix}\right)
 \ea
+
+
+(d). Because the marginal covariance $\bm{Y}$ is
+$$
+cov(Y_{ij},Y_{ik})=t_{ij}t_{ik}\sigma_b^2
+$$
+then the correlation of $Y_i$ is that 
 \ba
-\text{sensitivity}&=\frac{TP}{TP+FN}=\frac{160}{160+11}=93.57\%\\
-\text{specificity}&=\frac{TN}{TN+FP}=\frac{163}{163+8}=95.32\%
+cov(Y_{ij},Y_{ik})&=\frac{cov(Y_{ij},Y_{ik})}{\sqrt{var(Y_{ij})}\sqrt{var(Y_{ik})}}\\
+&=\frac{t_{ij}t_{ik}\sigma_b^2}{\sqrt{t_{ij}^2\sigma_b^2+\sigma^2}\sqrt{t_{ik}^2\sigma_b^2+\sigma^2}}\\
+&=\frac{jk}{\sqrt{j^2+1}\sqrt{k^2+1}}\\
+&=\frac{1}{\sqrt{1/j^2+1}\sqrt{1/k^2+1}}
 \ea
-\ba
-\text{Type I error}&=\frac{FP}{TN+FP}=\frac{8}{163+8}=4.68\%\\
-\text{Type II error}&=\frac{FN}{TP+FN}=\frac{11}{160+11}=6.43\%
-\ea
-The sensitivity and specificity are both very good, which means that the model has a good ability to determine high and low gas mileage.
-\Listing[store=class,
-         caption={Confusion Table for Training Dataset}]{h3re39}
+The correlations will increase with the increase of time, $j$ and $k$, but no trend just with temporal separation. This is not so realistic. In common sense, we usually may think that the correlations may be smaller with large temporal separation than the correlations with small small temporal separation, because status of one time point is more likely to affect or to be affected by the status of the near time point. The reason causing this unrealistic result may be we simply assume the conditional independence while the data may not have this property.
 
+(e). There are two advantages of the marginal covariance derived hierarchically. First, compared to the unstructured covariance structure, the hierarchical marginal covariance have less unknown parameters to estimate, so it can reduce the computation, and avoid suffering overfitting problem. Secondly, it easily to understand and interpret the variance components, we can know that which parts of variation come from random effect and which parts come from the violation of conditional independence.
 
-Finally, the deviance of this model is 90.7560 with the degree of freedom 318 (Figure \ref{h3re31}), so the dispersion parameter is 0.2854. The assumption of this model is the data follows Bernoulli distribution, i.e., $\phi$ equals 1. Thus there is much less variation than we expected.
-\Listing[store=class,
-         caption={Model Fitness Summary}]{h3re31}
-
-(c) The code here is 
-\begin{Sascode}[store=class]
-PROC LOGISTIC DATA=q31 DESCENDING outmodel=model;
-class cylinders modelyear origin;
-MODEL mpg01=cylinders weight modelyear/ scale=none AGGREGATE;
-score data=q31 out=score fitstat;
-RUN;
-PROC LOGISTIC inmodel=model;
-score data=q3t1 out=Scoret fitstat;
-RUN;
-proc freq data=scoret;
-tables F_mpg01* I_mpg01/nocol nocum norow nopercent;
-run;
-\end{Sascode}
-
-The output are listed as below (Figure \ref{h3re40} and Figure \ref{h3re41}). The overall error rate is 10\%. From the confusion matrix (Figure \ref{h3re41}), the sensitivity is 83\%, and specificity is 96.15\%, they are both good, and the ability of determining low gas mileage of this model is better than that of determining high gas mileage.
-\Listing[store=class,
-         caption={Score for Test Dataset}]{h3re40}
-\Listing[store=class,
-         caption={Confusion for Test Dataset}]{h3re41}
 
 
 
 $\blacktriangleright$ \textbf{4.\quad Solution.} 
-(a) We consider a Poisson regression model. The random component of this model is 
+(a) We have the split-plot design model
 $$
-f(y;\theta,\phi)=\exp\left\{\frac{y\theta-e^\theta}{\phi}+c(y,\phi)\right\}
+Y_{ijk}=\mu+\rho_i+\alpha_j+e_{ij}+\beta_k+(\alpha\beta)_{jk}+\epsilon_{ijk}
 $$
-the link function is 
+where $\rho$ is plot effect, $\alpha$ is pasture effect and $\beta$ is mineral effect. The random effects are $\rho$, $e$ and $\epsilon$. From the ANOVA table, we have that
 $$
-g(\mu)=\log(\mu)=\eta
+\sigma_{\text{plot}}^2=12.74,\ \ \sigma^2_{e}=1.05,\ \ \sigma_\epsilon^2=2.25
 $$
-and the linear predictor is
-$$
-\eta=\beta_0+\beta_1X_1+\beta_2X_2+\beta_3X_3
-$$
-where $Y$ is fish count and $X_{i}=1$, if $i$th macrohabitat; otherwise $X_{i}=0$. 
-
-From SAS output (Figure \ref{h3re47}), firstly because the type 1 and type 3 analysis is significant, which means that the factor microhabitat has significant effect. Then we study on the estimate summary table. The intercept is the estimate of the effect of macrohabitat 4, the $\beta_i$s are the difference between the effect of macrohabitat $i$ and the effect of macrohabitat 4. Because the estimates of $\beta_i$s are all greater than 0, we can know that the effects of macrohabitat 1,2 and 3 are all greater than that of 4, and the order is $macrohabitat ~1>macrohabitat ~2>macrohabitat ~3>macrohabitat ~4$. Then since the P-value of the estimate of $\beta_2$ is greater than 0.05, there is no significance difference between macrohabitat 2 and macrohabitat 4, which also means no significance difference between macrohabitat 2 and macrohabitat 3 or macrohabitat 3 and macrohabitat 4. However, the P-value of the estimate of $\beta_1$ is less than 0.05, which means that there is a significance difference between macrohabitat 1 and macrohabitat 4. Actually, we can construct the models under other coding schemes like reference to "1" for indicator variables, and we can get to know that the significance difference is only between macrohabitat 1 and macrohabitat 4, while there is no significant differences between any other pair of macrohabitats.
-\Listing[store=class,
-         caption={Estimate Summary}]{h3re47}
-
-The dispersion parameter is 9.8390, which is much greater than 1. It implies that the data is over dispersion based on this Poisson model. This makes us to think about other models like Extra-Poisson model or zero inflated Poisson model to fix this problem.
-
-
-(b). Because of the excess of zero (Figure \ref{h3re9}), we consider the zero-inflated Poisson model,
-$$
-f(y)=\left\{\begin{array}{l l}\omega+(1-\omega)e^{-\lambda}\qquad &\text{for }y=0\\
-(1-\omega)\frac{\lambda^ye^{-\lambda}}{y!}\qquad &\text{for }y=1,2,...
-\end{array}\right.
-$$
-and
-\ba
-h(\omega_i)&=\bm{z_i}\bm{\gamma}\\
-g(\lambda_i)&=\bm{x_i}\bm{\beta}
-\ea
-
-In this problem, $h(\cdot)$ is logit function, $g(\cdot)$ is log function, $X$ is macrohabitat, and $Z$ is gear type. Here, the macrohabitat is treated as count portion of the model, and the gear type is treated as zero-inflation portion in this model. From the output, we can see that P-values of estimates of $\gamma_3$ an $\gamma_5$ are less that 0.05, which means that type 2 gear and type 4 gear are significantly different from type 5 gear, so we can think that gear type has a significant effect, or we can say the zero-inflated model is significantly better that the pure Poisson regression model. We can also perform a Vuong test (Figure \ref{h3re66}, since these two are not nested models which can be tested by full-reduced model test. From the output, we can see that P-values of three statistics are all less than 0.05, which mean one of the two models is closer to the true model and the test prefer the ZIP model.
-\Graphic[store=class, scale=0.6,
-         caption={Histogram of Fish Count}]{h3re9}
-\Listing[store=class,
-         caption={Test Result for ZIP Model}]{h3re66}
 
 
 

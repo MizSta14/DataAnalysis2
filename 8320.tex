@@ -276,15 +276,16 @@ X_{21}t&X_{22}t&\cdots&X_{2,47}t\rma'$;
 \end{itemize}
 We can also know that,
 $$
-var(\bm{b})=D=\big\{_d\{_d \sigma_b^2\}_{j=1}^5\big\}_{k=1}^{25},\qquad var(\bm{\epsilon})=\Sigma=\big\{_d\{_d \sigma^2\}_{j=1}^5\big\}_{k=1}^{25}
+var(\bm{b})=\bm{D}=\sigma_b^2,\qquad var(\bm{\epsilon})=\bm{\Sigma}=\big\{_d\{_d \sigma^2\}_{j=1}^5\big\}_{k=1}^{25}
 $$
 where $\{_d \cdot\}$ denotes a diagonal matrix.
 
 In this model, we assume that
 \begin{itemize}
-\item different groups have same intercept;
+\item different groups have same intercept, that is, there exists significant;
 \item intercept has random component;
-\item
+\item $\bm{b}\sim\text{N}(\bm{0},\bm{D})$, $\bm{\epsilon}\sim\text{N}(\bm{0},\bm{\Sigma})$, that is, variance-convariance structure is VC(variance component), and residual structure is normal and independent;
+\item the relation between score and visit is linear.
 \end{itemize}
 
 

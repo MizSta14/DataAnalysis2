@@ -207,7 +207,7 @@ t_{i1}^2\sigma_b^2+\sigma^2&t_{i1}t_{i2}\sigma_b^2&\cdots&t_{i1}t_{in_i}\sigma_b
 t_{i2}t_{i1}\sigma_b^2&t_{i2}^2\sigma_b^2+\sigma^2&\cdots&t_{i2}t_{in_i}\sigma_b^2\\
 \vdots&\vdots&\ddots&\vdots\\
 t_{in_i}t_{i1}\sigma_b^2&t_{in_i}t_{i2}\sigma_b^2&\cdots&t_{in_i}^2\sigma_b^2+\sigma^2\\
-\end{matrix}\right)
+\end{matrix}\right)_{n_i\times n_i}
 \ea
 
 
@@ -240,7 +240,7 @@ $$
 $$
 In addition, the test for the significance for interaction of the pasture and mineral effects yields a P-value of 0.4981, the Factor pasture effect yields a P-value of 0.0377, and the Factor mineral effect yields a P-value of 0.0932. So only pasture effect are significant at $\alpha=0.05$.
 
-(b).
+(b). Because the data may come from different distribution, so the degree of freedom of the variance of random components may need some modification, like Satterthwaite method. The Kenwardroger method give us a more conservative distribution about t-test or F-test than Satterthwaite when sample size is not large enough, making the assumption seem more appropriate. For example, we assume that $E(\rho)$=0. When we test whether every predict of $\rho_i$ 
 
 
 
@@ -293,7 +293,7 @@ var(\bm{Y}_k)=\bm{ZDZ}'+\bm{\Sigma}=\sigma_b^2\bm{ZZ}'+\bm{\Sigma}=\lma
 \sigma^2_b+\sigma^2&\sigma^2_b&\cdots&\sigma^2_b\\
 \sigma^2_b&\sigma^2_b+\sigma^2&\sigma^2_b&\cdots\\
 \vdots&\vdots&\ddots&\vdots\\
-\sigma^2_b&\cdots&\cdots&\sigma^2_b+\sigma^2\rma
+\sigma^2_b&\cdots&\cdots&\sigma^2_b+\sigma^2\rma_{5\times 5}
 $$
 
 
@@ -403,15 +403,45 @@ run;
 \end{Sascode}
 
 
-For repeated measures model here, it is more like a nested experimental design, since it does not focus on the form of the relation between scores and visit, but just to compare the difference between scores under different combinations of group and visit. So SAS will give us 10 parameter estimates rather than 3 (2 slopes and 1 intercept) as before. 
-$$\lma
-23.0184 &21.6118& 20.2052 &18.7986 &17.3920\\
-21.6118 &20.6260& 19.6402 &18.6544& 17.6686\\
-20.2052 &19.6402& 19.0752 &18.5102& 17.9452\\
-8.7986 &18.6544 &18.5102 &18.3660 &18.2218\\
-17.3920 &17.6686& 17.9452 &18.2218& 18.4984\\
-\rma$$
+For repeated measures model here, it is more like a nested experimental design, since it does not focus on the form of the relation between scores and visit, but just to compare the difference between scores under different combinations of group and visit. So SAS will give us 10 fixed parameter estimates rather than 3 (2 slopes and 1 intercept) as before. For the first order autoregression structure, we will get the estimate of correlation coefficient between two sequential visits
+$$
+\rho=0.8422,\quad\text{with the P-value}<0.0001
+$$
+The significant correlation coefficient implies that the score is related with the previous score, so the independent assumption may not be appropriate.
 
+
+So the residual variance-covariance matrix is
+$$
+\bm{\Sigma}_k=\lma
+20.8085 &17.5250 &14.7596 &12.4306 &10.4691 \\
+17.5250 &20.9095 &17.5250 &14.7596 &12.4306 \\
+14.7596 &17.5250 &20.9095 &17.5250 &14.7596 \\
+12.4306 &14.7596 &17.5250 &20.9095 &17.5250 \\
+10.4691 &12.4306 &14.7596 &17.5250 &20.9095 
+\rma
+$$
+while the marginal variance-covariance matrix of iid error model is
+\ba
+\bm{V}&=\bm{ZDZ}'+\bm{\Sigma}\\
+&=\lma
+26.1219 &21.6118 & 20.2052 &18.7986 &17.3920\\
+21.6118 &23.7295 & 19.6402 &18.6544& 17.6686\\
+20.2052 &19.6402& 22.1787 &18.5102& 17.9452\\
+8.7986 &18.6544 &18.5102 &21.4695 &18.2218\\
+17.3920 &17.6686& 17.9452 &18.2218& 21.6019\\
+\rma
+\ea
+There is no surprising that they are different. As mentioned before, the repeated measure model is more like ANOVA, so here we should firstly test the interaction effect,
+$$
+H_0:~\text{The interaction is insignificant}\quad\text{v.s.}\quad H_a:~\text{The interaction is significant}
+$$
+then the interaction have s significant P-value less than 0.001. With significant interaction effect, we cannot test the main effect of group. But we can contrast them
+$$
+H_0:\mu_\text{group 1}-\mu_\text{group 2}=0\quad\text{v.s.}\quad H_a:\mu_\text{group 1}-\mu_\text{group 2}\not=0
+$$
+The absolute difference is 3.0556 with P-value=0.0125, thus, we can still say that the treatment helps. Moreover the -2 times REML, AIC and BIC of AR(1) model is better than the model in part (e). Thus, we can believe that AR(1) model here is a better model than iid models. (Here we cannot perform a likelihood ratio test to support our conclusion, because these two models are not nested models)
+
+Finally, we refit the repeated measure model by assuming unstructured covariance as the code above. We can see that the AIC of AR(1) model is 1148.8, while AIC of UN model is 1097.1. Thus we may choose unstructured model as a more appropriate. This also gives us a hint that the assumption of first order autoregression correlation structure may be not the real correlation of this longitude data, the correlation structure may be more complicated.
 
 
 

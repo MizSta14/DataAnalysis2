@@ -18,6 +18,14 @@
 /* Start program with a null title. */
 title;
 
+%write(covest,store=class,type=listing) 
+
+%write(h4re10,store=class,type=listing) 
+
+%write(anova,store=class,type=listing) 
+
+%write(h4re23,store=class,type=listing) 
+
 %output(class)
 proc mixed data=alzheim method=ml noitprint;
 class idno group;

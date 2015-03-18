@@ -1,0 +1,8 @@
+                    Type 3 Tests of Fixed Effects
+ 
+                          Num     Den
+            Effect         DF      DF    F Value    Pr > F
+ 
+            past            3       6       5.46    0.0377
+            min             1       8       3.63    0.0932
+            past*min        3       8       0.86    0.4981

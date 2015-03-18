@@ -1,0 +1,11 @@
+                     Solution for Fixed Effects
+ 
+                                 Standard
+Effect        group   Estimate      Error     DF   t Value   Pr > |t|
+ 
+Intercept               5.8318     1.0456     45      5.58     <.0001
+group         1         4.7482     1.4337    141      3.31     0.0012
+group         2              0          .      .       .        .
+visit                   1.8773     0.1762     45     10.66     <.0001
+visit*group   1        -2.6013     0.2415    141    -10.77     <.0001
+visit*group   2              0          .      .       .        .

@@ -1,0 +1,6 @@
+                    Type 3 Tests of Fixed Effects
+ 
+                           Num     Den
+           Effect           DF      DF    F Value    Pr > F
+ 
+           visit*group       2     141      65.33    <.0001

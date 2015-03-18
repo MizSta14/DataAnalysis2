@@ -51,15 +51,12 @@
 $\blacktriangleright$ \textbf{1.\quad Solution.} 
 (a). Define
 \ba
-\bm{Y}_i&=(Y_i1,Y_i2)'\\
-\bm{\beta}&=(\beta_0,\beta_0)'\\
-\bm{b}_i&=(b_{0i},b_{1i})'\\
-\bm{W}_i&=\left(\begin{matrix}
+\bm{Y}_i&=(Y_i1,Y_i2)',&\quad\bm{\beta}&=(\beta_0,\beta_0)'\\
+\bm{b}_i&=(b_{0i},b_{1i})', &\quad\bm{W}_i&=\left(\begin{matrix}
 1&W_{i1}\\
 1&W_{i2}
 \end{matrix}\right)\\
-\bm{\epsilon}_i&=(\epsilon_{i1},\epsilon_{i2})'\\
-\bm{D}&=\left(\begin{matrix}
+\bm{\epsilon}_i&=(\epsilon_{i1},\epsilon_{i2})',\quad&\bm{D}&=\left(\begin{matrix}
 4 &1\\
 1 &2
 \end{matrix}\right)\\
@@ -234,26 +231,43 @@ $\blacktriangleright$ \textbf{4.\quad Solution.}
 $$
 Y_{ijk}=\mu+\rho_i+\alpha_j+e_{ij}+\beta_k+(\alpha\beta)_{jk}+\epsilon_{ijk}
 $$
-where $\rho$ is plot effect, $\alpha$ is pasture effect and $\beta$ is mineral effect. The random effects are $\rho$, $e$ and $\epsilon$. From the ANOVA table, we have that
+where $\rho$ is plot effect, $\alpha$ is pasture effect and $\beta$ is mineral effect. The random effects are $\rho$, $e$ and $\epsilon$. From the ANOVA table(Figure \ref{covest}, Figure \ref{anova}), we have that
 $$
 \sigma_{\text{plot}}^2=12.74,\ \ \sigma^2_{e}=1.05,\ \ \sigma_\epsilon^2=2.25
 $$
-In addition, the test for the significance for interaction of the pasture and mineral effects yields a P-value of 0.4981, the Factor pasture effect yields a P-value of 0.0377, and the Factor mineral effect yields a P-value of 0.0932. So only pasture effect are significant at $\alpha=0.05$.
+In addition, the test(Figure \ref{h4re10}) for the significance for interaction of the pasture and mineral effects yields a P-value of 0.4981, the Factor pasture effect yields a P-value of 0.0377, and the Factor mineral effect yields a P-value of 0.0932. So only pasture effect are significant at $\alpha=0.05$.
+\Listing[store=class,caption={Covariance Estimates}]{covest}
+\Listing[store=class,caption={Type 3 Tests}]{h4re10}
+\Listing[store=class,caption={Anova Table}]{anova}
 
-(b). Because the data may come from different distribution, so the degree of freedom of the variance of random components may need some modification, like Satterthwaite method. The Kenwardroger method give us a more conservative distribution about t-test or F-test than Satterthwaite when sample size is not large enough, making the assumption seem more appropriate. For example, we assume that $E(\rho)$=0. When we test whether every predict of $\rho_i$ 
+(b). Because the data may come from different distribution, so the degree of freedom of the variance of random components may need some modification, like Satterthwaite method. The Kenwardroger method give us a more conservative distribution about t-test or F-test than Satterthwaite when sample size is not large enough, making the assumption seem more appropriate. For example, we assume that $E(\rho)$=0. When we test whether every predict of $\rho_i$ equals zero. For unmodified degree of freedom, the degree of freedom of t-statistic for $\rho_1$ is 8 and the P-value is 0.0965, but for Kenwardroger method, the degree of freedom is 2.14 and the P-value is 0.1934. The results of not rejecting null hypothesis are same, but which of Kenwardroger method makes us a little harder to reject our assumption.
 
+The method only modified the degree of freedom, so it will leave the result of fixed result unchanged. In this specific problem, the results of random components are also unchanged.
 
-
-
-(c). From the output "Differences of Least Squares Means", we can see that the only significance difference is the difference between pasture 1 and pasture 4 based on the Tukey-Kramer adjustment.
-
+(c). From the output "Differences of Least Squares Means" (Figure \ref{h4re23}), we can see that the only significance difference is the difference between pasture 1 and pasture 4 based on the Tukey-Kramer adjustment.
+\Listing[store=class,caption={Least Squares Means}]{h4re23}
 
 $\blacktriangleright$ \textbf{5.\quad Solution.}
-(a). From the two graphs, we can see that there are a lot of distinct line, which indicate the difference of different subject, the random effects. The mean intercepts of the lines from different groups almost same, and they should be because the experimental subjects should be randomly assigned to one group and they all come from a same population. Furthermore, the trends of different groups are different show that there may be some interaction between group effect and visits. Finally, the score trends with respect to time seems to be linear, and two lack of fit tests show that it is reasonable assumption with P-values are 0.9127 and 0.9131.
+(a). From the two graphs (Firgure \ref{plot1}), we can see that there are a lot of distinct line, which indicate the difference of different subject, the random effects. The mean intercepts of the lines from different groups almost same, and they should be because the experimental subjects should be randomly assigned to one group and they all come from a same population. Furthermore, the trends of different groups are different show that there may be some interaction between group effect and visits. Finally, the score trends with respect to time seems to be linear, and two lack of fit tests show that it is reasonable assumption with P-values are 0.9127 and 0.9131.
 
 To sum up, we should have 3 assumptions from the graphs: i) same intercept; 2) different slope; 3) linearity.
-
-
+\begin{figure}[htbp]
+	\caption{Plots by Group}
+	\label{plot1}
+	\centering
+	\subfigure[Subjects in Group Group]{
+		\begin{minipage}{0.4\textwidth}
+			\centering
+			\includegraphics[width=2.4in]{h4re.eps}
+		\end{minipage}
+	}
+	\subfigure[Subjects in Lecithin Group]{
+		\begin{minipage}{0.4\textwidth}
+			\centering
+			\includegraphics[width=2.4in]{h4re1.eps}
+		\end{minipage}
+	}
+\end{figure}
 
 
 
@@ -318,8 +332,25 @@ H_0:\beta_1=\beta_2\quad\text{v.s.}\quad H_a: \beta_1\not=\beta_2
 $$
 From the Type 3 test of fixed model, we have a significant P-value which is less than 0.0001. So we we reject null hypothesis, and get $\beta_1\not=\beta_2$ which means that treatment effect is significant. And from the estimates, we have $\beta_1=-0.6133<1.7514=\beta_2$, which means the scores in the lecithin group are increasing over time, while scores in placebo are decreasing. thus, treatment helps.
 
-\item From the plot, firstly it shows the differences of slopes of groups, or in another word, the difference of treatment effects. Secondly, it shows that the status of patients are different at the initial of the experiment, which causes the different intercepts of the regression lines. However, from the graphs, the reactions of patients under the same treatment seem same, because different lines in same group have same slope. This is not so realistic, since we know that the difference of patient's physical or mental status may also cause the effect of treatment to be different. So the different lines should have different slopes.
+\item From the plots (Firgure \ref{plot2}), firstly it shows the differences of slopes of groups, or in another word, the difference of treatment effects. Secondly, it shows that the status of patients are different at the initial of the experiment, which causes the different intercepts of the regression lines. However, from the graphs, the reactions of patients under the same treatment seem same, because different lines in same group have same slope. This is not so realistic, since we know that the difference of patient's physical or mental status may also cause the effect of treatment to be different. So the different lines should have different slopes.
 \end{enumerate}
+\begin{figure}[htbp]
+	\caption{Plots by Group with Random Intercept}
+	\label{plot2}
+	\centering
+	\subfigure[Subjects in Placebo Group]{
+		\begin{minipage}{0.4\textwidth}
+			\centering
+			\includegraphics[width=2.4in]{h4re2.eps}
+		\end{minipage}
+	}
+	\subfigure[Subjects in Lecithin Group]{
+		\begin{minipage}{0.4\textwidth}
+			\centering
+			\includegraphics[width=2.4in]{h4re3.eps}
+		\end{minipage}
+	}
+\end{figure}
 
 
 (e). We can rewrite the model in part (b),
@@ -374,8 +405,25 @@ $$
 \Lambda=-2(\ell(Reduced~Model)-\ell(Full~Model))=1149.1-1134.8=14.3\sim\chi^2(2)
 $$
 The critical value of $\chi^2_{0.95}(2)$ is 5.99, which is less than 14.3. And the P-value is 0.0008. So we reject the null hypothesis. It is reasonable to believe that the model with random coefficient and unstructured variance-covariance structure is better fit than the random intercept model.
-\item From the plots, the different lines have different slopes compared with the parallel lines in the plots of random intercept model. It is more like the data plot, so we can think that it is a more realistic model.
+\item From the plots (Firgure \ref{plot3}), the different lines have different slopes compared with the parallel lines in the plots of random intercept model. It is more like the data plot, so we can think that it is a more realistic model.
 \end{enumerate}
+\begin{figure}[htbp]
+	\caption{Plots by Group with Random Intercept and Coefficients}
+	\label{plot3}
+	\centering
+	\subfigure[Subjects in Placebo Group]{
+		\begin{minipage}{0.4\textwidth}
+			\centering
+			\includegraphics[width=2.4in]{h4re4.eps}
+		\end{minipage}
+	}
+	\subfigure[Subjects in Lecithin Group]{
+		\begin{minipage}{0.4\textwidth}
+			\centering
+			\includegraphics[width=2.4in]{h4re5.eps}
+		\end{minipage}
+	}
+\end{figure}
 
 
 (g). First, we should change the form of the model in part (e), 

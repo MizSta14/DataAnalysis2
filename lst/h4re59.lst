@@ -1,0 +1,12 @@
+                         The Mixed Procedure
+ 
+                          Model Information
+ 
+        Data Set                     WORK.ALZHEIM
+        Dependent Variable           score
+        Covariance Structure         Unstructured
+        Subject Effect               idno
+        Estimation Method            REML
+        Residual Variance Method     None
+        Fixed Effects SE Method      Model-Based
+        Degrees of Freedom Method    Between-Within

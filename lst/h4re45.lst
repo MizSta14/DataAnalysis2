@@ -1,0 +1,8 @@
+                    Covariance Parameter Estimates
+ 
+                   Cov Parm     Subject    Estimate
+ 
+                   UN(1,1)      idno        20.6390
+                   UN(2,1)      idno        -1.3054
+                   UN(2,2)      idno         0.3723
+                   Residual                  3.1035

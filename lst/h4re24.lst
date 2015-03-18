@@ -1,0 +1,12 @@
+                         The Mixed Procedure
+ 
+                          Model Information
+ 
+        Data Set                     WORK.ALZHEIM
+        Dependent Variable           score
+        Covariance Structure         Variance Components
+        Subject Effect               idno
+        Estimation Method            ML
+        Residual Variance Method     Profile
+        Fixed Effects SE Method      Model-Based
+        Degrees of Freedom Method    Containment

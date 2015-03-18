@@ -1,0 +1,20 @@
+                     Solution for Fixed Effects
+ 
+                                  Standard
+  Effect     past  min  Estimate     Error    DF  t Value  Pr > |t|
+ 
+  Intercept              34.3333    2.3124   2.9    14.85    0.0008
+  past       1           -4.0000    1.4829  11.5    -2.70    0.0200
+  past       2           -2.3333    1.4829  11.5    -1.57    0.1427
+  past       3           -4.3333    1.4829  11.5    -2.92    0.0133
+  past       4                 0         .     .      .       .
+  min              1     -0.6667    1.2247     8    -0.54    0.6011
+  min              2           0         .     .      .       .
+  past*min   1     1     -0.6667    1.7321     8    -0.38    0.7103
+  past*min   1     2           0         .     .      .       .
+  past*min   2     1     -2.0000    1.7321     8    -1.15    0.2815
+  past*min   2     2           0         .     .      .       .
+  past*min   3     1      0.6667    1.7321     8     0.38    0.7103
+  past*min   3     2           0         .     .      .       .
+  past*min   4     1           0         .     .      .       .
+  past*min   4     2           0         .     .      .       .

@@ -1,0 +1,9 @@
+                         Least Squares Means
+ 
+                              Standard
+Effect    past    Estimate       Error      DF    t Value    Pr > |t|
+ 
+past      1        29.6667      2.2298    2.51      13.30      0.0022
+past      2        30.6667      2.2298    2.51      13.75      0.0020
+past      3        30.0000      2.2298    2.51      13.45      0.0021
+past      4        34.0000      2.2298    2.51      15.25      0.0015

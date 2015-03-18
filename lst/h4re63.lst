@@ -1,0 +1,19 @@
+                   Covariance Parameter Estimates
+ 
+                   Cov Parm    Subject    Estimate
+ 
+                   UN(1,1)     idno        23.4161
+                   UN(2,1)     idno        16.7105
+                   UN(2,2)     idno        23.8768
+                   UN(3,1)     idno        16.1020
+                   UN(3,2)     idno        18.5421
+                   UN(3,3)     idno        19.0469
+                   UN(4,1)     idno        14.8326
+                   UN(4,2)     idno        18.3472
+                   UN(4,3)     idno        16.9850
+                   UN(4,4)     idno        19.4124
+                   UN(5,1)     idno        13.8293
+                   UN(5,2)     idno        17.4735
+                   UN(5,3)     idno        16.4429
+                   UN(5,4)     idno        17.7870
+                   UN(5,5)     idno        18.2267

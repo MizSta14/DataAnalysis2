@@ -1,0 +1,35 @@
+                     Type 1 Analysis of Variance
+ 
+                                     Sum of
+          Source         DF         Squares     Mean Square
+ 
+          past            3       71.166667       23.722222
+          min             1        8.166667        8.166667
+          past*min        3        5.833333        1.944444
+          plot            2      212.583333      106.291667
+          plot*past       6       26.083333        4.347222
+          Residual        8       18.000000        2.250000
+ 
+                     Type 1 Analysis of Variance
+ 
+                                                                Error
+Source     Expected Mean Square                 Error Term         DF
+ 
+past       Var(Residual) + 2 Var(plot*past)     MS(plot*past)       6
+           + Q(past,past*min)
+min        Var(Residual) + Q(min,past*min)      MS(Residual)        8
+past*min   Var(Residual) + Q(past*min)          MS(Residual)        8
+plot       Var(Residual) + 2 Var(plot*past)     MS(plot*past)       6
+           + 8 Var(plot)
+plot*past  Var(Residual) + 2 Var(plot*past)     MS(Residual)        8
+Residual   Var(Residual)                        .                   .
+ 
+                     Type 1 Analysis of Variance
+ 
+                     Source     F Value    Pr > F
+ 
+                     past          5.46    0.0377
+                     min           3.63    0.0932
+                     past*min      0.86    0.4981
+                     plot         24.45    0.0013
+                     plot*past     1.93    0.1909

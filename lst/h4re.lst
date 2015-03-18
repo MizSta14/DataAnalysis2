@@ -1,0 +1,11 @@
+                         The Mixed Procedure
+ 
+                          Model Information
+ 
+        Data Set                     WORK.SPLIT
+        Dependent Variable           milk
+        Covariance Structure         Variance Components
+        Estimation Method            Type 1
+        Residual Variance Method     Factor
+        Fixed Effects SE Method      Model-Based
+        Degrees of Freedom Method    Containment

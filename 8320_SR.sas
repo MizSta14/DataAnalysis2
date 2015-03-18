@@ -18,3 +18,33 @@
 /* Start program with a null title. */
 title;
 
+%output(class)
+proc mixed data=alzheim method=ml noitprint;
+class idno group;
+model score=group*visit/ s outp=rdint;
+random int/subject=idno;
+run;
+
+%endoutput(class)
+
+%output(class)
+proc mixed data=alzheim method=ml noitprint covtest;
+class idno group;
+model score=group*visit/ s outp=rdcoe;
+random int visit/subject=idno type=un;
+run;
+
+%endoutput(class)
+
+proc mixed data=alzheim noitprint contest;
+class group visit;
+model score=group|visit/ s outp=repmar;
+repeated visit / subject=idno type=ar(1);
+run;
+
+proc mixed data=alzheim noitprint covtest;
+class idno group visit;
+model score=group|visit/ s outp=repun;
+repeated visit / subject=idno type=un;
+run;
+

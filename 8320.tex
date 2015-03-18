@@ -106,7 +106,7 @@ Var(\bm{Y}_i|\bm{b}_i)=Var(\bm{\epsilon}_i)=\bm{\Sigma}=\left(\begin{matrix}
 
 (c). The hypotheses are
 $$
-H_0:cov(b_{0i},b_{1i})=0\quad\text{v.s.}\quad H_a:cov(b_{0i},b_{1i})=0
+H_0:cov(b_{0i},b_{1i})=0\quad\text{v.s.}\quad H_a:cov(b_{0i},b_{1i})\not=0
 $$
 Then statistic is 
 $$
@@ -217,7 +217,7 @@ cov(Y_{ij},Y_{ik})=t_{ij}t_{ik}\sigma_b^2
 $$
 then the correlation of $Y_i$ is that 
 \ba
-cov(Y_{ij},Y_{ik})&=\frac{cov(Y_{ij},Y_{ik})}{\sqrt{var(Y_{ij})}\sqrt{var(Y_{ik})}}\\
+corr(Y_{ij},Y_{ik})&=\frac{cov(Y_{ij},Y_{ik})}{\sqrt{var(Y_{ij})}\sqrt{var(Y_{ik})}}\\
 &=\frac{t_{ij}t_{ik}\sigma_b^2}{\sqrt{t_{ij}^2\sigma_b^2+\sigma^2}\sqrt{t_{ik}^2\sigma_b^2+\sigma^2}}\\
 &=\frac{jk}{\sqrt{j^2+1}\sqrt{k^2+1}}\\
 &=\frac{1}{\sqrt{1/j^2+1}\sqrt{1/k^2+1}}
@@ -257,26 +257,24 @@ To sum up, we should have 3 assumptions from the graphs: i) same intercept; 2) d
 
 
 
-(b). Firstly, we will define some notations. We denote $i$ as the index of group with $i=0,1$; $j$ as the index of visit with $j=1,2,3,4,5$ and $k$ as the index of subject with $k=1,2,\cdots,47$. $\bm{Y}_{k}=(y_{i1k},y_{i2k},y_{i3k},y_{i4k},y_{i5k})'$ denotes the repeated responses of a single subject. $X_1$ is a indictor variable of lecithin group, where $X_{1k}=1$ when the subject in lecithin group. $X_2$ is a indictor variable of placebo group, where $X_{2k}=1$ when the subject in placebo group. $t$ is treated as a continuous variable of visit. $X_1t$  and $X_2t$ denote the interaction of group and visit, which will show the different slopes of different groups. $\beta_0$ is the identical intercept, $\beta_1$ and $\beta_2$ are the coefficients of $X_1t$  and $X_2t$. $b_{0k}$ is the random component of the intercept, where $b_{0k}\sim \text{N}(0,\sigma_b^2)$. $\epsilon_{ijk}$ is error term, and $\epsilon_{ijk}\sim \text{N}(0,\sigma^2)$ Now we can construct the model based on the general structure,
+(b). Firstly, we will define some notations. We denote $i$ as the index of group with $i=0,1$; $j$ as the index of visit with $j=1,2,3,4,5$ and $k$ as the index of subject with $k=1,2,\cdots,47$. $\bm{Y}_{k}=(y_{i1k},y_{i2k},y_{i3k},y_{i4k},y_{i5k})'$ denotes the repeated responses of a single subject. $X_1$ is a indictor variable of placebo group, where $X_{1}=1$ when the subject in placebo group. $X_2$ is a indictor variable of lecithin group, where $X_{2}=1$ when the subject in lecithin group. $t$ is treated as a continuous variable of visit. $X_1t$  and $X_2t$ denote the interaction of group and visit, which will show the different slopes of different groups. $\beta_0$ is the identical intercept, $\beta_1$ and $\beta_2$ are the coefficients of $X_1t$  and $X_2t$. $b_{0k}$ is the random component of the intercept, where $b_{0k}\sim \text{N}(0,\sigma_b^2)$. $\epsilon_{ijk}$ is error term, and $\epsilon_{ijk}\sim \text{N}(0,\sigma^2)$ Now we can construct the model based on the general structure,
 $$
-\bm{Y}=\bm{X\beta+Zb+\epsilon}
+\bm{Y}_k=\bm{X_k\beta+Z_kb_k+\epsilon_k}
 $$
 where the $\bm{X\beta}$ are fixed effects, and $\bm{Zb}$ are random effects, and 
 \begin{itemize}
-\item $\bm{Y}=(\bm{Y}_1',\bm{Y}_2',\dots,\bm{Y}_{47}')'$;
-\item $\bm{X}=(\bm{1},\bm{X_1t},\bm{X_2t})=\lma
-1&1&\cdots&1\\
-X_{11}t&X_{12}t&\cdots&X_{1,47}t\\
-X_{21}t&X_{22}t&\cdots&X_{2,47}t\rma'$;
-
+\item $\bm{Y}_k=(y_{i1k},y_{i2k},y_{i3k},y_{i4k},y_{i5k})'$;
+\item $\bm{X}_k=(\bm{1},\bm{X_1t},\bm{X_2t})=\lma
+1&1&1&1&1\\
+X_{1}&2X_{1}&3X_{1}&4X_{1}&5X_{1}\\
+X_{2}&2X_{2}&3X_{2}&4X_{2}&5X_{2}\rma'$;
 \item $\bm{\beta}=(\beta_0,\beta_1,\beta_2)'$;
-\item $\bm{Z}=\bm{1}=(1,1,\dots,1)'$;
-\item $\bm{b}=b_0$;
-\item $\bm{\epsilon}=(\epsilon_{1,1,1},\epsilon_{1,2,1},\dots,\epsilon_{1,5,25},\epsilon_{2,1,26},\dots,\epsilon_{2,5,47})'$.
+\item $\bm{Z}_k=\bm{1}=(1,1,1,1,1)'$;
+\item $\bm{b}_k=b_{0k}$.
 \end{itemize}
 We can also know that,
 $$
-var(\bm{b})=\bm{D}=\sigma_b^2,\qquad var(\bm{\epsilon})=\bm{\Sigma}=\big\{_d\{_d \sigma^2\}_{j=1}^5\big\}_{k=1}^{25}
+var(\bm{b}_k)=\bm{D}=\sigma_b^2,\qquad var(\bm{\epsilon_k})=\bm{\Sigma}=\big\{_d\{_d \sigma^2\}_{j=1}^5\big\}_{k=1}^{25}
 $$
 where $\{_d \cdot\}$ denotes a diagonal matrix.
 
@@ -284,9 +282,141 @@ In this model, we assume that
 \begin{itemize}
 \item different groups have same intercept, that is, there exists significant;
 \item intercept has random component;
-\item $\bm{b}\sim\text{N}(\bm{0},\bm{D})$, $\bm{\epsilon}\sim\text{N}(\bm{0},\bm{\Sigma})$, that is, variance-convariance structure is VC(variance component), and residual structure is normal and independent;
-\item the relation between score and visit is linear.
+\item $\bm{b}_k\sim\text{N}(\bm{0},\bm{D})$, $\bm{\epsilon}_k\sim\text{N}(\bm{0},\bm{\Sigma})$, that is, variance-covariance structure is VC(variance component), and residual structure is normal and independent;
+\item the relationship between score and visit is linear.
 \end{itemize}
+
+
+(c). According to the model in part (2), we can get the marginal variance-covariance matrix of $\bm{Y}_k$ is 
+$$
+var(\bm{Y}_k)=\bm{ZDZ}'+\bm{\Sigma}=\sigma_b^2\bm{ZZ}'+\bm{\Sigma}=\lma
+\sigma^2_b+\sigma^2&\sigma^2_b&\cdots&\sigma^2_b\\
+\sigma^2_b&\sigma^2_b+\sigma^2&\sigma^2_b&\cdots\\
+\vdots&\vdots&\ddots&\vdots\\
+\sigma^2_b&\cdots&\cdots&\sigma^2_b+\sigma^2\rma
+$$
+
+
+(d). To fit the model, the SAS code is as blow,
+\begin{Sascode}[store=class]
+proc mixed data=alzheim method=ml noitprint;
+class idno group;
+model score=group*visit/ s outp=rdint;
+random int/subject=idno;
+run;
+\end{Sascode}
+
+\begin{enumerate}[i.]
+\item The estimates for variance components are
+$$
+\sigma_{b}^2=20.0242,\quad \sigma^2=4.0691
+$$
+
+\item What we want to test is
+$$
+H_0:\beta_1=\beta_2\quad\text{v.s.}\quad H_a: \beta_1\not=\beta_2
+$$
+From the Type 3 test of fixed model, we have a significant P-value which is less than 0.0001. So we we reject null hypothesis, and get $\beta_1\not=\beta_2$ which means that treatment effect is significant. And from the estimates, we have $\beta_1=-0.6133<1.7514=\beta_2$, which means the scores in the lecithin group are increasing over time, while scores in placebo are decreasing. thus, treatment helps.
+
+\item From the plot, firstly it shows the differences of slopes of groups, or in another word, the difference of treatment effects. Secondly, it shows that the status of patients are different at the initial of the experiment, which causes the different intercepts of the regression lines. However, from the graphs, the reactions of patients under the same treatment seem same, because different lines in same group have same slope. This is not so realistic, since we know that the difference of patient's physical or mental status may also cause the effect of treatment to be different. So the different lines should have different slopes.
+\end{enumerate}
+
+
+(e). We can rewrite the model in part (b),
+$$
+\bm{Y}_k=\bm{X_k\beta+Z_kb_k+\epsilon_k}
+$$
+The only differences here from part (b) are
+$$
+\bm{Z}_k=\lma 1&1&1&1&1\\1&2&3&4&5\rma';\quad
+\bm{b}_k=(b_{0k},b_{1k})'.
+$$
+and
+$$
+var(\bm{b}_k)=\bm{D}=\lma d_{11} &d_{12}\\d_{21}&d_{22}\rma
+$$
+The assumptions of this model almost same, but we also need to assume that the coefficients also have random components.
+
+
+(f). The SAS code is as blow,
+\begin{Sascode}[store=class]
+proc mixed data=alzheim method=ml noitprint covtest;
+class idno group;
+model score=group*visit/ s outp=rdcoe;
+random int visit/subject=idno type=un;
+run;
+\end{Sascode}
+
+\begin{enumerate}[i.]
+\item The estimates for variance components are
+\ba
+var(\bm{b})&=\lma 26.2524&-1.8274\\-1.8274&0.4208\rma\\
+\sigma^2&=3.1035
+\ea
+The P-value of $d_{11}$ is less the 0.0001, the P-value of $d_{12}=d{21}=0.296$, the P-value of $d_{22}$ is 0.0049 and the P-value of $\sigma$ is less than 0.0001. Thus, all variance components are significant. The correlation between intercepts and slopes is
+$$
+corr(\beta_{0k},\beta_{1k})=\frac{cov(\beta_{0k},\beta_{1k})}{\sqrt{var(\beta_{0k})}\sqrt{var(\beta_{1k})}}=\frac{-1.8274}{\sqrt{26.2524}\sqrt{0.4208}}=-0.5498
+$$
+
+\item What we want to test is
+$$
+H_0:\beta_1=\beta_2\quad\text{v.s.}\quad H_a: \beta_1\not=\beta_2
+$$
+From the Type 3 test of fixed model, we still have a significant P-value which is less than 0.0001. So we we reject null hypothesis, and get $\beta_1\not=\beta_2$ which means that treatment effect is significant. And from the estimates, we have $\beta_1=-0.5173<1.6424=\beta_2$, thus, the treatment helps. This is a same result from part (d), just different estimations of parameters when adjusted by randomness of subject.
+
+\item To compare the fitness of models, we can perform a likelihood ratio test,
+$$
+H_0:\text{ Reduced Model in part (b)}\quad\text{v.s.}\quad H_a:\text{ Full Model in part (e)}
+$$
+In the reduced model, we have $d_{12}=0$ and $d_{22}=0$.
+The statistic is 
+$$
+\Lambda=-2(\ell(Reduced~Model)-\ell(Full~Model))=1149.1-1134.8=14.3\sim\chi^2(2)
+$$
+The critical value of $\chi^2_{0.95}(2)$ is 5.99, which is less than 14.3. And the P-value is 0.0008. So we reject the null hypothesis. It is reasonable to believe that the model with random coefficient and unstructured variance-covariance structure is better fit than the random intercept model.
+\item From the plots, the different lines have different slopes compared with the parallel lines in the plots of random intercept model. It is more like the data plot, so we can think that it is a more realistic model.
+\end{enumerate}
+
+
+(g). First, we should change the form of the model in part (e), 
+$$
+\bm{Y}_k=\bm{X_k\beta+e_k}
+$$
+Here, we put the random effect $\bm{Z_kb_k}$ and residual $\epsilon_k$ together to create the new residual side matrix. This time we want to control the residual matrix directly, other than the variance-covariance matrix of random effect. So here, we will define
+$$
+\bm{e}_k\sim\text{N}(\bm{0},\bm{\Sigma}_k^2),\ \ \text{where the structure of }\bm{\Sigma}_k^2\text{ is unknown}
+$$
+
+To refit the model assuming the residual side matrix structure is the first order autoregression or unstructured covariance. we use the code below using SAS,
+\begin{Sascode}
+proc mixed data=alzheim noitprint contest;
+class group visit;
+model score=group|visit/ s outp=repmar;
+repeated visit / subject=idno type=ar(1);
+run;
+
+proc mixed data=alzheim noitprint covtest;
+class idno group visit;
+model score=group|visit/ s outp=repun;
+repeated visit / subject=idno type=un;
+run;
+\end{Sascode}
+
+
+For repeated measures model here, it is more like a nested experimental design, since it does not focus on the form of the relation between scores and visit, but just to compare the difference between scores under different combinations of group and visit. So SAS will give us 10 parameter estimates rather than 3 (2 slopes and 1 intercept) as before. 
+$$\lma
+23.0184 &21.6118& 20.2052 &18.7986 &17.3920\\
+21.6118 &20.6260& 19.6402 &18.6544& 17.6686\\
+20.2052 &19.6402& 19.0752 &18.5102& 17.9452\\
+8.7986 &18.6544 &18.5102 &18.3660 &18.2218\\
+17.3920 &17.6686& 17.9452 &18.2218& 18.4984\\
+\rma$$
+
+
+
+
+
+
 
 
 %\Listing[store=class,

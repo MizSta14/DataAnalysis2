@@ -25,7 +25,8 @@
 \newcommand{\ba}{$$\begin{aligned}}
 \newcommand{\ea}{\end{aligned}$$}
 \newcommand{\dx}{\mathrm{d}x}
-
+\newcommand{\lma}{\left(\begin{matrix}}
+\newcommand{\rma}{\end{matrix}\right)}
 
 
 
@@ -237,15 +238,54 @@ where $\rho$ is plot effect, $\alpha$ is pasture effect and $\beta$ is mineral e
 $$
 \sigma_{\text{plot}}^2=12.74,\ \ \sigma^2_{e}=1.05,\ \ \sigma_\epsilon^2=2.25
 $$
+In addition, the test for the significance for interaction of the pasture and mineral effects yields a P-value of 0.4981, the Factor pasture effect yields a P-value of 0.0377, and the Factor mineral effect yields a P-value of 0.0932. So only pasture effect are significant at $\alpha=0.05$.
+
+(b).
+
+
+
+
+(c). From the output "Differences of Least Squares Means", we can see that the only significance difference is the difference between pasture 1 and pasture 4 based on the Tukey-Kramer adjustment.
+
+
+$\blacktriangleright$ \textbf{5.\quad Solution.}
+(a). From the two graphs, we can see that there are a lot of distinct line, which indicate the difference of different subject, the random effects. The mean intercepts of the lines from different groups almost same, and they should be because the experimental subjects should be randomly assigned to one group and they all come from a same population. Furthermore, the trends of different groups are different show that there may be some interaction between group effect and visits. Finally, the score trends with respect to time seems to be linear, and two lack of fit tests show that it is reasonable assumption with P-values are 0.9127 and 0.9131.
+
+To sum up, we should have 3 assumptions from the graphs: i) same intercept; 2) different slope; 3) linearity.
 
 
 
 
 
+(b). Firstly, we will define some notations. We denote $i$ as the index of group with $i=0,1$; $j$ as the index of visit with $j=1,2,3,4,5$ and $k$ as the index of subject with $k=1,2,\cdots,47$. $\bm{Y}_{k}=(y_{i1k},y_{i2k},y_{i3k},y_{i4k},y_{i5k})'$ denotes the repeated responses of a single subject. $X_1$ is a indictor variable of lecithin group, where $X_{1k}=1$ when the subject in lecithin group. $X_2$ is a indictor variable of placebo group, where $X_{2k}=1$ when the subject in placebo group. $t$ is treated as a continuous variable of visit. $X_1t$  and $X_2t$ denote the interaction of group and visit, which will show the different slopes of different groups. $\beta_0$ is the identical intercept, $\beta_1$ and $\beta_2$ are the coefficients of $X_1t$  and $X_2t$. $b_{0k}$ is the random component of the intercept, where $b_{0k}\sim \text{N}(0,\sigma_b^2)$. $\epsilon_{ijk}$ is error term, and $\epsilon_{ijk}\sim \text{N}(0,\sigma^2)$ Now we can construct the model based on the general structure,
+$$
+\bm{Y}=\bm{X\beta+Zb+\epsilon}
+$$
+where the $\bm{X\beta}$ are fixed effects, and $\bm{Zb}$ are random effects, and 
+\begin{itemize}
+\item $\bm{Y}=(\bm{Y}_1',\bm{Y}_2',\dots,\bm{Y}_{47}')'$;
+\item $\bm{X}=(\bm{1},\bm{X_1t},\bm{X_2t})=\lma
+1&1&\cdots&1\\
+X_{11}t&X_{12}t&\cdots&X_{1,47}t\\
+X_{21}t&X_{22}t&\cdots&X_{2,47}t\rma'$;
 
+\item $\bm{\beta}=(\beta_0,\beta_1,\beta_2)'$;
+\item $\bm{Z}=\bm{1}=(1,1,\dots,1)'$;
+\item $\bm{b}=b_0$;
+\item $\bm{\epsilon}=(\epsilon_{1,1,1},\epsilon_{1,2,1},\dots,\epsilon_{1,5,25},\epsilon_{2,1,26},\dots,\epsilon_{2,5,47})'$.
+\end{itemize}
+We can also know that,
+$$
+var(\bm{b})=D=\big\{_d\{_d \sigma_b^2\}_{j=1}^5\big\}_{k=1}^{25},\qquad var(\bm{\epsilon})=\Sigma=\big\{_d\{_d \sigma^2\}_{j=1}^5\big\}_{k=1}^{25}
+$$
+where $\{_d \cdot\}$ denotes a diagonal matrix.
 
-
-
+In this model, we assume that
+\begin{itemize}
+\item different groups have same intercept;
+\item intercept has random component;
+\item
+\end{itemize}
 
 
 %\Listing[store=class,

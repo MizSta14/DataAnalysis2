@@ -32,16 +32,16 @@ set da2.h4q5;
 drop score1-score5;
 run;
 
-PROC MIXED DATA=split;
+PROC MIXED DATA=split noitprint method=type1;
 CLASS plot past min;
-MODEL milk=past|min;
-RANDOM plot plot*past;
+MODEL milk=past|min/s;
+RANDOM plot plot*past/s;
 RUN;
 
-PROC MIXED DATA=split;
+PROC MIXED DATA=split noitprint method=type1;
 CLASS plot past min;
-MODEL milk=past|min / ddfm=kenwardroger;
-RANDOM plot plot*past;
+MODEL milk=past|min / ddfm=kenwardroger s;
+RANDOM plot plot*past / s;
 LSMEANS past / adjust=tukey;
 RUN;
 
@@ -57,9 +57,58 @@ where group=2;
 plot score*visit=idno;
 run;
 
+proc mixed data=alzheim method=ml noitprint;
+class idno group;
+model score=group*visit/ s outp=rdint;
+random int/subject=idno;
+run;
+
+proc mixed data=alzheim method=ml noitprint;
+class idno group;
+model score=group*visit/ s outp=rdcoe;
+random int visit/subject=idno type=un;
+run;
+proc mixed data=alzheim method=ml noitprint;
+class idno group;
+model score=group|visit/ s outp=rdcoe;
+random int visit/subject=idno type=un;
+run;
+
+proc mixed data=alzheim noitprint;
+class group visit;
+model score=group*visit/ s outp=repmar;
+repeated visit / subject=idno type=ar(1);
+run;
+
+proc mixed data=alzheim noitprint;
+class idno group visit;
+model score=group*visit/ s outp=repun;
+repeated visit / subject=idno type=un;
+run;
+
+proc gplot data=rdint;
+where group=1;
+plot pred*visit=idno;
+run;
+
+proc gplot data=rdint;
+where group=2;
+plot pred*visit=idno;
+run;
+
+proc gplot data=rdcoe;
+where group=1;
+plot pred*visit=idno;
+run;
+
+proc gplot data=rdcoe;
+where group=2;
+plot pred*visit=idno;
+run;
+
 %endoutput(class)
 
-%write(h3re,store=class,type=listing) 
+%write(h4re,store=class,type=listing) 
 
-%write(h3re,store=class,type=graphic) 
+%write(h4re,store=class,type=graphic) 
 

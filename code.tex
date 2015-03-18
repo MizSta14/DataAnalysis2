@@ -55,13 +55,13 @@ set da2.h4q5;
 drop score1-score5;
 run;
 
-PROC MIXED DATA=split noitprint;
+PROC MIXED DATA=split noitprint method=type1;
 CLASS plot past min;
-MODEL milk=past|min;
-RANDOM plot plot*past;
+MODEL milk=past|min/s;
+RANDOM plot plot*past/s;
 RUN;
 
-PROC MIXED DATA=split noitprint;
+PROC MIXED DATA=split noitprint method=type1;
 CLASS plot past min;
 MODEL milk=past|min / ddfm=kenwardroger s;
 RANDOM plot plot*past / s;
@@ -81,38 +81,31 @@ plot score*visit=idno;
 run;
 
 proc mixed data=alzheim method=ml noitprint;
-class idno group visit;
-model score=group|visit/ s outp=rdint;
+class idno group;
+model score=group*visit/ s outp=rdint;
 random int/subject=idno;
 run;
 
 proc mixed data=alzheim method=ml noitprint;
-class idno group visit;
-model score=group|visit/ s outp=rdcoe;
+class idno group;
+model score=group*visit/ s outp=rdcoe;
 random int visit/subject=idno type=un;
 run;
-
 proc mixed data=alzheim method=ml noitprint;
 class idno group;
-model score=group|visit/ s outp=rdint1;
-random int/subject=idno;
-run;
-
-proc mixed data=alzheim method=ml noitprint;
-class idno group;
-model score=group|visit/ s outp=rdcoe1;
+model score=group|visit/ s outp=rdcoe;
 random int visit/subject=idno type=un;
 run;
 
 proc mixed data=alzheim noitprint;
 class group visit;
-model score=group|visit/ s outp=repmar;
+model score=group*visit/ s outp=repmar;
 repeated visit / subject=idno type=ar(1);
 run;
 
 proc mixed data=alzheim noitprint;
 class idno group visit;
-model score=group|visit/ s outp=repun;
+model score=group*visit/ s outp=repun;
 repeated visit / subject=idno type=un;
 run;
 
@@ -135,54 +128,13 @@ proc gplot data=rdcoe;
 where group=2;
 plot pred*visit=idno;
 run;
-
-proc means data=rdint;
-var Resid;
-run;
-
-proc means data=rdcoe;
-var Resid;
-run;
-
-proc gplot data=rdint1;
-where group=1;
-plot pred*visit=idno;
-run;
-
-proc gplot data=rdint1;
-where group=2;
-plot pred*visit=idno;
-run;
-
-proc gplot data=rdcoe1;
-where group=1;
-plot pred*visit=idno;
-run;
-
-proc gplot data=rdcoe1;
-where group=2;
-plot pred*visit=idno;
-run;
-
-proc means data=rdint1;
-var Resid;
-run;
-
-proc means data=rdcoe1;
-var Resid;
-run;
-
-proc reg data=alzheim;
-where group=1;
-model score=visit/ lackfit;
-run;
 \end{Sascode}
 
 
 \Listing[store=class,
-         caption={Regression Analysis}]{h3re}
+         caption={Regression Analysis}]{h4re}
 
 \Graphic[store=class, scale=0.9,
-         caption={Graphs for Regression Analysis}]{h3re}
+         caption={Graphs for Regression Analysis}]{h4re}
 
 \end{document}

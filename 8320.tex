@@ -33,7 +33,7 @@
 
 
 \pagestyle{fancy}
-\lhead{}
+\lhead{Peng Shao 14221765}
 \chead{}
 \rhead{\bfseries STAT 8320 Spring 2015 Assignment 4}
 \renewcommand{\headrulewidth}{0.4 pt}
@@ -41,7 +41,7 @@
 
 \begin{document}
 \title{STAT 8320 Spring 2015 Assignment 4}
-\author{}
+\author{Peng Shao 14221765}
 \maketitle
 \indent
 
@@ -155,8 +155,7 @@ $$
 
 
 $\blacktriangleright$ \textbf{3.\quad Solution.} 
-(a). The intercepts should be same among the different graphs, but the increments of different graphs should be different, and the time points of the maximum weights should be different.
-
+(a). If the intercepts of eight plots are exactly at same point, but the increments are more complicated and a little fluctuant, not just a simple quadratic curve. Then we should consider adding a random component into the coefficient for time.
 
 (b). We have the form of model 
 $$
@@ -236,9 +235,10 @@ $$
 \sigma_{\text{plot}}^2=12.74,\ \ \sigma^2_{e}=1.05,\ \ \sigma_\epsilon^2=2.25
 $$
 In addition, the test(Figure \ref{h4re10}) for the significance for interaction of the pasture and mineral effects yields a P-value of 0.4981, the Factor pasture effect yields a P-value of 0.0377, and the Factor mineral effect yields a P-value of 0.0932. So only pasture effect are significant at $\alpha=0.05$.
+\Listing[store=class,caption={Anova Table}]{anova}
 \Listing[store=class,caption={Covariance Estimates}]{covest}
 \Listing[store=class,caption={Type 3 Tests}]{h4re10}
-\Listing[store=class,caption={Anova Table}]{anova}
+
 
 (b). Because the data may come from different distribution, so the degree of freedom of the variance of random components may need some modification, like Satterthwaite method. The Kenwardroger method give us a more conservative distribution about t-test or F-test than Satterthwaite when sample size is not large enough, making the assumption seem more appropriate. For example, we assume that $E(\rho)$=0. When we test whether every predict of $\rho_i$ equals zero. For unmodified degree of freedom, the degree of freedom of t-statistic for $\rho_1$ is 8 and the P-value is 0.0965, but for Kenwardroger method, the degree of freedom is 2.14 and the P-value is 0.1934. The results of not rejecting null hypothesis are same, but which of Kenwardroger method makes us a little harder to reject our assumption.
 
@@ -437,14 +437,14 @@ $$
 
 To refit the model assuming the residual side matrix structure is the first order autoregression or unstructured covariance. we use the code below using SAS,
 \begin{Sascode}
-proc mixed data=alzheim noitprint contest;
+proc mixed data=alzheim noitprint covtest;
 class group visit;
 model score=group|visit/ s outp=repmar;
 repeated visit / subject=idno type=ar(1);
 run;
 
 proc mixed data=alzheim noitprint covtest;
-class idno group visit;
+class group visit;
 model score=group|visit/ s outp=repun;
 repeated visit / subject=idno type=un;
 run;
@@ -462,10 +462,10 @@ So the residual variance-covariance matrix is
 $$
 \bm{\Sigma}_k=\lma
 20.8085 &17.5250 &14.7596 &12.4306 &10.4691 \\
-17.5250 &20.9095 &17.5250 &14.7596 &12.4306 \\
-14.7596 &17.5250 &20.9095 &17.5250 &14.7596 \\
-12.4306 &14.7596 &17.5250 &20.9095 &17.5250 \\
-10.4691 &12.4306 &14.7596 &17.5250 &20.9095 
+17.5250 &20.8095 &17.5250 &14.7596 &12.4306 \\
+14.7596 &17.5250 &20.8095 &17.5250 &14.7596 \\
+12.4306 &14.7596 &17.5250 &20.8095 &17.5250 \\
+10.4691 &12.4306 &14.7596 &17.5250 &20.8095 
 \rma
 $$
 while the marginal variance-covariance matrix of iid error model is

@@ -18,11 +18,11 @@
 /* Start program with a null title. */
 title;
 
+%write(anova,store=class,type=listing) 
+
 %write(covest,store=class,type=listing) 
 
 %write(h4re10,store=class,type=listing) 
-
-%write(anova,store=class,type=listing) 
 
 %write(h4re23,store=class,type=listing) 
 
@@ -44,14 +44,14 @@ run;
 
 %endoutput(class)
 
-proc mixed data=alzheim noitprint contest;
+proc mixed data=alzheim noitprint covtest;
 class group visit;
 model score=group|visit/ s outp=repmar;
 repeated visit / subject=idno type=ar(1);
 run;
 
 proc mixed data=alzheim noitprint covtest;
-class idno group visit;
+class group visit;
 model score=group|visit/ s outp=repun;
 repeated visit / subject=idno type=un;
 run;

@@ -23,87 +23,184 @@ libname da2 'C:\Users\psy6b\Desktop\8320 datasets';
 ods graphics on;
 options ls=70 ps=35;
 
-data split;
-set da2.h4q4;
+data da2.h5q2;
+infile 'C:\Users\psy6b\Desktop\8320 datasets\growthdata.dat';
+input t @;
+do i=1 to 6;
+input y @;
+output;
+end;
 run;
 
-data alzheim;
-set da2.h4q5;
-drop score1-score5;
+data aver;
+set da2.h5q2;
+by t;
+retain count yave;
+if first.t then do;
+count=0;
+yave=0;
+end;
+count+1;
+yave+y;
+if last.t then do;
+y=yave/count;
+i=7;
+output;
+end;
+keep t i y;
 run;
 
-PROC MIXED DATA=split noitprint method=type1;
-CLASS plot past min;
-MODEL milk=past|min/s;
-RANDOM plot plot*past/s;
-RUN;
-
-PROC MIXED DATA=split noitprint method=type1;
-CLASS plot past min;
-MODEL milk=past|min / ddfm=kenwardroger s;
-RANDOM plot plot*past / s;
-LSMEANS past / adjust=tukey;
-RUN;
-
-symbol1 interpol=join color=black line=1 repeat=47;
-
-proc gplot data=alzheim;
-where group=1;
-plot score*visit=idno;
+data da2.h5q2plot;
+set da2.h5q2 aver;
 run;
 
-proc gplot data=alzheim;
-where group=2;
-plot score*visit=idno;
+proc sort data=da2.h5q2plot;
+by i;
 run;
 
-proc mixed data=alzheim method=ml noitprint;
-class idno group;
-model score=group*visit/ s outp=rdint;
-random int/subject=idno;
+symbol interpol=join;
+proc gplot data=da2.h5q2plot;
+plot y*t=i;
+run;
+quit;
+
+
+proc nlmixed data=da2.h5q2;
+parameters beta1=140 to 240 by 25
+beta2=850 to 1050 by 100
+beta3=250 to 400 by 50
+resvar=30 to 50 by 10
+varu=400 to 1600 by 500;
+e=exp(-(t-beta2)/beta3);
+model y ~ normal((beta1+u)/(1+e), resvar);
+random u ~ normal(0,varu) subject=i out=EBlups;
+predict beta1/(1+e) out=pred;
+predict (beta1+u)/(1+e) out=predB;
+estimate 'Beta_3=350?' beta3-350;
+ods output ParameterEstimates=estimates;
 run;
 
-proc mixed data=alzheim method=ml noitprint;
-class idno group;
-model score=group*visit/ s outp=rdcoe;
-random int visit/subject=idno type=un;
+proc sort data=pred;
+by i t;
 run;
-proc mixed data=alzheim method=ml noitprint;
-class idno group;
-model score=group|visit/ s outp=rdcoe;
-random int visit/subject=idno type=un;
+proc sort data=predB;
+by i t;
 run;
-
-proc mixed data=alzheim noitprint;
-class group visit;
-model score=group*visit/ s outp=repmar;
-repeated visit / subject=idno type=ar(1);
-run;
-
-proc mixed data=alzheim noitprint;
-class idno group visit;
-model score=group*visit/ s outp=repun;
-repeated visit / subject=idno type=un;
-run;
-
-proc gplot data=rdint;
-where group=1;
-plot pred*visit=idno;
+data panelplot;
+merge predB(rename=(pred=PredB)) pred;
+by i t;
+length type $20;
+keep i t type resp;
+type='measurement';
+resp=y;
+output;
+type='cluster-specific';
+resp=predb;
+output;
+type='population-average';
+resp=pred;
+output;
 run;
 
-proc gplot data=rdint;
-where group=2;
-plot pred*visit=idno;
+proc sgpanel data=panelplot;
+panelby i/spacing=5 rows=2 columns=3 novarname;
+vline t/response=resp group=type;
 run;
 
-proc gplot data=rdcoe;
-where group=1;
-plot pred*visit=idno;
+proc print data=eblups;
+title 'Estimation of Random Effect';
+var i Estimate tValue Probt;
 run;
 
-proc gplot data=rdcoe;
-where group=2;
-plot pred*visit=idno;
+title;
+
+
+
+
+
+data da2.h5q31;
+infile 'C:\Users\psy6b\Desktop\8320 datasets\ssttornado532001.dat';
+retain ss1-ss49;
+array ss{49} ss1-ss49;
+if _N_=1 then do; input ss1-ss49;end;
+loc+1;
+drop ss1-ss49;
+do t=1 to 49;
+sst=ss{t};
+input torn @;
+output;
+end;
+run;
+
+data da2.h5q32;
+infile 'C:\Users\psy6b\Desktop\8320 datasets\MOtornlatlon.dat';
+loc+1;
+input lat lon;
+run;
+
+proc sql;
+create table da2.h5q3
+as select * from da2.h5q31 as a, da2.h5q32 as b
+where a.loc=b.loc;
+run;
+quit;
+
+proc glimmix data=da2.h5q3;
+class loc;
+model torn = sst sst*loc / dist=poisson link=log ddfm=betwithin solution;
+random intercept / subject=loc type=sp(exp)(lon lat);
+nloptions tech=newrap;
+output out=h5q3out pred(ilink)=predicted lcl(ilink)=lower ucl(ilink)=upper pred(noblup ilink)=margpred;
+run;
+
+data panelplot2;
+set h5q3out;
+length type $20;
+keep loc t type resp;
+t=t+1952;
+type='measurement';
+resp=torn;
+output;
+type='cluster-specific';
+resp=predicted;
+output;
+type='lower bound';
+resp=lower;
+output;
+type='upper bound';
+resp=upper;
+output;
+run;
+
+proc sgpanel data=panelplot2;
+where loc le 4 and loc ge 1;
+panelby loc/rows=2 columns=2 spacing=5;
+vline t/response=resp group=type;
+colaxis fitpolicy=thin alternate;
+run;
+proc sgpanel data=panelplot2;
+where loc le 8 and loc ge 5;
+panelby loc/rows=2 columns=2 spacing=5;
+vline t/response=resp group=type;
+colaxis fitpolicy=thin alternate;
+run;
+proc sgpanel data=panelplot2;
+where loc le 12 and loc ge 9;
+panelby loc/rows=2 columns=2 spacing=5;
+vline t/response=resp group=type;
+colaxis fitpolicy=thin alternate;
+run;
+proc sgpanel data=panelplot2;
+where loc le 16 and loc ge 13;
+panelby loc/rows=2 columns=2 spacing=5;
+vline t/response=resp group=type;
+colaxis fitpolicy=thin alternate;
+run;
+proc sgpanel data=panelplot2;
+where loc le 20 and loc ge 17;
+panelby loc/rows=2 columns=2 spacing=5;
+vline t/response=resp group=type;
+colaxis fitpolicy=thin alternate;
 run;
 
 %endoutput(class)

@@ -209,6 +209,15 @@ $$
 
 
 (c)
+\ba
+X_2|\bm{Y}&\sim\text{N}\left(2+\lma 1&1\rma\lma \frac14&0\\0&\frac13\rma\lma x_1+3\\x_3-2\rma, 2-\lma 1&1\rma\lma \frac14&0\\0&\frac13\rma\lma1\\1\rma\right)\\
+&=\text{N}\left(\frac14x_1+\frac13x_3+\frac{13}{12},\frac{17}{12}\right).
+\ea
+
+(d) 
+$$
+Z\sim\text{N}(-3+3\cdot1,4+3^3\cdot2+2\cdot3\cdot1)=\text{N}(0,28)
+$$
 
 $\blacktriangleright$ \textbf{5.\quad Solution.}
 (a). The hypotheses are
@@ -252,7 +261,7 @@ Because $MC^{-1}=0.9142<\chi^2_{0.95,6}=12.592$ and P-value is 0.9819, we cannot
 
 \item The squared Mahalanobis distance between $\bm{y}-\bm{z}$ is
 $$
-T^2=(\bm{y}-\bm{z})'\left[\bm{S}_{pool}\left(\frac{1}{n_1}+\frac{1}{n_2}\right)\right]^{-1}(\bm{y}-\bm{z})=23.1310
+T^2=(\bm{y}-\bm{z})'\left[\bm{S}_{pool}\left(\frac{1}{n_1}+\frac{1}{n_2}\right)\right]^{-1}(\bm{y}-\bm{z})=18.03155
 $$
 
 
@@ -262,9 +271,9 @@ H_0:\bm{y}-\bm{z}=\bm{0}\qquad\text{v.s.}\qquad H_A:\bm{y}-\bm{z}=\bm{0}
 $$
 The statistic can be computed from the Mahalanobis distance from part (iii)
 $$
-F=\frac{n_1+n_2-3-1}{(n_1+n_2-2)\times3}T^2=7.3248\sim f_{3,38}
+F=\frac{n_1+n_2-3-1}{(n_1+n_2-2)\times3}T^2=5.70999\sim f_{3,38}
 $$
-Because $F=7.3248>f_{0.95,3,38}=2.851$ with P-value=0.0005. We will reject the null hypothesis, so drug A and drug B do not have equal means.
+Because $F=5.70999>f_{0.95,3,38}=2.851$ with P-value=0.0025. We will reject the null hypothesis, so drug A and drug B do not have equal means.
 \item To test the parallel profiles, the hypotheses are
 $$
 H_0:\mu_{11}-\mu_{21}=\mu_{12}-\mu_{22}=\mu_{13}-\mu_{23}\quad\text{v.s.}\quad H_A: \text{ at least two difference not equal}

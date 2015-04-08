@@ -18,11 +18,3 @@
 /* Start program with a null title. */
 title;
 
-%write(anova,store=class,type=listing) 
-
-%write(covest,store=class,type=listing) 
-
-%write(h4re10,store=class,type=listing) 
-
-%write(h4re23,store=class,type=listing) 
-

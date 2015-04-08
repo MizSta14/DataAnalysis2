@@ -196,26 +196,19 @@ The correlations will increase with the increase of time, $j$ and $k$, but no tr
 
 
 $\blacktriangleright$ \textbf{4.\quad Solution.} 
-(a) We have the split-plot design model
+(a) 
 $$
-Y_{ijk}=\mu+\rho_i+\alpha_j+e_{ij}+\beta_k+(\alpha\beta)_{jk}+\epsilon_{ijk}
+\bm{Y}=\lma X_1\\X_3\rma\sim \text{N}\left(\lma -3 \\2\rma,\lma 4&0\\0&3\rma\right)
 $$
-where $\rho$ is plot effect, $\alpha$ is pasture effect and $\beta$ is mineral effect. The random effects are $\rho$, $e$ and $\epsilon$. From the ANOVA table(Figure \ref{covest}, Figure \ref{anova}), we have that
-$$
-\sigma_{\text{plot}}^2=12.74,\ \ \sigma^2_{e}=1.05,\ \ \sigma_\epsilon^2=2.25
-$$
-In addition, the test(Figure \ref{h4re10}) for the significance for interaction of the pasture and mineral effects yields a P-value of 0.4981, the Factor pasture effect yields a P-value of 0.0377, and the Factor mineral effect yields a P-value of 0.0932. So only pasture effect are significant at $\alpha=0.05$.
-\Listing[store=class,caption={Anova Table}]{anova}
-\Listing[store=class,caption={Covariance Estimates}]{covest}
-\Listing[store=class,caption={Type 3 Tests}]{h4re10}
+
+(b)
+\ba
+\bm{Y}|X_2&\sim\text{N}\left(\lma -3\\2\rma+\lma \frac{x_2}{2}-\frac12\\\frac{x_2}2-\frac12\rma,\lma 3.5 &-0.5\\-0.5 &2.5\rma\right)\\
+&=\text{N}\left(\lma \frac{x_2}{2}-\frac72\\\frac{x_2}2+\frac32\rma,\lma 3.5 &-0.5\\-0.5 &2.5\rma\right)
+\ea
 
 
-(b). Because the data may come from different distribution, so the degree of freedom of the variance of random components may need some modification, like Satterthwaite method. The Kenwardroger method give us a more conservative distribution about t-test or F-test than Satterthwaite when sample size is not large enough, making the assumption seem more appropriate. For example, we assume that $E(\rho)$=0. When we test whether every predict of $\rho_i$ equals zero. For unmodified degree of freedom, the degree of freedom of t-statistic for $\rho_1$ is 8 and the P-value is 0.0965, but for Kenwardroger method, the degree of freedom is 2.14 and the P-value is 0.1934. The results of not rejecting null hypothesis are same, but which of Kenwardroger method makes us a little harder to reject our assumption.
-
-The method only modified the degree of freedom, so it will leave the result of fixed result unchanged. In this specific problem, the results of random components are also unchanged.
-
-(c). From the output "Differences of Least Squares Means" (Figure \ref{h4re23}), we can see that the only significance difference is the difference between pasture 1 and pasture 4 based on the Tukey-Kramer adjustment.
-\Listing[store=class,caption={Least Squares Means}]{h4re23}
+(c)
 
 $\blacktriangleright$ \textbf{5.\quad Solution.}
 (a). The hypotheses are
@@ -231,6 +224,78 @@ $$
 \bm{C}_1=\lma 1 &-1 &0\\ 0 &1 &-1\rma
 $$
 The statistics are
+\ba
+T^2&=n_1(\bm{C\bar{y}})'(\bm{CSC}')^{-1}(\bm{C\bar{y}})=111.4286\\
+F&=\frac{n_1-c}{(n_1-1)c}T^2=53.3929\sim f_{c,n_1-c}
+\ea
+where $c=2$ and $n_1=25$. The critical value of $F$ statistic is $f_{0.95,2,23}=3.422$, so $F>f_{0.95,2,23}$ and P-value is $2.28\text{E}^{-09}$. We will reject the  null hypothesis, that is, the mean concentrations are significantly different at three time points.
+
+
+(b). \begin{enumerate}[i]
+\item The common covariance is
+$$
+\bm{S}_{pool}=\frac{(n_1-1)\bm{S}+(n_2-1)\bm{W}}{(n1-1)+(n_2-1)}=\lma 28.4 &10.8 & 12.4\\10.8 &15.8 &5.6\\12.4 & 5.6 &39.4\rma
+$$
+where $n_2=17$. The degree of freedom is 25+17-2=40.
+\item The hypotheses are 
+$$
+H_0:\bm{\Sigma}_A=\bm{\Sigma}_B\qquad\text{v.s.}\qquad H_A:\bm{\Sigma}_A\not=\bm{\Sigma}_B
+$$
+The statistic is
+\ba
+M&=(n_1+n_2-2)\log|\bm{S}_{pool}|-(n_1-1)\log|\bm{S}|-(n_2-1)\log|\bm{W}|=1.1948\\
+C^{-1}&=1-\frac{2\times3^2+3\times3-1}{6\times(3+1)\times(2-1)}\left\{\frac{1}{n_1-1}+\frac{1}{n_2-1}-\frac{1}{n_1+n_2-2}\right\}=0.9142\\
+MC^{-1}&=1.1948\times0.9142=1.0923\sim\chi^2_{6}
+\ea
+
+Because $MC^{-1}=0.9142<\chi^2_{0.95,6}=12.592$ and P-value is 0.9819, we cannot reject the null hypothesis, which means that the assumption of same population covariance are reliable.
+
+\item The squared Mahalanobis distance between $\bm{y}-\bm{z}$ is
+$$
+T^2=(\bm{y}-\bm{z})'\left[\bm{S}_{pool}\left(\frac{1}{n_1}+\frac{1}{n_2}\right)\right]^{-1}(\bm{y}-\bm{z})=23.1310
+$$
+
+
+\item The hypotheses are
+$$
+H_0:\bm{y}-\bm{z}=\bm{0}\qquad\text{v.s.}\qquad H_A:\bm{y}-\bm{z}=\bm{0}
+$$
+The statistic can be computed from the Mahalanobis distance from part (iii)
+$$
+F=\frac{n_1+n_2-3-1}{(n_1+n_2-2)\times3}T^2=7.3248\sim f_{3,38}
+$$
+Because $F=7.3248>f_{0.95,3,38}=2.851$ with P-value=0.0005. We will reject the null hypothesis, so drug A and drug B do not have equal means.
+\item To test the parallel profiles, the hypotheses are
+$$
+H_0:\mu_{11}-\mu_{21}=\mu_{12}-\mu_{22}=\mu_{13}-\mu_{23}\quad\text{v.s.}\quad H_A: \text{ at least two difference not equal}
+$$
+or we can rewrite the null hypothesis as
+$$
+H_0:\bm{C_2}(\bm{y}-\bm{z})=0
+$$
+where $\bm{C_2}=\lma 1 &-1 &0\\ 0 &1 &-1\rma$. 
+
+The statistics are
+\ba
+T^2&=\frac{n_1n_2}{n_1+n_2}(\bm{C(\bar{y}-\bar{z})})'(\bm{CSC}')^{-1}(\bm{C(\bar{y}-\bar{z})})=14.2658\\
+F&=\frac{n_1+n_2-c-1}{(n_1+n_2-2)c}T^2=6.7849\sim f_{c,n_1+n_2-c-1}
+\ea
+Because $F=6.7849>f_{0.95,2,39}=3.238$ with P-value=0.0030. We will reject the null hypothesis, so there is a significant interaction between drug and time.
+
+
+
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+
+
 
 
 \begin{appendices}

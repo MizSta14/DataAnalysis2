@@ -66,11 +66,11 @@ quit;
 
 
 proc nlmixed data=da2.h5q2;
-parameters beta1=140 to 240 by 25
-beta2=850 to 1050 by 100
-beta3=250 to 400 by 50
-resvar=30 to 50 by 10
-varu=400 to 1600 by 500;
+parameters beta1=200
+beta2=850
+beta3=350
+resvar=40
+varu=900;
 e=exp(-(t-beta2)/beta3);
 model y ~ normal((beta1+u)/(1+e), resvar);
 random u ~ normal(0,varu) subject=i out=EBlups;
@@ -105,6 +105,8 @@ run;
 proc sgpanel data=panelplot;
 panelby i/spacing=5 rows=2 columns=3 novarname;
 vline t/response=resp group=type;
+colaxis fitpolicy=thin alternate;
+rowaxis alternate;
 run;
 
 proc print data=eblups;
@@ -145,13 +147,21 @@ where a.loc=b.loc;
 run;
 quit;
 
-proc glimmix data=da2.h5q3;
+proc glimmix data=da2.h5q3 noitprint;
 class loc;
 model torn = sst sst*loc / dist=poisson link=log ddfm=betwithin solution;
 random intercept / subject=loc type=sp(exp)(lon lat);
 nloptions tech=newrap;
+covtest 's' zerog;
 output out=h5q3out pred(ilink)=predicted lcl(ilink)=lower ucl(ilink)=upper pred(noblup ilink)=margpred;
 run;
+proc glimmix data=da2.h5q3 noitprint;
+class loc;
+model torn = sst sst*loc / dist=poisson link=log ddfm=betwithin solution;
+random intercept sst/ subject=loc type=sp(exp)(lon lat);
+nloptions tech=newrap;
+run;
+
 
 data panelplot2;
 set h5q3out;
@@ -177,35 +187,87 @@ where loc le 4 and loc ge 1;
 panelby loc/rows=2 columns=2 spacing=5;
 vline t/response=resp group=type;
 colaxis fitpolicy=thin alternate;
+rowaxis alternate;
 run;
 proc sgpanel data=panelplot2;
 where loc le 8 and loc ge 5;
 panelby loc/rows=2 columns=2 spacing=5;
 vline t/response=resp group=type;
 colaxis fitpolicy=thin alternate;
+rowaxis alternate;
 run;
 proc sgpanel data=panelplot2;
 where loc le 12 and loc ge 9;
 panelby loc/rows=2 columns=2 spacing=5;
 vline t/response=resp group=type;
 colaxis fitpolicy=thin alternate;
+rowaxis alternate;
 run;
 proc sgpanel data=panelplot2;
 where loc le 16 and loc ge 13;
 panelby loc/rows=2 columns=2 spacing=5;
 vline t/response=resp group=type;
 colaxis fitpolicy=thin alternate;
+rowaxis alternate;
 run;
 proc sgpanel data=panelplot2;
 where loc le 20 and loc ge 17;
 panelby loc/rows=2 columns=2 spacing=5;
 vline t/response=resp group=type;
 colaxis fitpolicy=thin alternate;
+rowaxis alternate;
 run;
+
+
+proc sort data=h5q3out;
+by loc;
+run;
+data h5q3eval;
+set h5q3out;
+by loc;
+drop sst t;
+retain sumtorn summar sumpred sumu suml;
+if first.loc then do;
+sumtorn=0;
+summar=0;
+sumpred=0;
+sumu=0;
+suml=0;
+end;
+sumtorn+torn;
+summar+margpred;
+sumpred+predicted;
+sumu+upper;
+suml+lower;
+if last.loc then do;
+torn=sumtorn;
+margpred=summar;
+predicted=sumpred;
+upper=sumu;
+lower=suml;
+output;
+end;
+run;
+proc sort data=h5q3eval;
+by torn;
+run;
+
+proc sgplot data=h5q3eval noautolegend;
+scatter x=torn y=predicted/ datalabel=loc;
+series x=torn y=torn;
+xaxis label='Actual Measurements';
+yaxis label='Predicted';
+KEYLEGEND "Observations" "Reference Line";
+run;
+proc sgplot data=h5q3eval noautolegend;
+scatter x=lat y=lon/ datalabel=loc;
+run;
+
+
 
 %endoutput(class)
 
-%write(h4re,store=class,type=listing) 
+%write(h5re,store=class,type=listing) 
 
-%write(h4re,store=class,type=graphic) 
+%write(h5re,store=class,type=graphic) 
 

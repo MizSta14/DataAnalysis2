@@ -26,33 +26,3 @@ title;
 
 %write(h4re23,store=class,type=listing) 
 
-%output(class)
-proc mixed data=alzheim method=ml noitprint;
-class idno group;
-model score=group*visit/ s outp=rdint;
-random int/subject=idno;
-run;
-
-%endoutput(class)
-
-%output(class)
-proc mixed data=alzheim method=ml noitprint covtest;
-class idno group;
-model score=group*visit/ s outp=rdcoe;
-random int visit/subject=idno type=un;
-run;
-
-%endoutput(class)
-
-proc mixed data=alzheim noitprint covtest;
-class group visit;
-model score=group|visit/ s outp=repmar;
-repeated visit / subject=idno type=ar(1);
-run;
-
-proc mixed data=alzheim noitprint covtest;
-class group visit;
-model score=group|visit/ s outp=repun;
-repeated visit / subject=idno type=un;
-run;
-

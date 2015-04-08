@@ -1,0 +1,12 @@
+                        The GLIMMIX Procedure
+ 
+                          Model Information
+ 
+             Data Set                      DA2.H5Q3
+             Response Variable             torn
+             Response Distribution         Poisson
+             Link Function                 Log
+             Variance Function             Default
+             Variance Matrix Blocked By    loc
+             Estimation Technique          Residual PL
+             Degrees of Freedom Method     Between-Within

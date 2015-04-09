@@ -113,72 +113,8 @@ But, we should be cautious about the result, because from the parameter estimate
 
 
 $\blacktriangleright$ \textbf{3.\quad Solution.} 
-(a). If the intercepts of eight plots are exactly at same point, but the increments are more complicated and a little fluctuant, not just a simple quadratic curve. Then we should consider adding a random component into the coefficient for time.
 
-(b). We have the form of model 
-$$
-\bm{Y}_i=\bm{X}_i\bm{\beta}+\bm{Z}_i\bm{b}_i+\bm{e}_i
-$$
-where 
-\ba
-\bm{Y}_i&=(y_{i1},\dots,y_{in_i})',\\
-\bm{X}_i&=\left(\begin{matrix}
-1&t_{i1}&t_{i1}^2\\
-\vdots&\vdots&\vdots\\
-1&t_{in_i}&t_{in_i}^2\end{matrix}\right),\\
-\bm{Z}&=(t_{i1},\dots,t_{in_i})',\\
-\bm{\beta}&=(\beta_0,\beta_1,\beta_2)',\\
-\bm{b}_i&=b_{1i},\\
-\bm{e}&=(e_{11},\dots,e_{in_i})',\\
-var(\bm{e}_i)&=\bm{\Sigma}=\left(\begin{matrix}
-\sigma^2\\
-&\ddots\\
-&&\sigma^2\end{matrix}\right)=\sigma^2\bm{I}_{n_i\times n_i},\\
-var(\bm{b}_i)&=\bm{D}=\left(\begin{matrix}
-\sigma_b^2\\
-&\ddots\\
-&&\sigma_b^2\end{matrix}\right)=\sigma_b^2\bm{I}_{n_i\times n_i},\\
-\ea
-
-
-(c). The marginal variance/covariance matrix of $\bm{Y}$ is that
-\ba
-Var(\bm{Y}_i)&=\bm{Z}_i\bm{DZ}_i^T+\bm{\Sigma}\\
-&=\left(\begin{matrix}
-t_{i1}\\
-\vdots\\
-t_{in_i}\end{matrix}\right)
-\left(\begin{matrix}
-\sigma_b^2\\
-&\ddots\\
-&&\sigma_b^2\end{matrix}\right)
-(t_{i1},\dots,t_{in_i})+\left(\begin{matrix}
-\sigma^2\\
-&\ddots\\
-&&\sigma^2\end{matrix}\right)\\
-&=\left(\begin{matrix}
-t_{i1}^2\sigma_b^2+\sigma^2&t_{i1}t_{i2}\sigma_b^2&\cdots&t_{i1}t_{in_i}\sigma_b^2\\
-t_{i2}t_{i1}\sigma_b^2&t_{i2}^2\sigma_b^2+\sigma^2&\cdots&t_{i2}t_{in_i}\sigma_b^2\\
-\vdots&\vdots&\ddots&\vdots\\
-t_{in_i}t_{i1}\sigma_b^2&t_{in_i}t_{i2}\sigma_b^2&\cdots&t_{in_i}^2\sigma_b^2+\sigma^2\\
-\end{matrix}\right)_{n_i\times n_i}
-\ea
-
-
-(d). Because the marginal covariance $\bm{Y}$ is
-$$
-cov(Y_{ij},Y_{ik})=t_{ij}t_{ik}\sigma_b^2
-$$
-then the correlation of $Y_i$ is that 
-\ba
-corr(Y_{ij},Y_{ik})&=\frac{cov(Y_{ij},Y_{ik})}{\sqrt{var(Y_{ij})}\sqrt{var(Y_{ik})}}\\
-&=\frac{t_{ij}t_{ik}\sigma_b^2}{\sqrt{t_{ij}^2\sigma_b^2+\sigma^2}\sqrt{t_{ik}^2\sigma_b^2+\sigma^2}}\\
-&=\frac{jk}{\sqrt{j^2+1}\sqrt{k^2+1}}\\
-&=\frac{1}{\sqrt{1/j^2+1}\sqrt{1/k^2+1}}
-\ea
-The correlations will increase with the increase of time, $j$ and $k$, but no trend just with temporal separation. This is not so realistic. In common sense, we usually may think that the correlations may be smaller with large temporal separation than the correlations with small small temporal separation, because status of one time point is more likely to affect or to be affected by the status of the near time point. The reason causing this unrealistic result may be we simply assume the conditional independence while the data may not have this property.
-
-(e). There are two advantages of the marginal covariance derived hierarchically. First, compared to the unstructured covariance structure, the hierarchical marginal covariance have less unknown parameters to estimate, so it can reduce the computation, and avoid suffering overfitting problem. Secondly, it easily to understand and interpret the variance components, we can know that which parts of variation come from random effect and which parts come from the violation of conditional independence.
+Firstly, we fit the generalize linear model using PROC GENMOD,
 
 
 
@@ -296,8 +232,267 @@ Because $F=6.7849>f_{0.95,2,39}=3.238$ with P-value=0.0030. We will reject the n
 
 
 \begin{appendices}
-\section{SAS}
-\section{Output}
+\section{SAS Code for Problem 3}
+\begin{Sascode}[store=class]
+libname da2 'C:\Users\psy6b\Desktop\8320 datasets'; 
+ods graphics on; 
+options ls=70 ps=35; 
+
+/*To reading the data*/
+data da2.h5q31;
+   infile 'C:\Users\psy6b\Desktop\8320 datasets\ssttornado532001.dat';
+   retain ss1-ss49;
+   array ss{49} ss1-ss49;
+   if _N_=1 then do; 
+      input ss1-ss49;
+   end;
+   loc+1;
+   drop ss1-ss49;
+   do t=1 to 49;
+      sst=ss{t};
+      input torn @;
+      output;
+   end;
+run;
+data da2.h5q32;
+   infile 'C:\Users\psy6b\Desktop\8320 datasets\MOtornlatlon.dat';
+   loc+1;
+   input lat lon;
+   run;
+proc sql;
+   create table da2.h5q3
+   as select * from da2.h5q31 as a, da2.h5q32 as b
+   where a.loc=b.loc;
+   run;
+quit;
+
+/*Fitting different models*/
+proc genmod data=da2.h5q3;
+   class loc;
+   model torn = sst sst*loc / dist=poisson link=log;
+   output out=h5q3out1 resraw=Residual pred=Predicted lower=Lower
+      upper=Upper;
+run;
+proc glimmix data=da2.h5q3 noitprint;
+   class loc;
+   model torn = sst sst*loc / dist=poisson link=log ddfm=betwithin
+      solution;
+   random intercept / subject=loc type=sp(exp)(lon lat);
+   nloptions tech=newrap;
+   covtest 'Random Int.' indep;
+   output out=h5q3out2 pred(ilink)=predicted lcl(ilink)=lower 
+      ucl(ilink)=upper residual(ilink)=Residual;
+run;
+proc glimmix data=da2.h5q3 noitprint;
+   class loc;
+   model torn = sst sst*loc / dist=poisson link=log ddfm=betwithin 
+      solution;
+   random sst / subject=loc type=sp(exp)(lon lat);
+   nloptions tech=newrap;
+   covtest 'Random Coef.' indep;
+   output out=h5q3out3 pred(ilink)=predicted lcl(ilink)=lower 
+      ucl(ilink)=upper residual(ilink)=Residual;
+run;
+proc glimmix data=da2.h5q3 noitprint;
+   class loc;
+   model torn = sst sst*loc / dist=poisson link=log ddfm=betwithin 
+      solution;
+   random intercept sst / subject=loc type=sp(exp)(lon lat);
+   nloptions tech=newrap;
+   covtest 'Random Int. & Coef.' indep;
+   output out=h5q3out4 pred(ilink)=predicted lcl(ilink)=lower 
+      ucl(ilink)=upper residual(ilink)=Residual;
+run;
+
+
+/*Processing output*/
+proc sort data=h5q3out1;
+   by loc;
+run;
+data h5q3eval1;
+   set h5q3out1;
+   by loc;
+   keep loc torn predicted residual lat lon;
+   retain sumtorn sumpred sumres;
+   if first.loc then do;
+      sumtorn=0;
+      sumpred=0;
+      sumres=0;
+   end;
+   sumtorn+torn;
+   sumpred+predicted;
+   sumres+residual;
+   if last.loc then do;
+      torn=sumtorn;
+      predicted=sumpred;
+      residual=sumres;
+      output;
+   end;
+run;
+proc sort data=h5q3out2;
+   by loc;
+run;
+data h5q3eval2;
+   set h5q3out2;
+   by loc;
+   keep loc torn predicted residual lat lon;
+   retain sumtorn sumpred sumres;
+   if first.loc then do;
+      sumtorn=0;
+      sumpred=0;
+      sumres=0;
+   end;
+   sumtorn+torn;
+   sumpred+predicted;
+   sumres+residual;
+   if last.loc then do;
+      torn=sumtorn;
+      predicted=sumpred;
+      residual=sumres;
+      output;
+   end;
+run;
+proc sort data=h5q3out3;
+   by loc;
+run;
+data h5q3eval3;
+   set h5q3out3;
+   by loc;
+   keep loc torn predicted residual lat lon;
+   retain sumtorn sumpred sumres;
+   if first.loc then do;
+      sumtorn=0;
+      sumpred=0;
+      sumres=0;
+   end;
+   sumtorn+torn;
+   sumpred+predicted;
+   sumres+residual;
+   if last.loc then do;
+      torn=sumtorn;
+      predicted=sumpred;
+      residual=sumres;
+      output;
+   end;
+run;
+proc sort data=h5q3out4;
+   by loc;
+run;
+data h5q3eval4;
+   set h5q3out4;
+   by loc;
+   keep loc torn predicted residual lat lon;
+   retain sumtorn sumpred sumres;
+   if first.loc then do;
+      sumtorn=0;
+      sumpred=0;
+      sumres=0;
+   end;
+   sumtorn+torn;
+   sumpred+predicted;
+   sumres+residual;
+   if last.loc then do;
+      torn=sumtorn;
+      predicted=sumpred;
+      residual=sumres;
+      output;
+   end;
+run;
+data h5q3eval;
+   set h5q3eval1(in=a) h5q3eval2(in=b) h5q3eval3(in=c) 
+      h5q3eval4(in=d);
+   length model $23;
+   if a then do;
+      model='Independent';
+   end;
+   if b then do;
+      model='Random Int.';
+   end;
+   if c then do;
+      model='Random Coef.';
+   end;
+   if d then do;
+      model='Random Int. & Coef.';
+   end;
+   label torn='Actual Measurements';
+run;
+
+
+
+/*Evaluating models*/
+proc sort data=h5q3eval;
+   by torn;
+run;
+proc sgpanel data=h5q3eval noautolegend;
+   panelby model/columns=2 rows=2 spacing=5;
+   scatter x=torn y=predicted/ datalabel=loc;
+   series x=torn y=torn;
+   keyword "Observations" "Reference Line";
+run;
+proc sql;
+   title 'Model Comparation';
+   select model,sum(residual*residual) label='Model Type' as SSR 
+      label='Sum of Squared Residual'
+   from h5q3eval
+   group by model;
+quit;
+
+/*Plotting the profile*/
+data panelplot2;
+   set h5q3out2;
+   length type $20;
+   keep loc t type resp;
+   t=t+1952;
+   type='measurement';
+   resp=torn;
+   output;
+   type='cluster-specific';
+   resp=predicted;
+   output;
+   type='lower bound';
+   resp=lower;
+   output;
+   type='upper bound';
+   resp=upper;
+   output;
+   run;
+proc sgpanel data=panelplot2;
+   where loc le 4 and loc ge 1;
+   panelby loc/rows=2 columns=2 spacing=5;
+   vline t/response=resp group=type;
+   colaxis fitpolicy=thin alternate;
+   rowaxis alternate;
+run;
+proc sgpanel data=panelplot2;
+   where loc le 8 and loc ge 5;
+   panelby loc/rows=2 columns=2 spacing=5;
+   vline t/response=resp group=type;
+   colaxis fitpolicy=thin alternate;
+   rowaxis alternate;
+run;
+proc sgpanel data=panelplot2;
+   where loc le 12 and loc ge 9;
+   panelby loc/rows=2 columns=2 spacing=5;
+   vline t/response=resp group=type;
+   colaxis fitpolicy=thin alternate;
+   rowaxis alternate;
+run;
+proc sgpanel data=panelplot2;
+   where loc le 16 and loc ge 13;
+   panelby loc/rows=2 columns=2 spacing=5;
+   vline t/response=resp group=type;
+   colaxis fitpolicy=thin alternate;
+   rowaxis alternate;
+run;
+proc sgpanel data=panelplot2;
+   where loc le 20 and loc ge 17;
+   panelby loc/rows=2 columns=2 spacing=5;
+   vline t/response=resp group=type;
+   colaxis fitpolicy=thin alternate;
+   rowaxis alternate;
+run;
+\end{Sascode}
+\section{Some Outputs for Promblem 3}
 
 \end{appendices}
 

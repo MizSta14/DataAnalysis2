@@ -1,2 +1,20 @@
-               Number of Observations Read         980
-               Number of Observations Used         980
+                         Parameter Estimates
+ 
+                        Standard
+ Parameter   Estimate      Error     DF   t Value   Pr > |t|    Alpha
+ 
+ beta1         199.41    15.2372      5     13.09     <.0001     0.05
+ beta2         797.42    14.6250      5     54.52     <.0001     0.05
+ beta3         298.48    11.4146      5     26.15     <.0001     0.05
+ resvar       49.8315     9.5902      5      5.20     0.0035     0.05
+ varu         1346.95     784.96      5      1.72     0.1468     0.05
+ 
+                         Parameter Estimates
+ 
+             Parameter      Lower       Upper    Gradient
+ 
+             beta1         160.24      238.58     4.83E-7
+             beta2         759.82      835.01    -3.07E-6
+             beta3         269.14      327.82    2.884E-6
+             resvar       25.1791     74.4838    2.602E-6
+             varu         -670.87     3364.76    -1.06E-8

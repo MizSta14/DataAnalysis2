@@ -1,7 +1,12 @@
-                              Dimensions
+                         Additional Estimates
  
-                  G-side Cov. Parameters           2
-                  Columns in X                    22
-                  Columns in Z per Subject         1
-                  Subjects (Blocks in V)          20
-                  Max Obs per Subject             49
+                         Standard
+Label         Estimate      Error     DF   t Value   Pr > |t|    Alpha
+ 
+Beta_3=350?   -51.5207    11.4146      5     -4.51     0.0063     0.05
+ 
+                         Additional Estimates
+ 
+                  Label            Lower       Upper
+ 
+                  Beta_3=350?   -80.8627    -22.1786

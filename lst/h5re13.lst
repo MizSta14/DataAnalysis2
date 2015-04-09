@@ -1,8 +1,10 @@
-                       Optimization Information
+                     Estimation of Random Effect
  
-             Optimization Technique        Newton-Raphson
-             Parameters in Optimization    2
-             Lower Boundaries              2
-             Upper Boundaries              0
-             Fixed Effects                 Profiled
-             Starting From                 Data
+             Obs    i    Estimate     tValue      Probt
+ 
+              1     1      9.0186     0.58954    0.58113
+              2     2     48.3441     3.15760    0.02516
+              3     3    -61.3289    -4.00406    0.01028
+              4     4     28.0234     1.83138    0.12654
+              5     5      7.4494     0.48697    0.64687
+              6     6    -31.5072    -2.05886    0.09457

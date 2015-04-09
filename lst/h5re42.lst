@@ -1,0 +1,8 @@
+                   Tests of Covariance Parameters
+               Based on the Residual Pseudo-Likelihood
+ 
+Label            DF   -2 Res Log P-Like     ChiSq   Pr > ChiSq   Note
+ 
+Random Coef.      2             2854.49       .         1.0000   --
+ 
+--: Standard test with unadjusted p-values.

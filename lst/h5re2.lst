@@ -1,5 +1,8 @@
-                              Parameters
+         NOTE: An intercept was not specified for this model.
  
-   beta1       beta2       beta3      resvar        varu    NegLogLike
+                                 Sum of       Mean             Approx
+ Source                   DF    Squares     Square   F Value   Pr > F
  
-     200         850         350          40         900    229.066515
+ Model                     3    1032845     344282    516.78   <.0001
+ Error                    57    37973.6      666.2
+ Uncorrected Total        60    1070819

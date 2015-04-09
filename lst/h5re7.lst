@@ -1,12 +1,5 @@
-                         Additional Estimates
+                              Parameters
  
-                         Standard
-Label         Estimate      Error     DF   t Value   Pr > |t|    Alpha
+   beta1       beta2       beta3      resvar        varu    NegLogLike
  
-Beta_3=350?   -51.5207    11.4146      5     -4.51     0.0063     0.05
- 
-                         Additional Estimates
- 
-                  Label            Lower       Upper
- 
-                  Beta_3=350?   -80.8627    -22.1786
+     200         850         350          40         900    229.066515

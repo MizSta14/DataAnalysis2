@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  8 APR 2015 01:08
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  8 APR 2015 22:20
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -624,25 +624,19 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [3]
-Overfull \hbox (20.7706pt too wide) in paragraph at lines 147--147
+Overfull \hbox (20.7706pt too wide) in paragraph at lines 153--153
 [] \OT1/cmtt/m/n/12 infile 'C:\Users\psy6b\Desktop\8320 datasets\ssttornado5320
 01.dat';[] 
  []
 
 
-Overfull \hbox (57.82062pt too wide) in paragraph at lines 175--175
-[] \OT1/cmtt/m/n/12 model torn = sst sst*loc / dist=poisson link=log ddfm=betwi
-thin solution;[] 
+Overfull \hbox (70.17062pt too wide) in paragraph at lines 181--181
+[] \OT1/cmtt/m/n/12 output out=h5q3out1 resraw=Residual pred=Predicted lower=Lo
+wer upper=Upper;[] 
  []
 
 
-Overfull \hbox (243.07071pt too wide) in paragraph at lines 179--179
-[] \OT1/cmtt/m/n/12 output out=h5q3out pred(ilink)=predicted lcl(ilink)=lower u
-cl(ilink)=upper pred(noblup ilink)=margpred;[] 
- []
-
-
-Overfull \hbox (57.82062pt too wide) in paragraph at lines 183--183
+Overfull \hbox (57.82062pt too wide) in paragraph at lines 184--184
 [] \OT1/cmtt/m/n/12 model torn = sst sst*loc / dist=poisson link=log ddfm=betwi
 thin solution;[] 
  []
@@ -654,6 +648,35 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [4]
+Overfull \hbox (230.7207pt too wide) in paragraph at lines 188--188
+[] \OT1/cmtt/m/n/12 output out=h5q3out2 pred(ilink)=predicted lcl(ilink)=lower 
+ucl(ilink)=upper residual(ilink)=Residual;[] 
+ []
+
+
+Overfull \hbox (57.82062pt too wide) in paragraph at lines 192--192
+[] \OT1/cmtt/m/n/12 model torn = sst sst*loc / dist=poisson link=log ddfm=betwi
+thin solution;[] 
+ []
+
+
+Overfull \hbox (230.7207pt too wide) in paragraph at lines 196--196
+[] \OT1/cmtt/m/n/12 output out=h5q3out3 pred(ilink)=predicted lcl(ilink)=lower 
+ucl(ilink)=upper residual(ilink)=Residual;[] 
+ []
+
+
+Overfull \hbox (57.82062pt too wide) in paragraph at lines 200--200
+[] \OT1/cmtt/m/n/12 model torn = sst sst*loc / dist=poisson link=log ddfm=betwi
+thin solution;[] 
+ []
+
+
+Overfull \hbox (230.7207pt too wide) in paragraph at lines 204--204
+[] \OT1/cmtt/m/n/12 output out=h5q3out4 pred(ilink)=predicted lcl(ilink)=lower 
+ucl(ilink)=upper residual(ilink)=Residual;[] 
+ []
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -668,56 +691,6 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [6]
-LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <12> not available
-(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 294.
-File: ./lst/h5re.lst  (verbatim)
-Package statrep Info: Processing output ./lst/h5re.lst on input line 294.
-
-
-LaTeX Font Warning: Font shape `OT1/cmss/m/it' in size <12> not available
-(Font)              Font shape `OT1/cmss/m/sl' tried instead on input line 294.
-
-
-File: ./lst/h5re1.lst  (verbatim)
-Package statrep Info: Processing output ./lst/h5re1.lst on input line 294.
-File: ./lst/h5re2.lst  (verbatim)
-Package statrep Info: Processing output ./lst/h5re2.lst on input line 294.
-File: ./lst/h5re3.lst  (verbatim)
-Package statrep Info: Processing output ./lst/h5re3.lst on input line 294.
-File: ./lst/h5re4.lst  (verbatim)
-Package statrep Info: Processing output ./lst/h5re4.lst on input line 294.
-File: ./lst/h5re5.lst  (verbatim)
-Package statrep Info: Processing output ./lst/h5re5.lst on input line 294.
-File: ./lst/h5re6.lst  (verbatim)
-Package statrep Info: Processing output ./lst/h5re6.lst on input line 294.
-File: ./lst/h5re7.lst  (verbatim)
-Package statrep Info: Processing output ./lst/h5re7.lst on input line 294.
-File: ./lst/h5re8.lst  (verbatim)
-Package statrep Info: Processing output ./lst/h5re8.lst on input line 294.
-File: ./lst/h5re9.lst  (verbatim)
-Package statrep Info: Processing output ./lst/h5re9.lst on input line 294.
-File: ./lst/h5re10.lst  (verbatim)
-Package statrep Info: Processing output ./lst/h5re10.lst on input line 294.
-File: ./lst/h5re11.lst  (verbatim)
-Package statrep Info: Processing output ./lst/h5re11.lst on input line 294.
-File: ./lst/h5re12.lst  (verbatim)
-Package statrep Info: Processing output ./lst/h5re12.lst on input line 294.
-File: ./lst/h5re13.lst  (verbatim)
-Package statrep Info: Processing output ./lst/h5re13.lst on input line 294.
-File: ./lst/h5re14.lst  (verbatim)
-Package statrep Info: Processing output ./lst/h5re14.lst on input line 294.
-File: ./lst/h5re15.lst  (verbatim)
-Package statrep Info: Processing output ./lst/h5re15.lst on input line 294.
-File: ./lst/h5re16.lst  (verbatim)
-Package statrep Info: Processing output ./lst/h5re16.lst on input line 294.
-File: ./lst/h5re17.lst  (verbatim)
-Package statrep Info: Processing output ./lst/h5re17.lst on input line 294.
-File: ./lst/h5re18.lst  (verbatim)
-Package statrep Info: Processing output ./lst/h5re18.lst on input line 294.
-File: ./lst/h5re19.lst  (verbatim)
-Package statrep Info: Processing output ./lst/h5re19.lst on input line 294.
-File: ./lst/h5re20.lst  (verbatim)
-Package statrep Info: Processing output ./lst/h5re20.lst on input line 294.
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -725,25 +698,16 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [7]
-File: ./lst/h5re21.lst  (verbatim)
-Package statrep Info: Processing output ./lst/h5re21.lst on input line 294.
-File: ./lst/h5re22.lst  (verbatim)
-Package statrep Info: Processing output ./lst/h5re22.lst on input line 294.
-File: ./lst/h5re23.lst  (verbatim)
-Package statrep Info: Processing output ./lst/h5re23.lst on input line 294.
-File: ./lst/h5re24.lst  (verbatim)
-Package statrep Info: Processing output ./lst/h5re24.lst on input line 294.
-File: ./lst/h5re25.lst  (verbatim)
-Package statrep Info: Processing output ./lst/h5re25.lst on input line 294.
-File: ./lst/h5re26.lst  (verbatim)
-Package statrep Info: Processing output ./lst/h5re26.lst on input line 294.
-File: ./lst/h5re27.lst  (verbatim)
-Package statrep Info: Processing output ./lst/h5re27.lst on input line 294.
-File: ./lst/h5re28.lst  (verbatim)
-Package statrep Info: Processing output ./lst/h5re28.lst on input line 294.
-File: ./lst/h5re29.lst  (verbatim)
-Package statrep Info: Processing output ./lst/h5re29.lst on input line 294.
-Package statrep Info: Processing output  on input line 294.
+Overfull \hbox (26.9456pt too wide) in paragraph at lines 302--302
+[] \OT1/cmtt/m/n/12 set h5q3eval1(in=a) h5q3eval2(in=b) h5q3eval3(in=c) h5q3eva
+l4(in=d);[] 
+ []
+
+
+Overfull \hbox (181.32068pt too wide) in paragraph at lines 333--333
+[] \OT1/cmtt/m/n/12 select model,sum(residual*residual) label='Model Type' as S
+SR label='Sum of Squared Residual'[] 
+ []
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -759,6 +723,96 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [9]
+LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <12> not available
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 397.
+File: ./lst/h5re.lst  (verbatim)
+Package statrep Info: Processing output ./lst/h5re.lst on input line 397.
+
+
+LaTeX Font Warning: Font shape `OT1/cmss/m/it' in size <12> not available
+(Font)              Font shape `OT1/cmss/m/sl' tried instead on input line 397.
+
+
+File: ./lst/h5re1.lst  (verbatim)
+Package statrep Info: Processing output ./lst/h5re1.lst on input line 397.
+File: ./lst/h5re2.lst  (verbatim)
+Package statrep Info: Processing output ./lst/h5re2.lst on input line 397.
+File: ./lst/h5re3.lst  (verbatim)
+Package statrep Info: Processing output ./lst/h5re3.lst on input line 397.
+File: ./lst/h5re4.lst  (verbatim)
+Package statrep Info: Processing output ./lst/h5re4.lst on input line 397.
+File: ./lst/h5re5.lst  (verbatim)
+Package statrep Info: Processing output ./lst/h5re5.lst on input line 397.
+File: ./lst/h5re6.lst  (verbatim)
+Package statrep Info: Processing output ./lst/h5re6.lst on input line 397.
+File: ./lst/h5re7.lst  (verbatim)
+Package statrep Info: Processing output ./lst/h5re7.lst on input line 397.
+File: ./lst/h5re8.lst  (verbatim)
+Package statrep Info: Processing output ./lst/h5re8.lst on input line 397.
+File: ./lst/h5re9.lst  (verbatim)
+Package statrep Info: Processing output ./lst/h5re9.lst on input line 397.
+File: ./lst/h5re10.lst  (verbatim)
+Package statrep Info: Processing output ./lst/h5re10.lst on input line 397.
+File: ./lst/h5re11.lst  (verbatim)
+Package statrep Info: Processing output ./lst/h5re11.lst on input line 397.
+File: ./lst/h5re12.lst  (verbatim)
+Package statrep Info: Processing output ./lst/h5re12.lst on input line 397.
+File: ./lst/h5re13.lst  (verbatim)
+Package statrep Info: Processing output ./lst/h5re13.lst on input line 397.
+File: ./lst/h5re14.lst  (verbatim)
+Package statrep Info: Processing output ./lst/h5re14.lst on input line 397.
+File: ./lst/h5re15.lst  (verbatim)
+Package statrep Info: Processing output ./lst/h5re15.lst on input line 397.
+File: ./lst/h5re16.lst  (verbatim)
+Package statrep Info: Processing output ./lst/h5re16.lst on input line 397.
+File: ./lst/h5re17.lst  (verbatim)
+Package statrep Info: Processing output ./lst/h5re17.lst on input line 397.
+File: ./lst/h5re18.lst  (verbatim)
+Package statrep Info: Processing output ./lst/h5re18.lst on input line 397.
+File: ./lst/h5re19.lst  (verbatim)
+Package statrep Info: Processing output ./lst/h5re19.lst on input line 397.
+File: ./lst/h5re20.lst  (verbatim)
+Package statrep Info: Processing output ./lst/h5re20.lst on input line 397.
+File: ./lst/h5re21.lst  (verbatim)
+Package statrep Info: Processing output ./lst/h5re21.lst on input line 397.
+File: ./lst/h5re22.lst  (verbatim)
+Package statrep Info: Processing output ./lst/h5re22.lst on input line 397.
+File: ./lst/h5re23.lst  (verbatim)
+Package statrep Info: Processing output ./lst/h5re23.lst on input line 397.
+File: ./lst/h5re24.lst  (verbatim)
+Package statrep Info: Processing output ./lst/h5re24.lst on input line 397.
+File: ./lst/h5re25.lst  (verbatim)
+Package statrep Info: Processing output ./lst/h5re25.lst on input line 397.
+File: ./lst/h5re26.lst  (verbatim)
+Package statrep Info: Processing output ./lst/h5re26.lst on input line 397.
+File: ./lst/h5re27.lst  (verbatim)
+Package statrep Info: Processing output ./lst/h5re27.lst on input line 397.
+File: ./lst/h5re28.lst  (verbatim)
+Package statrep Info: Processing output ./lst/h5re28.lst on input line 397.
+File: ./lst/h5re29.lst  (verbatim)
+Package statrep Info: Processing output ./lst/h5re29.lst on input line 397.
+File: ./lst/h5re30.lst  (verbatim)
+Package statrep Info: Processing output ./lst/h5re30.lst on input line 397.
+File: ./lst/h5re31.lst  (verbatim)
+Package statrep Info: Processing output ./lst/h5re31.lst on input line 397.
+File: ./lst/h5re32.lst  (verbatim)
+Package statrep Info: Processing output ./lst/h5re32.lst on input line 397.
+File: ./lst/h5re33.lst  (verbatim)
+Package statrep Info: Processing output ./lst/h5re33.lst on input line 397.
+File: ./lst/h5re34.lst  (verbatim)
+Package statrep Info: Processing output ./lst/h5re34.lst on input line 397.
+File: ./lst/h5re35.lst  (verbatim)
+Package statrep Info: Processing output ./lst/h5re35.lst on input line 397.
+File: ./lst/h5re36.lst  (verbatim)
+Package statrep Info: Processing output ./lst/h5re36.lst on input line 397.
+File: ./lst/h5re37.lst  (verbatim)
+Package statrep Info: Processing output ./lst/h5re37.lst on input line 397.
+File: ./lst/h5re38.lst  (verbatim)
+Package statrep Info: Processing output ./lst/h5re38.lst on input line 397.
+File: ./lst/h5re39.lst  (verbatim)
+Package statrep Info: Processing output ./lst/h5re39.lst on input line 397.
+File: ./lst/h5re40.lst  (verbatim)
+Package statrep Info: Processing output ./lst/h5re40.lst on input line 397.
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -800,88 +854,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[15] <./png/h5re.png, id=74, 462.528pt x 346.896pt>
-File: ./png/h5re.png Graphic file (type png)
- <use ./png/h5re.png>
-Package pdftex.def Info: ./png/h5re.png used on input line 297.
-(pdftex.def)             Requested size: 416.27133pt x 312.2035pt.
-Package statrep Info: Processing graphic ./png/h5re.png on input line 297.
-
-Overfull \hbox (16.478pt too wide) in alignment at lines 297--297
- [] 
- []
-
-
-Overfull \hbox (16.478pt too wide) in alignment at lines 297--297
- [] 
- []
-
-
-Overfull \hbox (16.478pt too wide) in alignment at lines 297--297
- [] 
- []
-
-<./png/h5re1.png, id=76, 481.8pt x 361.35pt>
-File: ./png/h5re1.png Graphic file (type png)
- <use ./png/h5re1.png>
-Package pdftex.def Info: ./png/h5re1.png used on input line 297.
-(pdftex.def)             Requested size: 433.61598pt x 325.21199pt.
-Package statrep Info: Processing graphic ./png/h5re1.png on input line 297.
-
-<./png/h5re2.png, id=77, 481.8pt x 481.8pt>
-File: ./png/h5re2.png Graphic file (type png)
- <use ./png/h5re2.png>
-Package pdftex.def Info: ./png/h5re2.png used on input line 297.
-(pdftex.def)             Requested size: 433.61598pt x 433.61598pt.
-Package statrep Info: Processing graphic ./png/h5re2.png on input line 297.
-
-<./png/h5re3.png, id=78, 481.8pt x 481.8pt>
-File: ./png/h5re3.png Graphic file (type png)
- <use ./png/h5re3.png>
-Package pdftex.def Info: ./png/h5re3.png used on input line 297.
-(pdftex.def)             Requested size: 433.61598pt x 433.61598pt.
-Package statrep Info: Processing graphic ./png/h5re3.png on input line 297.
-
-<./png/h5re4.png, id=79, 481.8pt x 481.8pt>
-File: ./png/h5re4.png Graphic file (type png)
- <use ./png/h5re4.png>
-Package pdftex.def Info: ./png/h5re4.png used on input line 297.
-(pdftex.def)             Requested size: 433.61598pt x 433.61598pt.
-Package statrep Info: Processing graphic ./png/h5re4.png on input line 297.
-
-<./png/h5re5.png, id=80, 481.8pt x 481.8pt>
-File: ./png/h5re5.png Graphic file (type png)
- <use ./png/h5re5.png>
-Package pdftex.def Info: ./png/h5re5.png used on input line 297.
-(pdftex.def)             Requested size: 433.61598pt x 433.61598pt.
-Package statrep Info: Processing graphic ./png/h5re5.png on input line 297.
-
-<./png/h5re6.png, id=81, 481.8pt x 481.8pt>
-File: ./png/h5re6.png Graphic file (type png)
- <use ./png/h5re6.png>
-Package pdftex.def Info: ./png/h5re6.png used on input line 297.
-(pdftex.def)             Requested size: 433.61598pt x 433.61598pt.
-Package statrep Info: Processing graphic ./png/h5re6.png on input line 297.
-
-<./png/h5re7.png, id=82, 481.8pt x 361.35pt>
-File: ./png/h5re7.png Graphic file (type png)
- <use ./png/h5re7.png>
-Package pdftex.def Info: ./png/h5re7.png used on input line 297.
-(pdftex.def)             Requested size: 433.61598pt x 325.21199pt.
-Package statrep Info: Processing graphic ./png/h5re7.png on input line 297.
-
-<./png/h5re8.png, id=83, 481.8pt x 361.35pt>
-File: ./png/h5re8.png Graphic file (type png)
- <use ./png/h5re8.png>
-Package pdftex.def Info: ./png/h5re8.png used on input line 297.
-(pdftex.def)             Requested size: 433.61598pt x 325.21199pt.
-Package statrep Info: Processing graphic ./png/h5re8.png on input line 297.
-Package statrep Info: Processing graphic  on input line 297.
-
-Overfull \hbox (16.478pt too wide) in alignment at lines 297--297
- [] 
- []
-
+[15]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -889,63 +862,35 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [16]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[17 <./png/h5re.png>]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[18 <./png/h5re1.png (PNG copy)>]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[19 <./png/h5re2.png (PNG copy)>]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[20 <./png/h5re3.png (PNG copy)>]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[21 <./png/h5re4.png (PNG copy)>]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[22 <./png/h5re5.png (PNG copy)>]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[23 <./png/h5re6.png (PNG copy)>]
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 14.49998pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-[24 <./png/h5re7.png (PNG copy)>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 299.
+File: ./lst/h5re41.lst  (verbatim)
+Package statrep Info: Processing output ./lst/h5re41.lst on input line 397.
+File: ./lst/h5re42.lst  (verbatim)
+Package statrep Info: Processing output ./lst/h5re42.lst on input line 397.
+File: ./lst/h5re43.lst  (verbatim)
+Package statrep Info: Processing output ./lst/h5re43.lst on input line 397.
+File: ./lst/h5re44.lst  (verbatim)
+Package statrep Info: Processing output ./lst/h5re44.lst on input line 397.
+File: ./lst/h5re45.lst  (verbatim)
+Package statrep Info: Processing output ./lst/h5re45.lst on input line 397.
+File: ./lst/h5re46.lst  (verbatim)
+Package statrep Info: Processing output ./lst/h5re46.lst on input line 397.
+File: ./lst/h5re47.lst  (verbatim)
+Package statrep Info: Processing output ./lst/h5re47.lst on input line 397.
+File: ./lst/h5re48.lst  (verbatim)
+Package statrep Info: Processing output ./lst/h5re48.lst on input line 397.
+File: ./lst/h5re49.lst  (verbatim)
+Package statrep Info: Processing output ./lst/h5re49.lst on input line 397.
+File: ./lst/h5re50.lst  (verbatim)
+Package statrep Info: Processing output ./lst/h5re50.lst on input line 397.
+File: ./lst/h5re51.lst  (verbatim)
+Package statrep Info: Processing output ./lst/h5re51.lst on input line 397.
+File: ./lst/h5re52.lst  (verbatim)
+Package statrep Info: Processing output ./lst/h5re52.lst on input line 397.
+File: ./lst/h5re53.lst  (verbatim)
+Package statrep Info: Processing output ./lst/h5re53.lst on input line 397.
+File: ./lst/h5re54.lst  (verbatim)
+Package statrep Info: Processing output ./lst/h5re54.lst on input line 397.
+Package statrep Info: Processing output  on input line 397.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -953,24 +898,247 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[25 <./png/h5re8.png (PNG copy)>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 299.
+[17]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[18]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[19]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[20]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[21]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[22]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[23]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[24]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[25]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[26]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[27] <./png/h5re.png, id=124, 462.528pt x 346.896pt>
+File: ./png/h5re.png Graphic file (type png)
+ <use ./png/h5re.png>
+Package pdftex.def Info: ./png/h5re.png used on input line 400.
+(pdftex.def)             Requested size: 416.27133pt x 312.2035pt.
+Package statrep Info: Processing graphic ./png/h5re.png on input line 400.
+
+Overfull \hbox (16.478pt too wide) in alignment at lines 400--400
+ [] 
+ []
+
+
+Overfull \hbox (16.478pt too wide) in alignment at lines 400--400
+ [] 
+ []
+
+
+Overfull \hbox (16.478pt too wide) in alignment at lines 400--400
+ [] 
+ []
+
+<./png/h5re1.png, id=126, 481.8pt x 361.35pt>
+File: ./png/h5re1.png Graphic file (type png)
+ <use ./png/h5re1.png>
+Package pdftex.def Info: ./png/h5re1.png used on input line 400.
+(pdftex.def)             Requested size: 433.61598pt x 325.21199pt.
+Package statrep Info: Processing graphic ./png/h5re1.png on input line 400.
+
+<./png/h5re2.png, id=127, 481.8pt x 481.8pt>
+File: ./png/h5re2.png Graphic file (type png)
+ <use ./png/h5re2.png>
+Package pdftex.def Info: ./png/h5re2.png used on input line 400.
+(pdftex.def)             Requested size: 433.61598pt x 433.61598pt.
+Package statrep Info: Processing graphic ./png/h5re2.png on input line 400.
+
+<./png/h5re3.png, id=128, 481.8pt x 481.8pt>
+File: ./png/h5re3.png Graphic file (type png)
+ <use ./png/h5re3.png>
+Package pdftex.def Info: ./png/h5re3.png used on input line 400.
+(pdftex.def)             Requested size: 433.61598pt x 433.61598pt.
+Package statrep Info: Processing graphic ./png/h5re3.png on input line 400.
+
+<./png/h5re4.png, id=129, 481.8pt x 481.8pt>
+File: ./png/h5re4.png Graphic file (type png)
+ <use ./png/h5re4.png>
+Package pdftex.def Info: ./png/h5re4.png used on input line 400.
+(pdftex.def)             Requested size: 433.61598pt x 433.61598pt.
+Package statrep Info: Processing graphic ./png/h5re4.png on input line 400.
+
+<./png/h5re5.png, id=130, 481.8pt x 481.8pt>
+File: ./png/h5re5.png Graphic file (type png)
+ <use ./png/h5re5.png>
+Package pdftex.def Info: ./png/h5re5.png used on input line 400.
+(pdftex.def)             Requested size: 433.61598pt x 433.61598pt.
+Package statrep Info: Processing graphic ./png/h5re5.png on input line 400.
+
+<./png/h5re6.png, id=131, 481.8pt x 481.8pt>
+File: ./png/h5re6.png Graphic file (type png)
+ <use ./png/h5re6.png>
+Package pdftex.def Info: ./png/h5re6.png used on input line 400.
+(pdftex.def)             Requested size: 433.61598pt x 433.61598pt.
+Package statrep Info: Processing graphic ./png/h5re6.png on input line 400.
+
+<./png/h5re7.png, id=132, 481.8pt x 481.8pt>
+File: ./png/h5re7.png Graphic file (type png)
+ <use ./png/h5re7.png>
+Package pdftex.def Info: ./png/h5re7.png used on input line 400.
+(pdftex.def)             Requested size: 433.61598pt x 433.61598pt.
+Package statrep Info: Processing graphic ./png/h5re7.png on input line 400.
+
+<./png/h5re8.png, id=133, 481.8pt x 361.35pt>
+File: ./png/h5re8.png Graphic file (type png)
+ <use ./png/h5re8.png>
+Package pdftex.def Info: ./png/h5re8.png used on input line 400.
+(pdftex.def)             Requested size: 433.61598pt x 325.21199pt.
+Package statrep Info: Processing graphic ./png/h5re8.png on input line 400.
+Package statrep Info: Processing graphic  on input line 400.
+
+Overfull \hbox (16.478pt too wide) in alignment at lines 400--400
+ [] 
+ []
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[28]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[29 <./png/h5re.png>]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[30 <./png/h5re1.png (PNG copy)>]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[31 <./png/h5re2.png (PNG copy)>]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[32 <./png/h5re3.png (PNG copy)>]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[33 <./png/h5re4.png (PNG copy)>]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[34 <./png/h5re5.png (PNG copy)>]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[35 <./png/h5re6.png (PNG copy)>]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[36 <./png/h5re7.png (PNG copy)>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 402.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[37 <./png/h5re8.png (PNG copy)>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 402.
  (./code.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 299.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 299.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 402.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 402.
 Package rerunfilecheck Info: File `code.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 299.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 402.
  ) 
 Here is how much of TeX's memory you used:
- 9485 strings out of 493117
- 137879 string characters out of 6135433
- 343283 words of memory out of 5000000
- 12721 multiletter control sequences out of 15000+600000
+ 9547 strings out of 493117
+ 138638 string characters out of 6135433
+ 351283 words of memory out of 5000000
+ 12746 multiletter control sequences out of 15000+600000
  17548 words of font info for 65 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  36i,11n,43p,226b,552s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -980,10 +1148,10 @@ Here is how much of TeX's memory you used:
 sr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></us
 r/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi12.pfb></us
 r/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on code.pdf (25 pages, 1669682 bytes).
+Output written on code.pdf (37 pages, 1736687 bytes).
 PDF statistics:
- 157 PDF objects out of 1000 (max. 8388607)
- 112 compressed objects within 2 object streams
- 28 named destinations out of 1000 (max. 500000)
+ 213 PDF objects out of 1000 (max. 8388607)
+ 156 compressed objects within 2 object streams
+ 40 named destinations out of 1000 (max. 500000)
  46 words of extra memory for PDF output out of 10000 (max. 10000000)
 

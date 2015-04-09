@@ -1,6 +1,13 @@
-                            Fit Statistics
+                        The NLMIXED Procedure
  
-               -2 Log Likelihood                  433.4
-               AIC (smaller is better)            443.4
-               AICC (smaller is better)           444.5
-               BIC (smaller is better)            442.4
+                            Specifications
+ 
+   Data Set                                    DA2.H5Q2
+   Dependent Variable                          y
+   Distribution for Dependent Variable         Normal
+   Random Effects                              u
+   Distribution for Random Effects             Normal
+   Subject Variable                            i
+   Optimization Technique                      Dual Quasi-Newton
+   Integration Method                          Adaptive Gaussian
+                                               Quadrature

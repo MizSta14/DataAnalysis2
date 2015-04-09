@@ -1,0 +1,10 @@
+                          Model Comparation
+ 
+                                             Sum of
+                                            Squared
+                  model                    Residual
+                  ---------------------------------
+                  Independent              146.3692
+                  Random Coef.             146.3692
+                  Random Int.              56.18219
+                  Random Int. & Coef.      56.18219

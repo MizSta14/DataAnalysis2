@@ -1,0 +1,7 @@
+                   Type III Tests of Fixed Effects
+ 
+                         Num      Den
+           Effect         DF       DF    F Value    Pr > F
+ 
+           sst             1      940       0.19    0.6607
+           sst*loc        19      940       2.04    0.0053

@@ -1,9 +1,12 @@
-                              Dimensions
+                          Estimation Summary
  
-               Observations Used                     60
-               Observations Not Used                  0
-               Total Observations                    60
-               Subjects                               6
-               Max Obs per Subject                   10
-               Parameters                             5
-               Quadrature Points                      1
+                   Method                    Newton
+                   Iterations                     4
+                   R                       1.187E-7
+                   PPC(beta3)              1.149E-7
+                   RPC(beta3)              0.000233
+                   Object                  5.347E-8
+                   Objective               37973.58
+                   Observations Read             60
+                   Observations Used             60
+                   Observations Missing           0

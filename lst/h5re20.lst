@@ -1,12 +1,31 @@
-                        The GLIMMIX Procedure
+                         Analysis Of Maximum
+                        Likelihood Parameter
+                              Estimates
  
-                          Model Information
+                      Parameter      Pr > ChiSq
  
-             Data Set                      DA2.H5Q3
-             Response Variable             torn
-             Response Distribution         Poisson
-             Link Function                 Log
-             Variance Function             Default
-             Variance Matrix Blocked By    loc
-             Estimation Technique          Residual PL
-             Degrees of Freedom Method     Between-Within
+                      Intercept          <.0001
+                      sst                0.4912
+                      sst*loc    1       0.0095
+                      sst*loc    2       0.3477
+                      sst*loc    3       0.8739
+                      sst*loc    4       0.0819
+                      sst*loc    5       0.0129
+                      sst*loc    6       0.8948
+                      sst*loc    7       0.4192
+                      sst*loc    8       0.8791
+                      sst*loc    9       0.5381
+                      sst*loc    10      0.2785
+                      sst*loc    11      0.4555
+                      sst*loc    12      0.8772
+                      sst*loc    13      0.7192
+                      sst*loc    14      0.8228
+                      sst*loc    15      0.7466
+                      sst*loc    16      0.0919
+                      sst*loc    17      0.4363
+                      sst*loc    18      0.8630
+                      sst*loc    19      0.7098
+                      sst*loc    20       .
+                      Scale
+ 
+NOTE: The scale parameter was held fixed.

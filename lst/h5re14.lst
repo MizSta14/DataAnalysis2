@@ -1,1 +1,8 @@
-         Convergence criterion (PCONV=1.11022E-8) satisfied.
+                         The GENMOD Procedure
+ 
+                          Model Information
+ 
+                    Data Set              DA2.H5Q3
+                    Distribution           Poisson
+                    Link Function              Log
+                    Dependent Variable        torn

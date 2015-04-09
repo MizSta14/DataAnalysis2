@@ -1,1 +1,6 @@
-             NOTE: GCONV convergence criterion satisfied.
+                   Approximate Correlation Matrix
+                        beta1           beta2           beta3
+ 
+        beta1       1.0000000       0.8155790       0.7342032
+        beta2       0.8155790       1.0000000       0.5941190
+        beta3       0.7342032       0.5941190       1.0000000

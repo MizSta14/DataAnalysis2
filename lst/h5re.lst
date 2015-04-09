@@ -1,13 +1,3 @@
-                        The NLMIXED Procedure
+                          The NLIN Procedure
  
-                            Specifications
- 
-   Data Set                                    DA2.H5Q2
-   Dependent Variable                          y
-   Distribution for Dependent Variable         Normal
-   Random Effects                              u
-   Distribution for Random Effects             Normal
-   Subject Variable                            i
-   Optimization Technique                      Dual Quasi-Newton
-   Integration Method                          Adaptive Gaussian
-                                               Quadrature
+   NOTE: Convergence criterion met.

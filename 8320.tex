@@ -104,17 +104,30 @@ $$
 we can easily reject the null hypothesis because the Wald-type confidence intervals of both models do not contain 350, which is equivalent to a Wald test. 
 We also can use the ESTIMATE statement in PROC NLMIXED to estimate $\beta_3-350$, as Figure \ref{h5re12}
 \Listing[store=class,
-         caption={Additional Estimates}]{h5re12}
+         caption={Testing "$\beta_3=0$"}]{h5re12}
 It is obviously that we should reject the null hypothesis, which is the same result as above. So $\beta_3$ does not equal 350.
-\item To test whether the random effect is necessary. Because the method of parameter estimate of mixed model is not based on likelihood, we cannot use likelihood ratio test. So we still use the Wald-type confidence interval. Because the interval contains zero, we cannot reject the null hypothesis, that is, the random effect is not significant. Furthermore, we can see that the estimate of parameters of fixed effect does not change too much, so this also indicates that it is not necessary to introduce random effect into model.
+\item To test whether the random effect is necessary. Because the method of parameter estimate of mixed model is not based on likelihood, we cannot use likelihood ratio test. So we still use the Wald-type confidence interval. Because the interval contains zero, we cannot reject the null hypothesis, that is, the random effect is not significant. Furthermore, we can see that the estimate of parameters of fixed effect does not change too much, so this also indicates that it is not necessary to introduce random effect into model. Finally, from the plots of prediction and measurements, we can see the cluster-specific prediction curve are almost same, which also indicates that the random effect is slight.
 \end{enumerate}
 
 But, we should be cautious about the result, because from the parameter estimates of parameter of nonlinear model, skewness of all parameters is much greater than 0.25, which means all parameters have vary apparent skewness. This makes the inferences unreliable.
+\Graphic[store=class, scale=0.5,
+         caption={Plots of Prediction and Measurements}]{h5re2}
 
 
 $\blacktriangleright$ \textbf{3.\quad Solution.} 
 
-Firstly, we fit the generalize linear model using PROC GENMOD,
+Firstly, we fit the generalize linear model using PROC GENMOD, and parameter estimates are listed as Figure \ref{h5re19} (Because of the limitation of page width, the last column "P-value" of table is not included in page).
+\Listing[store=class,
+         caption={Results from PROC GENMOD}]{h5re19}
+
+We want to test
+$$
+H_0: \text{ All $\beta_{1,i}$ equal 0}\qquad\text{v.s.}\qquad H_A: \text{ At least one $\beta_{1,i}$ not equal 0}
+$$
+From the output, I can see that the P-value for the slope at location 1 is 0.0005, which means that $\beta_{1,1}$ is significantly not equal to 0. So we can say that $\beta_{1,i}$ are significant. This means that SST effect is important to predict the tornado occurrence. 
+
+Then we fit the mixed models with random intercept and/or slope. Using PROC GLIMMIX, some results are listed in the Appendix B,
+
 
 
 
@@ -269,7 +282,7 @@ quit;
 /*Fitting different models*/
 proc genmod data=da2.h5q3;
    class loc;
-   model torn = sst sst*loc / dist=poisson link=log;
+   model torn = sst*loc / dist=poisson link=log;
    output out=h5q3out1 resraw=Residual pred=Predicted lower=Lower
       upper=Upper;
 run;
@@ -493,6 +506,37 @@ proc sgpanel data=panelplot2;
 run;
 \end{Sascode}
 \section{Some Outputs for Promblem 3}
+\Listing[store=class,
+         caption={Results of Random Intercept Model}]{h5re27}
+\Listing[store=class,
+         caption={Results of Random Intercept Model}]{h5re28}
+\Listing[store=class,
+         caption={Results of Random Intercept Model}]{h5re30}
+\Listing[store=class,
+         caption={Results of Random Intercept Model}]{h5re31}
+\Listing[store=class,
+         caption={Results of Random Coefficient Model}]{h5re38}
+\Listing[store=class,
+         caption={Results of Random Coefficient Model}]{h5re39}
+\Listing[store=class,
+         caption={Results of Random Coefficient Model}]{h5re41}
+\Listing[store=class,
+         caption={Results of Random Coefficient Model}]{h5re42}
+\Listing[store=class,
+         caption={Results of Random Int. and Coef. Model}]{h5re49}
+\Listing[store=class,
+         caption={Results of Random Int. and Coef,  Model}]{h5re50}
+\Listing[store=class,
+         caption={Results of Random Int. and Coef. Model}]{h5re52}
+\Listing[store=class,
+         caption={Results of Random Int. and Coef. Model}]{h5re53}
+
+
+
+
+
+
+
 
 \end{appendices}
 

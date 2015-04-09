@@ -26,6 +26,10 @@ title;
 
 %write(h5re12,store=class,type=listing) 
 
+%write(h5re2,store=class,type=graphic) 
+
+%write(h5re19,store=class,type=listing) 
+
 %output(class)
 libname da2 'C:\Users\psy6b\Desktop\8320 datasets';
 ods graphics on;
@@ -62,7 +66,7 @@ quit;
 /*Fitting different models*/
 proc genmod data=da2.h5q3;
    class loc;
-   model torn = sst sst*loc / dist=poisson link=log;
+   model torn = sst*loc / dist=poisson link=log;
    output out=h5q3out1 resraw=Residual pred=Predicted lower=Lower
       upper=Upper;
 run;
@@ -286,4 +290,28 @@ proc sgpanel data=panelplot2;
 run;
 
 %endoutput(class)
+
+%write(h5re27,store=class,type=listing) 
+
+%write(h5re28,store=class,type=listing) 
+
+%write(h5re30,store=class,type=listing) 
+
+%write(h5re31,store=class,type=listing) 
+
+%write(h5re38,store=class,type=listing) 
+
+%write(h5re39,store=class,type=listing) 
+
+%write(h5re41,store=class,type=listing) 
+
+%write(h5re42,store=class,type=listing) 
+
+%write(h5re49,store=class,type=listing) 
+
+%write(h5re50,store=class,type=listing) 
+
+%write(h5re52,store=class,type=listing) 
+
+%write(h5re53,store=class,type=listing) 
 

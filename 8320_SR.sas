@@ -18,3 +18,11 @@
 /* Start program with a null title. */
 title;
 
+%write(profile,store=class,type=graphic) 
+
+%write(nlinpara,store=class,type=listing) 
+
+%write(h5re11,store=class,type=listing) 
+
+%write(h5re12,store=class,type=listing) 
+

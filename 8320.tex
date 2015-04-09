@@ -84,44 +84,32 @@ We can conclude that $y_i\sim\text{NB}(\frac{1}{1+b},a)$.
 
 
 $\blacktriangleright$ \textbf{2.\quad Solution.} 
-(a). We have the form of model 
-$$
-\bm{Y}=\bm{X}\bm{\beta}+\bm{Z}\bm{b}+\bm{\epsilon}
-$$
-where $
-\bm{Y}=(y_1,y_2)',~
-\bm{X}=(X_1,X_2)',~
-\bm{\beta}=\beta,~
-\bm{b}=(b_1,b_2)',~
-\bm{\epsilon}=(\epsilon_1,\epsilon_2)',
-$ and
-\ba
-\bm{Z}&=\left(\begin{matrix}
-1\\
-&2\end{matrix}\right)\\
-\bm{D}&=\left(\begin{matrix}
-\tau^2&\frac{\phi\tau^2}{1+\phi^2}\\
-\frac{\phi\tau^2}{1+\phi^2}&\tau^2\end{matrix}\right)\\
-\bm{\Sigma}&=\left(\begin{matrix}
-\sigma^2\\
-&\sigma^2\end{matrix}\right)
-\ea
+(a). Before we fit this nonlinear mixed model, we should firstly plot the profile of the data, trying to acquire some intuitive result from the plot. As the Figure \ref{profile} shows, different plants are label as 1 to 6, and number 7 represents the average profile. We can approximately know that the max value is between 150 and 250, and the inflection point should be between 500 and 1000. Without loss of generality, we set the initial value of $(\beta_1,\beta_2)$ as (200, 850). Then we can solve the $\beta_3$ based on the data, and it is about 350. Next, by using PROC MEANS in SAS, we can get the standard deviations at different time points. Because $1+e^{-(t_{ij}-\beta_2)/\beta_3}$ is relatively large, it is reasonable to assume that the variance of $Y$ is mostly from $\sigma^2$. So we set the initial value of $\sigma^2$ as 40. As $t_{ij}$ grows, the denominator becomes smaller and smaller, then the proportion of $\sigma_u^2$ in variance of $Y$ becomes larger, and it seems that $\sigma_u^2$ should be between 400 to 1600, so we set the initial value of $\sigma_u^2$ as 900.
+\Graphic[store=class, scale=0.5,
+         caption={Profile of Plant Growth}]{profile}
 
 
-(b). The marginal variance/covariance matrix of $\bm{Y}$ is that
-$$
-Var(\bm{Y})=\bm{ZDZ}^T+\bm{\Sigma}=\left(\begin{matrix}
-\tau^2+\sigma^2&\frac{2\phi\tau^2}{1+\phi^2}\\
-\frac{2\phi\tau^2}{1+\phi^2}&4\tau^2+\sigma^2\end{matrix}\right)
-$$
-Then the marginal variance of $Y_2$ is $4\tau^2+\sigma^2$ and the marginal covariance between $Y_1$ and $Y_2$ is 
-$$
-cov(Y_1,~Y_2)=\frac{2\phi\tau^2}{1+\phi^2}
-$$
+Then we use the PROC NLIN and PROC NLMIXED to fit the nonlinear model and the nonlinear mixed model respectively. The results about parameters are listed as Figure \ref{nlinpara} and Figure \ref{h5re11}.
+\Listing[store=class,
+         caption={Parameters of Nonlinear Models}]{nlinpara}
+\Listing[store=class,
+         caption={Parameters of Nonlinear Mixed Models}]{h5re11}
 
+From these output, we can answer the questions like,
+\begin{enumerate}
+\item To test 
+$$
+H_0:\beta_3=350\qquad\text{v.s.}\qquad H_A:\beta_3\not=350
+$$
+we can easily reject the null hypothesis because the Wald-type confidence intervals of both models do not contain 350, which is equivalent to a Wald test. 
+We also can use the ESTIMATE statement in PROC NLMIXED to estimate $\beta_3-350$, as Figure \ref{h5re12}
+\Listing[store=class,
+         caption={Additional Estimates}]{h5re12}
+It is obviously that we should reject the null hypothesis, which is the same result as above. So $\beta_3$ does not equal 350.
+\item To test whether the random effect is necessary. Because the method of parameter estimate of mixed model is not based on likelihood, we cannot use likelihood ratio test. So we still use the Wald-type confidence interval. Because the interval contains zero, we cannot reject the null hypothesis, that is, the random effect is not significant. Furthermore, we can see that the estimate of parameters of fixed effect does not change too much, so this also indicates that it is not necessary to introduce random effect into model.
+\end{enumerate}
 
-
-(c). Nothing. Because in the restricted likelihood function there is no parameters other than those from variance and covariance matrix, we can only test the variances and covariances, but no the parameters of fixed and random effects based on REML. 
+But, we should be cautious about the result, because from the parameter estimates of parameter of nonlinear model, skewness of all parameters is much greater than 0.25, which means all parameters have vary apparent skewness. This makes the inferences unreliable.
 
 
 $\blacktriangleright$ \textbf{3.\quad Solution.} 

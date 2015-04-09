@@ -291,6 +291,8 @@ run;
 
 %endoutput(class)
 
+%write(h5re17,store=class,type=listing) 
+
 %write(h5re27,store=class,type=listing) 
 
 %write(h5re28,store=class,type=listing) 
@@ -315,7 +317,7 @@ run;
 
 %write(h5re53,store=class,type=listing) 
 
-%write(h5re17,store=class,type=listing) 
+%write(h5re54,store=class,type=listing) 
 
 %write(h5re2,store=class,type=graphic) 
 

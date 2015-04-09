@@ -26,7 +26,7 @@ title;
 
 %write(h5re12,store=class,type=listing) 
 
-%write(h5re2,store=class,type=graphic) 
+%write(h5re1,store=class,type=graphic) 
 
 %write(h5re19,store=class,type=listing) 
 
@@ -314,4 +314,18 @@ run;
 %write(h5re52,store=class,type=listing) 
 
 %write(h5re53,store=class,type=listing) 
+
+%write(h5re17,store=class,type=listing) 
+
+%write(h5re2,store=class,type=graphic) 
+
+%write(h5re3,store=class,type=graphic) 
+
+%write(h5re4,store=class,type=graphic) 
+
+%write(h5re5,store=class,type=graphic) 
+
+%write(h5re6,store=class,type=graphic) 
+
+%write(h5re7,store=class,type=graphic) 
 

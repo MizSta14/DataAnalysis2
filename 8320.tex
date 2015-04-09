@@ -110,8 +110,8 @@ It is obviously that we should reject the null hypothesis, which is the same res
 \end{enumerate}
 
 But, we should be cautious about the result, because from the parameter estimates of parameter of nonlinear model, skewness of all parameters is much greater than 0.25, which means all parameters have vary apparent skewness. This makes the inferences unreliable.
-\Graphic[store=class, scale=0.5,
-         caption={Plots of Prediction and Measurements}]{h5re2}
+\Graphic[store=class, scale=0.9,
+         caption={Plots of Prediction and Measurements}]{h5re1}
 
 
 $\blacktriangleright$ \textbf{3.\quad Solution.} 
@@ -126,7 +126,7 @@ H_0: \text{ All $\beta_{1,i}$ equal 0}\qquad\text{v.s.}\qquad H_A: \text{ At lea
 $$
 From the output, I can see that the P-value for the slope at location 1 is 0.0005, which means that $\beta_{1,1}$ is significantly not equal to 0. So we can say that $\beta_{1,i}$ are significant. This means that SST effect is important to predict the tornado occurrence. 
 
-Then we fit the mixed models with random intercept and/or slope. Using PROC GLIMMIX, some results are listed in the Appendix B,
+    Then we fit the mixed models with random intercept and/or slope. Using PROC GLIMMIX, some results are listed in the Appendix B. Firstly, from Figure \ref{h5re30}, \ref{h5re41} and \ref{h5re52}, the type III tests show that the fixed effect of interaction between interaction and SST is significant, which support the result that $\beta_{1,i}$ are significant. Then to test the random effect, using COVTEST statement in PROC GLMMIX, the results which are showed in Figure \ref{h5re31}, \ref{h5re42} and \ref{h5re53} indicate that we cannot reject the null hypothesis of no random effect, neither random intercept nor random slope. 
 
 
 
@@ -530,12 +530,20 @@ run;
          caption={Results of Random Int. and Coef. Model}]{h5re52}
 \Listing[store=class,
          caption={Results of Random Int. and Coef. Model}]{h5re53}
-
-
-
-
-
-
+\Listing[store=class,
+         caption={Goodness of Fit of Independent Model}]{h5re17}
+\Graphic[store=class, scale=0.6,
+         caption={Scatterplot: Predication v.s. Measurements}]{h5re2}
+\Graphic[store=class, scale=0.45,
+         caption={Plots of Prediction and Measurements}]{h5re3}
+\Graphic[store=class, scale=0.45,
+         caption={Plots of Prediction and Measurements}]{h5re4}
+\Graphic[store=class, scale=0.45,
+         caption={Plots of Prediction and Measurements}]{h5re5}
+\Graphic[store=class, scale=0.45,
+         caption={Plots of Prediction and Measurements}]{h5re6}
+\Graphic[store=class, scale=0.45,
+         caption={Plots of Prediction and Measurements}]{h5re7}
 
 
 \end{appendices}

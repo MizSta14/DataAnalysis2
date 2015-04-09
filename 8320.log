@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  9 APR 2015 01:02
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  9 APR 2015 01:19
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -663,12 +663,12 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 File: ./lst/h5re12.lst  (verbatim)
 Package statrep Info: Processing output ./lst/h5re12.lst on input line 107.
 Package statrep Info: Processing output  on input line 107.
- <./png/h5re2.png, id=54, 481.8pt x 481.8pt>
-File: ./png/h5re2.png Graphic file (type png)
- <use ./png/h5re2.png>
-Package pdftex.def Info: ./png/h5re2.png used on input line 114.
-(pdftex.def)             Requested size: 240.8994pt x 240.8994pt.
-Package statrep Info: Processing graphic ./png/h5re2.png on input line 114.
+ <./png/h5re1.png, id=54, 481.8pt x 361.35pt>
+File: ./png/h5re1.png Graphic file (type png)
+ <use ./png/h5re1.png>
+Package pdftex.def Info: ./png/h5re1.png used on input line 114.
+(pdftex.def)             Requested size: 433.61598pt x 325.21199pt.
+Package statrep Info: Processing graphic ./png/h5re1.png on input line 114.
 Package statrep Info: Processing graphic  on input line 114.
 
 
@@ -825,7 +825,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[5 <./png/h5re2.png (PNG copy)>]
+[5 <./png/h5re1.png (PNG copy)>]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -840,13 +840,6 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [7]
-Overfull \hbox (4.91919pt too wide) detected at line 217
-\OML/cmm/m/it/12 H[] \OT1/cmr/m/n/12 : \OML/cmm/m/it/12 ^^V[] \OMS/cmsy/m/n/12 
-^^@ \OML/cmm/m/it/12 ^^V[] \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 ^^V[] \OMS/cmsy/m
-/n/12 ^^@ \OML/cmm/m/it/12 ^^V[] \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 ^^V[] \OMS/
-cmsy/m/n/12 ^^@ \OML/cmm/m/it/12 ^^V[] [] H[] \OT1/cmr/m/n/12 : []
- []
-
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -854,6 +847,13 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [8]
+Overfull \hbox (4.91919pt too wide) detected at line 217
+\OML/cmm/m/it/12 H[] \OT1/cmr/m/n/12 : \OML/cmm/m/it/12 ^^V[] \OMS/cmsy/m/n/12 
+^^@ \OML/cmm/m/it/12 ^^V[] \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 ^^V[] \OMS/cmsy/m
+/n/12 ^^@ \OML/cmm/m/it/12 ^^V[] \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 ^^V[] \OMS/
+cmsy/m/n/12 ^^@ \OML/cmm/m/it/12 ^^V[] [] H[] \OT1/cmr/m/n/12 : []
+ []
+
 Package statrep Info: Processing Sascode block class on input line 249.
 
 Overfull \hbox (39.29561pt too wide) in paragraph at lines 256--256
@@ -924,11 +924,6 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [13]
-Overfull \hbox (2.24559pt too wide) in paragraph at lines 447--447
-[]    \OT1/cmtt/m/n/12 select model,sum(residual*residual) label='Model Type' a
-s SSR[] 
- []
-
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -936,6 +931,11 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [14]
+Overfull \hbox (2.24559pt too wide) in paragraph at lines 447--447
+[]    \OT1/cmtt/m/n/12 select model,sum(residual*residual) label='Model Type' a
+s SSR[] 
+ []
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 14.49998pt.
@@ -1011,7 +1011,9 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
 File: ./lst/h5re53.lst  (verbatim)
 Package statrep Info: Processing output ./lst/h5re53.lst on input line 532.
 Package statrep Info: Processing output  on input line 532.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 555.
+File: ./lst/h5re17.lst  (verbatim)
+Package statrep Info: Processing output ./lst/h5re17.lst on input line 534.
+Package statrep Info: Processing output  on input line 534.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1019,23 +1021,103 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[20]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 555.
+[20] <./png/h5re2.png, id=160, 481.8pt x 481.8pt>
+File: ./png/h5re2.png Graphic file (type png)
+ <use ./png/h5re2.png>
+Package pdftex.def Info: ./png/h5re2.png used on input line 536.
+(pdftex.def)             Requested size: 289.08221pt x 289.08221pt.
+Package statrep Info: Processing graphic ./png/h5re2.png on input line 536.
+Package statrep Info: Processing graphic  on input line 536.
+
+Overfull \vbox (5.3055pt too high) has occurred while \output is active []
+
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[21 <./png/h5re2.png (PNG copy)>] <./png/h5re3.png, id=166, 481.8pt x 481.8pt>
+File: ./png/h5re3.png Graphic file (type png)
+
+<use ./png/h5re3.png>
+Package pdftex.def Info: ./png/h5re3.png used on input line 538.
+(pdftex.def)             Requested size: 216.80798pt x 216.80798pt.
+Package statrep Info: Processing graphic ./png/h5re3.png on input line 538.
+Package statrep Info: Processing graphic  on input line 538.
+ <./png/h5re4.png, id=167, 481.8pt x 481.8pt>
+File: ./png/h5re4.png Graphic file (type png)
+
+<use ./png/h5re4.png>
+Package pdftex.def Info: ./png/h5re4.png used on input line 540.
+(pdftex.def)             Requested size: 216.80798pt x 216.80798pt.
+Package statrep Info: Processing graphic ./png/h5re4.png on input line 540.
+Package statrep Info: Processing graphic  on input line 540.
+ <./png/h5re5.png, id=168, 481.8pt x 481.8pt>
+File: ./png/h5re5.png Graphic file (type png)
+
+<use ./png/h5re5.png>
+Package pdftex.def Info: ./png/h5re5.png used on input line 542.
+(pdftex.def)             Requested size: 216.80798pt x 216.80798pt.
+Package statrep Info: Processing graphic ./png/h5re5.png on input line 542.
+Package statrep Info: Processing graphic  on input line 542.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[22 <./png/h5re3.png (PNG copy)> <./png/h5re4.png (PNG copy)>]
+<./png/h5re6.png, id=176, 481.8pt x 481.8pt>
+File: ./png/h5re6.png Graphic file (type png)
+ <use ./png/h5re6.png>
+Package pdftex.def Info: ./png/h5re6.png used on input line 544.
+(pdftex.def)             Requested size: 216.80798pt x 216.80798pt.
+Package statrep Info: Processing graphic ./png/h5re6.png on input line 544.
+Package statrep Info: Processing graphic  on input line 544.
+
+<./png/h5re7.png, id=177, 481.8pt x 481.8pt>
+File: ./png/h5re7.png Graphic file (type png)
+ <use ./png/h5re7.png>
+Package pdftex.def Info: ./png/h5re7.png used on input line 546.
+(pdftex.def)             Requested size: 216.80798pt x 216.80798pt.
+Package statrep Info: Processing graphic ./png/h5re7.png on input line 546.
+Package statrep Info: Processing graphic  on input line 546.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[23 <./png/h5re5.png (PNG copy)> <./png/h5re6.png (PNG copy)>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 563.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[24 <./png/h5re7.png (PNG copy)>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 563.
  (./8320.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 555.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 555.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 563.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 563.
 Package rerunfilecheck Info: File `8320.out' has not changed.
 (rerunfilecheck)             Checksum: 68BDBA9DD96033587AB6C6284188A02C;171.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 555.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 563.
  ) 
 Here is how much of TeX's memory you used:
- 9649 strings out of 493117
- 139727 string characters out of 6135433
- 261835 words of memory out of 5000000
- 12841 multiletter control sequences out of 15000+600000
+ 9710 strings out of 493117
+ 140493 string characters out of 6135433
+ 262333 words of memory out of 5000000
+ 12880 multiletter control sequences out of 15000+600000
  21475 words of font info for 82 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 36i,14n,43p,1121b,672s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 36i,14n,43p,1121b,704s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pf
 b></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
 ></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb><
@@ -1054,10 +1136,10 @@ e/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive
 014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/201
 4/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2014
 /texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on 8320.pdf (20 pages, 382128 bytes).
+Output written on 8320.pdf (24 pages, 1801708 bytes).
 PDF statistics:
- 224 PDF objects out of 1000 (max. 8388607)
- 179 compressed objects within 2 object streams
- 49 named destinations out of 1000 (max. 500000)
- 35 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 261 PDF objects out of 1000 (max. 8388607)
+ 205 compressed objects within 3 object streams
+ 60 named destinations out of 1000 (max. 500000)
+ 65 words of extra memory for PDF output out of 10000 (max. 10000000)
 

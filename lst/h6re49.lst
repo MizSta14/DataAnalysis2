@@ -8,7 +8,7 @@
  
 Statistic                      Value  F Value  Num DF  Den DF  Pr > F
  
-Wilks' Lambda             0.31463598     7.26       3      10  0.0072
-Pillai's Trace            0.68536402     7.26       3      10  0.0072
-Hotelling-Lawley Trace    2.17827609     7.26       3      10  0.0072
-Roy's Greatest Root       2.17827609     7.26       3      10  0.0072
+Wilks' Lambda             0.99619584     0.01       3      10  0.9979
+Pillai's Trace            0.00380416     0.01       3      10  0.9979
+Hotelling-Lawley Trace    0.00381869     0.01       3      10  0.9979
+Roy's Greatest Root       0.00381869     0.01       3      10  0.9979

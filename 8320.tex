@@ -36,12 +36,12 @@
 \pagestyle{fancy}
 \lhead{Peng Shao 14221765}
 \chead{}
-\rhead{\bfseries STAT 8320 Spring 2015 Assignment 5}
+\rhead{\bfseries STAT 8320 Spring 2015 Assignment 6}
 \renewcommand{\headrulewidth}{0.4 pt}
 \setlength{\parindent}{2em}
 
 \begin{document}
-\title{STAT 8320 Spring 2015 Assignment 5}
+\title{STAT 8320 Spring 2015 Assignment 6}
 \author{Peng Shao 14221765}
 \maketitle
 \indent
@@ -50,510 +50,125 @@
 
 
 $\blacktriangleright$ \textbf{1.\quad Solution.} 
-(a). 
-\ba
-f(\lambda|y_i)&=\frac{f(y_i|\lambda)f(\lambda)}{f(y_i}\\
-&=\frac{\frac{\lambda^{y_i+a-1}}{\Gamma(a)b^ay_i!}e^{-\lambda(1+1/b)}}{f(y_i)}\\
-&\propto \frac{\lambda^{y_i+a-1}}{\Gamma(a)b^ay_i!}e^{-\lambda(1+1/b)}\\
-&\propto \lambda^{y_i+a-1}e^{-\lambda(1+1/b)}
-\ea
-So $\lambda|y_i\sim\text{GAM}(y_i+a-1,\frac{1}{1+1/b})$, and 
+(a). We can know that $n_1=16$, $n_2=11$ and $p=4$. Then to test the hypothesis
 $$
-f(\lambda|y_i)=\frac{\lambda^{y_i+a-1}}{\Gamma(y_i+a)\left(\frac{b}{1+b}\right)^{y_i+a}}e^{-\lambda(1+1/b)}
+H_0:\bm{\mu}_1-\bm{\mu}_2=\bm{0}\qquad\text{v.s.}\qquad H_A:\bm{\mu}_1-\bm{\mu}_2\not=\bm{0}
 $$
-Thus, 
-\ba
-f(y_i)&=\int_0^\infty f(y_i|\lambda)f(\lambda)d\lambda=\frac{f(y_i|\lambda)f(\lambda)}{f(\lambda|y_i)}\\
-&=\frac{\frac{\lambda^{y_i+a-1}}{\Gamma(a)b^ay_i!}e^{-\lambda(1+1/b)}}{\frac{\lambda^{y_i+a-1}}{\Gamma(y_i+a)\left(\frac{b}{1+b}\right)^{y_i+a}}e^{-\lambda(1+1/b)}}\\
-&=\frac{\Gamma(y_i+a)}{\Gamma(a)y_i!}\left(\frac{1}{1+b}\right)^a\left(\frac{b}{1+b}\right)^{y_i}\\
-&=\binom{a+y_i-1}{a-1}\left(\frac{b}{1+b}\right)^{y_i}\\
-\ea
-We can conclude that $y_i\sim\text{NB}(\frac{1}{1+b},a)$.
+The statistic is
+$$
+F=\frac{n_1+n_2-p-1}{(n_1+n_2-2)\cdot p}T^2=\frac{16+11-4-1}{(16+11-2)\cdot 4}\cdot16.5=3.49\sim f_{4,22}
+$$
+Because $F=3.49>f_{0.95,4,22}=2.816708$ with P-value=0.0237. We will reject the null hypothesis, so the mean profiles are significantly different.
 
+(b). To test the parallel profiles, the hypotheses are
+$$
+H_0:\bm{C}(\bm{y}-\bm{z})=0\quad\text{v.s.}\quad H_A: \bm{C}(\bm{y}-\bm{z})\not=0
+$$where $\bm{C}=\lma 1 &-1 &0 &0\\ 0 &1 &-1 &0\\ 0 &0 &1 &-1\rma$. 
 
+The statistics are
+$$
+F=\frac{n_1+n_2-c-1}{(n_1+n_2-2)c}T^2=2.699\sim f_{3,23}
+$$
+Because $F=2.699<f_{0.95,3,23}=3.027998$ with P-value=0.06934349. We cannot reject the null hypothesis, so there is not significant interaction effect, i.e., the mean profiles are parallel.
 
+(c). Since the mean profiles are parallel, then we want to test whether they are identical or not. Then the $\bm{C}$ matrix becomes 
+$
+\bm{C}=\lma 1 &1 &1 &1\rma
+$.
+This test should give us the same result of part (a).
 
-
-
-(b) From the theories in generalized linear model, we have already known that negative binomial distribution usually is used to fixed the over-dispersion problem of count data when Poisson distribution assumption or independence assumption are no longer valid. And we also know that in most time the over-dispersion may be caused by the dependence of data, like some repeated measurements in student attendance example. The GLMM essentially takes covariates between dependent data into model, so it also can model the over-dispersed count data. Or in other words, the derivation in part (a) just shows that negative binomial distribution can work well with over-dispersed count data.
-
-
-
+We also want to test whether there is a significant time effect, i.e. each profile is horizontal respectively. Then the hypotheses are
+$$
+H_0:\bm{C\mu}_1=0\quad\text{v.s.}\quad H_A:\bm{C\mu}_1\not=0
+$$
+where $\bm{C}=\lma 1 &-1 &0 &0\\ 0 &1 &-1 &0\\ 0 &0 &1 &-1\rma$.
 
 
 
 
 $\blacktriangleright$ \textbf{2.\quad Solution.} 
-(a). Before we fit this nonlinear mixed model, we should firstly plot the profile of the data, trying to acquire some intuitive result from the plot. As the Figure \ref{profile} shows, different plants are label as 1 to 6, and number 7 represents the average profile. We can approximately know that the max value is between 150 and 250, and the inflection point should be between 500 and 1000. Without loss of generality, we set the initial value of $(\beta_1,\beta_2)$ as (200, 850). Then we can solve the $\beta_3$ based on the data, and it is about 350. Next, by using PROC MEANS in SAS, we can get the standard deviations at different time points. Because $1+e^{-(t_{ij}-\beta_2)/\beta_3}$ is relatively large, it is reasonable to assume that the variance of $Y$ is mostly from $\sigma^2$. So we set the initial value of $\sigma^2$ as 40. As $t_{ij}$ grows, the denominator becomes smaller and smaller, then the proportion of $\sigma_u^2$ in variance of $Y$ becomes larger, and it seems that $\sigma_u^2$ should be between 400 to 1600, so we set the initial value of $\sigma_u^2$ as 900.
-\Graphic[store=class, scale=0.5,
-         caption={Profile of Plant Growth}]{profile}
+(a). Mauchly's test examines the form of the common covariance matrix. A spherical matrix has equal variances and covariances equal to zero. The common covariance matrix of the transformed within-subject variables must be spherical. So the purpose of Mauchly test is to help us decide which output to use. If we can use the univariate output, we may have more power to reject the null hypothesis in favor of the alternative hypothesis. However, the univariate approach is appropriate only when the sphericity assumption is not violated. If the sphericity assumption is violated, then in most situations you are better off staying with the multivariate output.
 
-
-Then we use the PROC NLIN and PROC NLMIXED to fit the nonlinear model and the nonlinear mixed model respectively. The results about parameters are listed as Figure \ref{nlinpara} and Figure \ref{h5re11}.
+From the SAS output (Figure \ref{h6re7}), the second line shows that the Mauchly's criterion is 0.7343, $\chi^2$ value is 7.29 with degree of freedom 5, and the P-value is 0.1997$>$0.05. Thus, we cannot reject the null hypothesis of sphericity, that is, the sphericity assumption has not been violated. Then we should use univariate approach to make inferences, because it is more powerful to reject the null hypothesis.
 \Listing[store=class,
-         caption={Parameters of Nonlinear Models}]{nlinpara}
-\Listing[store=class,
-         caption={Parameters of Nonlinear Mixed Models}]{h5re11}
+         caption={Mauchly's Sphericity Test}]{h6re7}
+         
 
-From these output, we can answer the questions like,
-\begin{enumerate}
-\item To test 
+
+(b). \begin{enumerate}[(i).]
+\item To test the parallel profiles, the null hypothesis is
 $$
-H_0:\beta_3=350\qquad\text{v.s.}\qquad H_A:\beta_3\not=350
+H_0: \mu_{11}-\mu_{21}=\mu_{12}-\mu_{22}=\mu_{13}-\mu_{23}=\mu_{14}-\mu_{24}
 $$
-we can easily reject the null hypothesis because the Wald-type confidence intervals of both models do not contain 350, which is equivalent to a Wald test. 
-We also can use the ESTIMATE statement in PROC NLMIXED to estimate $\beta_3-350$, as Figure \ref{h5re12}
+In Figure \ref{h6re9}, the Wilks' Lambda value is 0.7399, the F value is 2.70, the degree of freedom of numerator is 3, the degree of freedom of denominator is 23, and the P-value is 0.0696$>$0.05. So we cannot reject the null hypothesis, that is, the mean profiles are parallel, or we can say that there is no significant interaction effect.
 \Listing[store=class,
-         caption={Testing "$\beta_3=350$"}]{h5re12}
-It is obviously that we should reject the null hypothesis, which is the same result as above. So $\beta_3$ does not equal 350.
-\item To test whether the random effect is necessary. Because the method of parameter estimate of mixed model is not based on likelihood, we cannot use likelihood ratio test. So we still use the Wald-type confidence interval. Because the interval contains zero, we cannot reject the null hypothesis, that is, the random effect is not significant. Furthermore, we can see that the estimate of parameters of fixed effect does not change too much, so this also indicates that it is not necessary to introduce random effect into model. Finally, from the plots of prediction and measurements, we can see the cluster-specific prediction curve are almost same, which also indicates that the random effect is slight.
+         caption={Parallel Profiles Test}]{h6re9}
+\item To test the parallel profiles, the null hypothesis is
+$$
+H_0: \mu_{11}=\mu_{12}=\mu_{13}=\mu_{14}
+$$
+In Figure \ref{h6re8}, the Wilks' Lambda value is 0.1948, the F value is 31.69, the degree of freedom of numerator is 3, the degree of freedom of denominator is 23, and the P-value is less than 0.0001$<$0.05. So we will reject the null hypothesis, that is, the mean profiles are not horizontal, or we can say that there is a significant age effect.
+\Listing[store=class,
+         caption={Horizontal Profiles Test}]{h6re8}
+\item To test the parallel profiles, the null hypothesis is
+$$
+H_0: \bm{\mu}_1-\bm{\mu}_2=\bm{0}
+$$
+In Figure \ref{h6re10}, there is only one approach for this test. The F value is 9.29, the degree of freedom of numerator is 1, the degree of freedom of denominator is 25, and the P-value is 0.0054$<$0.05. So we will reject the null hypothesis, that is, the mean profiles are not identical, or we can say that there is a significant gender effect.
+\Listing[store=class,
+         caption={Coincident Profiles Test}]{h6re10}
 \end{enumerate}
 
-But, we should be cautious about the result, because from the parameter estimates of parameter of nonlinear model, skewness of all parameters is much greater than 0.25, which means all parameters have vary apparent skewness. This makes the inferences unreliable.
-\Graphic[store=class, scale=0.9,
-         caption={Plots of Prediction and Measurements}]{h5re1}
+
+(c). From the SAS output (Figure \ref{h6re11}), we can see the F value of interaction is 2.36 with P-value=0.0797$>$0.05. So we cannot reject the null hypothesis of no interaction. Because of no interaction, it is appropriate to test the main effect. The F value of age is 35.35 with P-value less than 0.0001. So we can conclude that there is a significant effect of age.
+\Listing[store=class,
+         caption={Univariate Approach}]{h6re11}
+         
+(d). From the SAS output (Figure \ref{h6re12}), the Greenhouse-Geisser adjustment is 0.8672, and the Huynh-Feldt adjustment is 09769.
+\Listing[store=class,
+         caption={Univariate Approach Adjustment}]{h6re12}
+         
+(e). From the final SAS output of PROC MIXED (Figure \ref{h6re26}), we have the exactly same result that there is no significant interaction, but the gender effect and age effect are both significant  as univariate approach shows, especially the P-values of these three effects. This also support the result of Mauchly's test that the sphericity assumption is valid, which ensures the univariate approach is appropriate.
+\Listing[store=class,
+         caption={Result of PROC MIXED}]{h6re26}
+
+
+
+
+
+
+
+
 
 
 $\blacktriangleright$ \textbf{3.\quad Solution.} 
+(a). From the plot (Figure \ref{h6re}), firstly we can see that there are some intersections among the profiles, which means that there may be some significant interaction between reinforcement schedules and conditions. Then we can see that the profile of schedule 1 is parallel with the profile of schedule 2, and the difference is so small that they may behave in same way. Finally, the behavior of schedule 3 seems totally different from the other two's.
+\Graphic[store=class, scale=0.7,
+         caption={Plots of Mean Profiles}]{h6re}
 
-Firstly, we fit the generalize linear model using PROC GENMOD, and parameter estimates are listed as Figure \ref{h5re19} (Because of the limitation of page width, the last column "P-value" of table is not included in page).
+(b). From the SAS output (Figure \ref{h6re44}), P-value of the test is 0.0119$<$0.05, so we can say that there is a significant schedule effect. The next step we should do is to find where the differences lie, so we will follow up with several post-hoc tests in part (c).
 \Listing[store=class,
-         caption={Results from PROC GENMOD}]{h5re19}
+         caption={Overall Reinforcement Schedule Effect}]{h6re44}
 
-We want to test
+(b). We will begin with the multivariate test of schedule 1 versus the average of schedule 2. The null hypothesis is
 $$
-H_0: \text{ All $\beta_{1,i}$ equal 0}\qquad\text{v.s.}\qquad H_A: \text{ At least one $\beta_{1,i}$ not equal 0}
+H_0:\bm{LBM}=\bm{0}
 $$
-From the output, I can see that the P-value for the slope at location 1 is 0.0005, which means that $\beta_{1,1}$ is significantly not equal to 0. So we can say that $\beta_{1,i}$ are significant. This means that SST effect is important to predict the tornado occurrence. 
-
-    Then we fit the mixed models with random intercept and/or slope. Using PROC GLIMMIX, some results are listed in the Appendix B. Firstly, from Figure \ref{h5re30}, \ref{h5re41} and \ref{h5re52}, the type III tests show that the fixed effect of interaction between interaction and SST is significant, which support the result that $\beta_{1,i}$ are significant. Then to test the random effect, using COVTEST statement in PROC GLMMIX, the results which are showed in Figure \ref{h5re31}, \ref{h5re42} and \ref{h5re53} indicate that we cannot reject the null hypothesis of no random effect, neither random intercept nor random slope. 
-    
-    From Figure \ref{h5re2}, we plot the predication of tornado occurrence frequency of different location versus the actual frequency. The reference line is a line with slope equal 1, which means the predications perfectly fit the facts. The distance between observation point and reference line represent the accuracy of the predication of the model; the point far away from the line has a very bad predication. We can see that the four plots are not different so much, that is to say, random effect(s) does not improve our prediction so much, which also can be seen from the sum of squared residuals in Figure \ref{h5re17}. This is in accordance with the result of COVTEST, that is, it is not necessary to introduce random effect.  Moreover, from the plots, the locations 7, 16, 3, 4, 18 and 12 have very good predication under the GL model; the predications of location 14 and 6 are still acceptable, not only because the differences are not so large, but also because they predict more tornado than actual occurrence, which is conservative and safe. However, location 19 has very bad predication. We should realize that location 19 is an outlier, so there may be some other factors that we do not notice or take into consideration. 
-
-
-
-
-
-$\blacktriangleright$ \textbf{4.\quad Solution.} 
-(a) 
-$$
-\bm{Y}=\lma X_1\\X_3\rma\sim \text{N}\left(\lma -3 \\2\rma,\lma 4&0\\0&3\rma\right)
-$$
-
-(b)
-\ba
-\bm{Y}|X_2&\sim\text{N}\left(\lma -3\\2\rma+\lma \frac{x_2}{2}-\frac12\\\frac{x_2}2-\frac12\rma,\lma 3.5 &-0.5\\-0.5 &2.5\rma\right)\\
-&=\text{N}\left(\lma \frac{x_2}{2}-\frac72\\\frac{x_2}2+\frac32\rma,\lma 3.5 &-0.5\\-0.5 &2.5\rma\right)
-\ea
-
-
-(c)
-\ba
-X_2|\bm{Y}&\sim\text{N}\left(2+\lma 1&1\rma\lma \frac14&0\\0&\frac13\rma\lma x_1+3\\x_3-2\rma, 2-\lma 1&1\rma\lma \frac14&0\\0&\frac13\rma\lma1\\1\rma\right)\\
-&=\text{N}\left(\frac14x_1+\frac13x_3+\frac{13}{12},\frac{17}{12}\right).
-\ea
-
-(d) 
-$$
-Z\sim\text{N}(-3+3\cdot1,4+3^3\cdot2+2\cdot3\cdot1)=\text{N}(0,28)
-$$
-
-$\blacktriangleright$ \textbf{5.\quad Solution.}
-(a). The hypotheses are
-$$
-H_0:\mu_{11}=\mu_{12}=\mu_{13}\qquad\text{v.s.}\qquad H_a: \text{ at least two means are not equal}
-$$
-or we can write null hypothesis as
-$$
-H_0: \bm{C}_1\bm{\mu}_1=\bm{0}
-$$
-where
-$$
-\bm{C}_1=\lma 1 &-1 &0\\ 0 &1 &-1\rma
-$$
-The statistics are
-\ba
-T^2&=n_1(\bm{C\bar{y}})'(\bm{CSC}')^{-1}(\bm{C\bar{y}})=111.4286\\
-F&=\frac{n_1-c}{(n_1-1)c}T^2=53.3929\sim f_{c,n_1-c}
-\ea
-where $c=2$ and $n_1=25$. The critical value of $F$ statistic is $f_{0.95,2,23}=3.422$, so $F>f_{0.95,2,23}$ and P-value is $2.28\text{E}^{-09}$. We will reject the  null hypothesis, that is, the mean concentrations are significantly different at three time points.
-
-
-(b). \begin{enumerate}[i]
-\item The common covariance is
-$$
-\bm{S}_{pool}=\frac{(n_1-1)\bm{S}+(n_2-1)\bm{W}}{(n1-1)+(n_2-1)}=\lma 28.4 &10.8 & 12.4\\10.8 &15.8 &5.6\\12.4 & 5.6 &39.4\rma
-$$
-where $n_2=17$. The degree of freedom is 25+17-2=40.
-\item The hypotheses are 
-$$
-H_0:\bm{\Sigma}_A=\bm{\Sigma}_B\qquad\text{v.s.}\qquad H_A:\bm{\Sigma}_A\not=\bm{\Sigma}_B
-$$
-The statistic is
-\ba
-M&=(n_1+n_2-2)\log|\bm{S}_{pool}|-(n_1-1)\log|\bm{S}|-(n_2-1)\log|\bm{W}|=1.1948\\
-C^{-1}&=1-\frac{2\times3^2+3\times3-1}{6\times(3+1)\times(2-1)}\left\{\frac{1}{n_1-1}+\frac{1}{n_2-1}-\frac{1}{n_1+n_2-2}\right\}=0.9142\\
-MC^{-1}&=1.1948\times0.9142=1.0923\sim\chi^2_{6}
-\ea
-
-Because $MC^{-1}=0.9142<\chi^2_{0.95,6}=12.592$ and P-value is 0.9819, we cannot reject the null hypothesis, which means that the assumption of same population covariance are reliable.
-
-\item The squared Mahalanobis distance between $\bm{y}-\bm{z}$ is
-$$
-T^2=(\bm{y}-\bm{z})'\left[\bm{S}_{pool}\left(\frac{1}{n_1}+\frac{1}{n_2}\right)\right]^{-1}(\bm{y}-\bm{z})=18.03155
-$$
-
-
-\item The hypotheses are
-$$
-H_0:\bm{y}-\bm{z}=\bm{0}\qquad\text{v.s.}\qquad H_A:\bm{y}-\bm{z}=\bm{0}
-$$
-The statistic can be computed from the Mahalanobis distance from part (iii)
-$$
-F=\frac{n_1+n_2-3-1}{(n_1+n_2-2)\times3}T^2=5.70999\sim f_{3,38}
-$$
-Because $F=5.70999>f_{0.95,3,38}=2.851$ with P-value=0.0025. We will reject the null hypothesis, so drug A and drug B do not have equal means.
-\item To test the parallel profiles, the hypotheses are
-$$
-H_0:\mu_{11}-\mu_{21}=\mu_{12}-\mu_{22}=\mu_{13}-\mu_{23}\quad\text{v.s.}\quad H_A: \text{ at least two difference not equal}
-$$
-or we can rewrite the null hypothesis as
-$$
-H_0:\bm{C_2}(\bm{y}-\bm{z})=0
-$$
-where $\bm{C_2}=\lma 1 &-1 &0\\ 0 &1 &-1\rma$. 
-
-The statistics are
-\ba
-T^2&=\frac{n_1n_2}{n_1+n_2}(\bm{C(\bar{y}-\bar{z})})'(\bm{CSC}')^{-1}(\bm{C(\bar{y}-\bar{z})})=14.2658\\
-F&=\frac{n_1+n_2-c-1}{(n_1+n_2-2)c}T^2=6.7849\sim f_{c,n_1+n_2-c-1}
-\ea
-Because $F=6.7849>f_{0.95,2,39}=3.238$ with P-value=0.0030. We will reject the null hypothesis, so there is a significant interaction between drug and time.
-
-
-
-\end{enumerate}
-
-
-
-
-
-
-
-
-
-
-
-
-
-\begin{appendices}
-\section{SAS Code for Problem 3}
-\begin{Sascode}[store=class]
-libname da2 'C:\Users\psy6b\Desktop\8320 datasets'; 
-ods graphics on; 
-options ls=70 ps=35; 
-
-/*To reading the data*/
-data da2.h5q31;
-   infile 'C:\Users\psy6b\Desktop\8320 datasets\ssttornado532001.dat';
-   retain ss1-ss49;
-   array ss{49} ss1-ss49;
-   if _N_=1 then do; 
-      input ss1-ss49;
-   end;
-   loc+1;
-   drop ss1-ss49;
-   do t=1 to 49;
-      sst=ss{t};
-      input torn @;
-      output;
-   end;
-run;
-data da2.h5q32;
-   infile 'C:\Users\psy6b\Desktop\8320 datasets\MOtornlatlon.dat';
-   loc+1;
-   input lat lon;
-   run;
-proc sql;
-   create table da2.h5q3
-   as select * from da2.h5q31 as a, da2.h5q32 as b
-   where a.loc=b.loc;
-   run;
-quit;
-
-/*Fitting different models*/
-proc genmod data=da2.h5q3;
-   class loc;
-   model torn = sst*loc / dist=poisson link=log;
-   output out=h5q3out1 resraw=Residual pred=Predicted lower=Lower
-      upper=Upper;
-run;
-proc glimmix data=da2.h5q3 noitprint;
-   class loc;
-   model torn = sst sst*loc / dist=poisson link=log ddfm=betwithin
-      solution;
-   random intercept / subject=loc type=sp(exp)(lon lat);
-   nloptions tech=newrap;
-   covtest 'Random Int.' indep;
-   output out=h5q3out2 pred(ilink)=predicted lcl(ilink)=lower 
-      ucl(ilink)=upper residual(ilink)=Residual;
-run;
-proc glimmix data=da2.h5q3 noitprint;
-   class loc;
-   model torn = sst sst*loc / dist=poisson link=log ddfm=betwithin 
-      solution;
-   random sst / subject=loc type=sp(exp)(lon lat);
-   nloptions tech=newrap;
-   covtest 'Random Coef.' indep;
-   output out=h5q3out3 pred(ilink)=predicted lcl(ilink)=lower 
-      ucl(ilink)=upper residual(ilink)=Residual;
-run;
-proc glimmix data=da2.h5q3 noitprint;
-   class loc;
-   model torn = sst sst*loc / dist=poisson link=log ddfm=betwithin 
-      solution;
-   random intercept sst / subject=loc type=sp(exp)(lon lat);
-   nloptions tech=newrap;
-   covtest 'Random Int. & Coef.' indep;
-   output out=h5q3out4 pred(ilink)=predicted lcl(ilink)=lower 
-      ucl(ilink)=upper residual(ilink)=Residual;
-run;
-
-
-/*Processing output*/
-proc sort data=h5q3out1;
-   by loc;
-run;
-data h5q3eval1;
-   set h5q3out1;
-   by loc;
-   keep loc torn predicted residual lat lon;
-   retain sumtorn sumpred sumres;
-   if first.loc then do;
-      sumtorn=0;
-      sumpred=0;
-      sumres=0;
-   end;
-   sumtorn+torn;
-   sumpred+predicted;
-   sumres+residual;
-   if last.loc then do;
-      torn=sumtorn;
-      predicted=sumpred;
-      residual=sumres;
-      output;
-   end;
-run;
-proc sort data=h5q3out2;
-   by loc;
-run;
-data h5q3eval2;
-   set h5q3out2;
-   by loc;
-   keep loc torn predicted residual lat lon;
-   retain sumtorn sumpred sumres;
-   if first.loc then do;
-      sumtorn=0;
-      sumpred=0;
-      sumres=0;
-   end;
-   sumtorn+torn;
-   sumpred+predicted;
-   sumres+residual;
-   if last.loc then do;
-      torn=sumtorn;
-      predicted=sumpred;
-      residual=sumres;
-      output;
-   end;
-run;
-proc sort data=h5q3out3;
-   by loc;
-run;
-data h5q3eval3;
-   set h5q3out3;
-   by loc;
-   keep loc torn predicted residual lat lon;
-   retain sumtorn sumpred sumres;
-   if first.loc then do;
-      sumtorn=0;
-      sumpred=0;
-      sumres=0;
-   end;
-   sumtorn+torn;
-   sumpred+predicted;
-   sumres+residual;
-   if last.loc then do;
-      torn=sumtorn;
-      predicted=sumpred;
-      residual=sumres;
-      output;
-   end;
-run;
-proc sort data=h5q3out4;
-   by loc;
-run;
-data h5q3eval4;
-   set h5q3out4;
-   by loc;
-   keep loc torn predicted residual lat lon;
-   retain sumtorn sumpred sumres;
-   if first.loc then do;
-      sumtorn=0;
-      sumpred=0;
-      sumres=0;
-   end;
-   sumtorn+torn;
-   sumpred+predicted;
-   sumres+residual;
-   if last.loc then do;
-      torn=sumtorn;
-      predicted=sumpred;
-      residual=sumres;
-      output;
-   end;
-run;
-data h5q3eval;
-   set h5q3eval1(in=a) h5q3eval2(in=b) h5q3eval3(in=c) 
-      h5q3eval4(in=d);
-   length model $23;
-   if a then do;
-      model='Independent';
-   end;
-   if b then do;
-      model='Random Int.';
-   end;
-   if c then do;
-      model='Random Coef.';
-   end;
-   if d then do;
-      model='Random Int. & Coef.';
-   end;
-   label torn='Actual Measurements';
-run;
-
-
-
-/*Evaluating models*/
-proc sort data=h5q3eval;
-   by torn;
-run;
-proc sgpanel data=h5q3eval noautolegend;
-   panelby model/columns=2 rows=2 spacing=5;
-   scatter x=torn y=predicted/ datalabel=loc;
-   series x=torn y=torn;
-   keyword "Observations" "Reference Line";
-run;
-proc sql;
-   title 'Model Comparation';
-   select model,sum(residual*residual) label='Model Type' as SSR 
-      label='Sum of Squared Residual'
-   from h5q3eval
-   group by model;
-quit;
-
-/*Plotting the profile*/
-data panelplot2;
-   set h5q3out2;
-   length type $20;
-   keep loc t type resp;
-   t=t+1952;
-   type='measurement';
-   resp=torn;
-   output;
-   type='cluster-specific';
-   resp=predicted;
-   output;
-   type='lower bound';
-   resp=lower;
-   output;
-   type='upper bound';
-   resp=upper;
-   output;
-   run;
-proc sgpanel data=panelplot2;
-   where loc le 4 and loc ge 1;
-   panelby loc/rows=2 columns=2 spacing=5;
-   vline t/response=resp group=type;
-   colaxis fitpolicy=thin alternate;
-   rowaxis alternate;
-run;
-proc sgpanel data=panelplot2;
-   where loc le 8 and loc ge 5;
-   panelby loc/rows=2 columns=2 spacing=5;
-   vline t/response=resp group=type;
-   colaxis fitpolicy=thin alternate;
-   rowaxis alternate;
-run;
-proc sgpanel data=panelplot2;
-   where loc le 12 and loc ge 9;
-   panelby loc/rows=2 columns=2 spacing=5;
-   vline t/response=resp group=type;
-   colaxis fitpolicy=thin alternate;
-   rowaxis alternate;
-run;
-proc sgpanel data=panelplot2;
-   where loc le 16 and loc ge 13;
-   panelby loc/rows=2 columns=2 spacing=5;
-   vline t/response=resp group=type;
-   colaxis fitpolicy=thin alternate;
-   rowaxis alternate;
-run;
-proc sgpanel data=panelplot2;
-   where loc le 20 and loc ge 17;
-   panelby loc/rows=2 columns=2 spacing=5;
-   vline t/response=resp group=type;
-   colaxis fitpolicy=thin alternate;
-   rowaxis alternate;
-run;
-\end{Sascode}
-\section{Some Outputs for Promblem 3}
+where $\bm{L}=\lma 1&-1&0\rma$, and
+$$\bm{M}=\lma1&0&0\\-1&1&0\\0&-1&1\\0&0&-1\rma$$.
+From the SAS output (Figure \ref{h6re49}), P-value of the test is 0.9979$>$0.05, so we cannot reject $H_0$ that schedule 1 and schedule 2 behave the same.
 \Listing[store=class,
-         caption={Goodness of Fit of Independent Model}]{h5re17}
-\Listing[store=class,
-         caption={Results of Random Intercept Model}]{h5re27}
-\Listing[store=class,
-         caption={Results of Random Intercept Model}]{h5re28}
-\Listing[store=class,
-         caption={Results of Random Intercept Model}]{h5re30}
-\Listing[store=class,
-         caption={Results of Random Intercept Model}]{h5re31}
-\Listing[store=class,
-         caption={Results of Random Coefficient Model}]{h5re38}
-\Listing[store=class,
-         caption={Results of Random Coefficient Model}]{h5re39}
-\Listing[store=class,
-         caption={Results of Random Coefficient Model}]{h5re41}
-\Listing[store=class,
-         caption={Results of Random Coefficient Model}]{h5re42}
-\Listing[store=class,
-         caption={Results of Random Int. and Coef. Model}]{h5re49}
-\Listing[store=class,
-         caption={Results of Random Int. and Coef,  Model}]{h5re50}
-\Listing[store=class,
-         caption={Results of Random Int. and Coef. Model}]{h5re52}
-\Listing[store=class,
-         caption={Results of Random Int. and Coef. Model}]{h5re53}
-\Listing[store=class,
-         caption={Goodness of Fit of Independent Model}]{h5re54}
-\Graphic[store=class, scale=0.65,
-         caption={Scatterplot: Predication v.s. Measurements}]{h5re2}
-\Graphic[store=class, scale=0.45,
-         caption={Plots of Prediction For Random Intercept Model}]{h5re3}
-\Graphic[store=class, scale=0.45,
-         caption={Plots of Prediction For Random Intercept Model}]{h5re4}
-\Graphic[store=class, scale=0.45,
-         caption={Plots of Prediction For Random Intercept Model}]{h5re5}
-\Graphic[store=class, scale=0.45,
-         caption={Plots of Prediction For Random Intercept Model}]{h5re6}
-\Graphic[store=class, scale=0.45,
-         caption={Plots of Prediction For Random Intercept Model}]{h5re7}
+         caption={Overall Reinforcement Schedule Effect}]{h6re49}
+         
+We will begin with the multivariate test of schedule 3 versus the average of schedule 1 and 2. The null hypothesis is
+$$
+H_0:\bm{LBM}=\bm{0}
+$$
+where $\bm{L}=\lma -1 -1 +2\rma$, and $\bm{M}$ is same as above.
 
-
-\end{appendices}
-
-
-
+From the SAS output (Figure \ref{h6re51}), P-value of the test is 0.0030$<$0.05, so we will reject $H_0$ that schedule 3 behaves like the other 2 schedules under different conditions.
+\Listing[store=class,
+         caption={Overall Reinforcement Schedule Effect}]{h6re51}
 
 
 

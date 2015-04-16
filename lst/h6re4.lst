@@ -1,0 +1,9 @@
+     AGE_N represents the nth degree polynomial contrast for AGE
+ 
+              M Matrix Describing Transformed Variables
+ 
+                 Age8           Age10           Age12           Age14
+ 
+AGE_1    -.6708203932    -.2236067977    0.2236067977    0.6708203932
+AGE_2    0.5000000000    -.5000000000    -.5000000000    0.5000000000
+AGE_3    -.2236067977    0.6708203932    -.6708203932    0.2236067977

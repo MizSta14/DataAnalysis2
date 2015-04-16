@@ -1,0 +1,14 @@
+    MANOVA Test Criteria and Exact F Statistics for the Hypothesis
+       of No Overall Compare Schedule 1 v.s. Schedule 2 Effect
+       on the Variables Defined by the M Matrix Transformation
+   H = Contrast SSCP Matrix for Compare Schedule 1 v.s. Schedule 2
+                        E = Error SSCP Matrix
+ 
+                         S=1    M=0.5    N=4
+ 
+Statistic                      Value  F Value  Num DF  Den DF  Pr > F
+ 
+Wilks' Lambda             0.31463598     7.26       3      10  0.0072
+Pillai's Trace            0.68536402     7.26       3      10  0.0072
+Hotelling-Lawley Trace    2.17827609     7.26       3      10  0.0072
+Roy's Greatest Root       2.17827609     7.26       3      10  0.0072

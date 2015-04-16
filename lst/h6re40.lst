@@ -1,0 +1,13 @@
+                Overall Reinforcement Schedule Effect
+ 
+                          The GLM Procedure
+                  Multivariate Analysis of Variance
+ 
+                        E = Error SSCP Matrix
+ 
+                Cond1           Cond2           Cond3           Cond4
+ 
+Cond1           386.8           -99.8            -5.4           535.8
+Cond2           -99.8           194.8            87.4            10.2
+Cond3            -5.4            87.4           328.4           452.4
+Cond4           535.8            10.2           452.4          2553.2

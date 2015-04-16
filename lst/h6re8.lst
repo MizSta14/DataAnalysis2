@@ -1,0 +1,13 @@
+             MANOVA Test Criteria and Exact F Statistics
+                 for the Hypothesis of no AGE Effect
+                   H = Type III SSCP Matrix for AGE
+                        E = Error SSCP Matrix
+ 
+                        S=1    M=0.5    N=10.5
+ 
+Statistic                      Value  F Value  Num DF  Den DF  Pr > F
+ 
+Wilks' Lambda             0.19479424    31.69       3      23  <.0001
+Pillai's Trace            0.80520576    31.69       3      23  <.0001
+Hotelling-Lawley Trace    4.13362211    31.69       3      23  <.0001
+Roy's Greatest Root       4.13362211    31.69       3      23  <.0001

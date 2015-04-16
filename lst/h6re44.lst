@@ -1,0 +1,16 @@
+            MANOVA Test Criteria and F Approximations for
+               the Hypothesis of No Overall Rein Effect
+                  H = Type III SSCP Matrix for Rein
+                        E = Error SSCP Matrix
+ 
+                        S=2    M=0.5    N=3.5
+ 
+Statistic                      Value  F Value  Num DF  Den DF  Pr > F
+ 
+Wilks' Lambda             0.14954207     3.57       8      18  0.0119
+Pillai's Trace            0.99249428     2.46       8      20  0.0488
+Hotelling-Lawley Trace    4.73727283     5.09       8   10.78  0.0081
+Roy's Greatest Root       4.52748560    11.32       4      10  0.0010
+ 
+    NOTE: F Statistic for Roy's Greatest Root is an upper bound.
+            NOTE: F Statistic for Wilks' Lambda is exact.

@@ -1,0 +1,14 @@
+Contrast Variable: AGE_3
+ 
+ 
+Source                     DF    Type III SS    Mean Square   F Value
+ 
+Mean                        1     0.21216330     0.21216330      0.08
+Gender                      1     0.67882997     0.67882997      0.27
+Error                      25    62.91931818     2.51677273
+ 
+                    Source                 Pr > F
+ 
+                    Mean                   0.7739
+                    Gender                 0.6081
+                    Error

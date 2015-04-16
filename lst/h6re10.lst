@@ -1,0 +1,13 @@
+                          The GLM Procedure
+                Repeated Measures Analysis of Variance
+           Tests of Hypotheses for Between Subjects Effects
+ 
+Source                     DF    Type III SS    Mean Square   F Value
+ 
+Gender                      1    140.4648569    140.4648569      9.29
+Error                      25    377.9147727     15.1165909
+ 
+                    Source                 Pr > F
+ 
+                    Gender                 0.0054
+                    Error

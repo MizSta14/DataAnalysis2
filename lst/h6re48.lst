@@ -1,0 +1,17 @@
+                Overall Reinforcement Schedule Effect
+ 
+                          The GLM Procedure
+                  Multivariate Analysis of Variance
+ 
+      Characteristic Roots and Vectors of: E Inverse * H, where
+   H = Contrast SSCP Matrix for Compare Schedule 1 v.s. Schedule 2
+                        E = Error SSCP Matrix
+ 
+           Variables have been transformed by the M Matrix
+ 
+Characteristic             Characteristic Vector  V'EV=1
+          Root   Percent          MVAR1          MVAR2          MVAR3
+ 
+    2.17827609    100.00     0.03425264     0.02757876    -0.00488154
+    0.00000000      0.00     0.02653577     0.00157455     0.02551812
+    0.00000000      0.00    -0.00362754     0.05123902     0.00000000

@@ -1,0 +1,8 @@
+                    Type 3 Tests of Fixed Effects
+ 
+                          Num     Den
+           Effect          DF      DF    F Value    Pr > F
+ 
+           Gender           1      25       9.29    0.0054
+           age              3      75      35.35    <.0001
+           Gender*age       3      75       2.36    0.0781

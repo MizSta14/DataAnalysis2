@@ -1,0 +1,16 @@
+      Characteristic Roots and Vectors of: E Inverse * H, where
+                  H = Type III SSCP Matrix for Rein
+                        E = Error SSCP Matrix
+ 
+Characteristic             Characteristic Vector  V'EV=1
+          Root   Percent          Cond1          Cond2          Cond3
+                                  Cond4
+ 
+    4.52748560     95.57     0.06117242     0.02992718    -0.00648850
+                            -0.00508768
+    0.20978723      4.43     0.02215228     0.04489182     0.04553803
+                            -0.01518185
+    0.00000000      0.00    -0.00272754    -0.04849369     0.04413792
+                             0.00585571
+    0.00000000      0.00    -0.02461117     0.03992289    -0.03194950
+                             0.02388060

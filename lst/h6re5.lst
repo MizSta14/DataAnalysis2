@@ -1,0 +1,9 @@
+                        E = Error SSCP Matrix
+ 
+     AGE_N represents the nth degree polynomial contrast for AGE
+ 
+                         AGE_1         AGE_2         AGE_3
+ 
+           AGE_1       59.1673      -11.2242        4.5278
+           AGE_2      -11.2242       26.0412       -1.2819
+           AGE_3        4.5278       -1.2819       62.9193

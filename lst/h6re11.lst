@@ -1,0 +1,16 @@
+                          The GLM Procedure
+                Repeated Measures Analysis of Variance
+      Univariate Tests of Hypotheses for Within Subject Effects
+ 
+Source                     DF    Type III SS    Mean Square   F Value
+ 
+AGE                         3    209.4369739     69.8123246     35.35
+AGE*Gender                  3     13.9925295      4.6641765      2.36
+Error(AGE)                 75    148.1278409      1.9750379
+ 
+                                              Adj Pr > F
+          Source                 Pr > F     G - G     H-F-L
+ 
+          AGE                    <.0001    <.0001    <.0001
+          AGE*Gender             0.0781    0.0878    0.0797
+          Error(AGE)

@@ -1,0 +1,20 @@
+                          The GLM Procedure
+                Repeated Measures Analysis of Variance
+              Analysis of Variance of Contrast Variables
+ 
+AGE_N represents the nth degree polynomial contrast for AGE
+ 
+Contrast Variable: AGE_1
+ 
+ 
+Source                     DF    Type III SS    Mean Square   F Value
+ 
+Mean                        1    208.2660038    208.2660038     88.00
+Gender                      1     12.1141519     12.1141519      5.12
+Error                      25     59.1673295      2.3666932
+ 
+                    Source                 Pr > F
+ 
+                    Mean                   <.0001
+                    Gender                 0.0326
+                    Error

@@ -1,0 +1,6 @@
+                             Approx     Approximate 95%
+ Parameter     Estimate   Std Error    Confidence Limits    Skewness
+ 
+ beta1            199.7     10.3827      178.9      220.4     0.5330
+ beta2            797.8     55.1103      687.4      908.1     0.3725
+ beta3            300.7     42.8631      214.8      386.5     0.4782

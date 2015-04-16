@@ -1,0 +1,7 @@
+                           Sphericity Tests
+ 
+                                  Mauchly's
+ Variables                   DF   Criterion   Chi-Square   Pr > ChiSq
+ 
+ Transformed Variates         5   0.7353334    7.2929515       0.1997
+ Orthogonal Components        5   0.7353334    7.2929515       0.1997

@@ -1,0 +1,12 @@
+                         The Mixed Procedure
+ 
+                          Model Information
+ 
+        Data Set                     WORK.UNIDATA
+        Dependent Variable           measure
+        Covariance Structure         Compound Symmetry
+        Subject Effect               ID
+        Estimation Method            REML
+        Residual Variance Method     Profile
+        Fixed Effects SE Method      Model-Based
+        Degrees of Freedom Method    Between-Within

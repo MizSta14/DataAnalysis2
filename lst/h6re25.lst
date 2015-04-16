@@ -1,0 +1,20 @@
+                      Solution for Fixed Effects
+ 
+                                    Standard
+ Effect      Gender  age  Estimate     Error    DF  t Value  Pr > |t|
+ 
+ Intercept                 27.4687    0.5734    25    47.91    <.0001
+ Gender      F             -3.3778    0.8983    25    -3.76    0.0009
+ Gender      M                   0         .     .      .       .
+ age                  8    -4.5937    0.4969    75    -9.25    <.0001
+ age                 10    -3.6562    0.4969    75    -7.36    <.0001
+ age                 12    -1.7500    0.4969    75    -3.52    0.0007
+ age                 14          0         .     .      .       .
+ Gender*age  F        8     1.6847    0.7784    75     2.16    0.0336
+ Gender*age  F       10     1.7926    0.7784    75     2.30    0.0241
+ Gender*age  F       12     0.7500    0.7784    75     0.96    0.3384
+ Gender*age  F       14          0         .     .      .       .
+ Gender*age  M        8          0         .     .      .       .
+ Gender*age  M       10          0         .     .      .       .
+ Gender*age  M       12          0         .     .      .       .
+ Gender*age  M       14          0         .     .      .       .

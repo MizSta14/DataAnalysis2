@@ -1,0 +1,12 @@
+                Overall Reinforcement Schedule Effect
+ 
+                          The GLM Procedure
+                  Multivariate Analysis of Variance
+ 
+              M Matrix Describing Transformed Variables
+ 
+                Cond1           Cond2           Cond3           Cond4
+ 
+MVAR1               1              -1               0               0
+MVAR2               0               1              -1               0
+MVAR3               0               0               1              -1

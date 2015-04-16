@@ -23,354 +23,97 @@ libname da2 'C:\Users\psy6b\Desktop\8320 datasets';
 ods graphics on;
 options ls=70 ps=35;
 
-data da2.h5q2;
-infile 'C:\Users\psy6b\Desktop\8320 datasets\growthdata.dat';
-input t @;
-do i=1 to 6;
-input y @;
+data da2.h6q2;
+infile 'C:\Users\psy6b\Desktop\8320 datasets\PothoffRoy1964.dat';
+input ID Gender $ Age8 Age10 Age12 Age14;
+run;
+PROC GLM;
+     CLASS gender;
+     MODEL AGE8--AGE14 = gender / NOUNI ;
+     REPEATED AGE POLYNOMIAL  / SUMMARY PRINTM PRINTE;
+RUN;
+data unidata;
+set da2.h6q2;
+array m{4} age8--age14;
+keep id Gender age measure;
+do i=0 to 3;
+age=8+i*2;
+measure=m(i+1);
 output;
 end;
 run;
+proc mixed data=unidata;
+class Gender age;
+model measure=gender|age/ solution;
+repeated /subject=ID type=cs;
+run;
+proc mixed data=unidata;
+class Gender;
+model measure=gender|age/ solution;
+repeated /subject=ID type=cs;
+run;
+data da2.h6q3;
+input Rein Cond1-Cond4;
+datalines;
+1 29 20 21 18
+1 24 15 10 8
+1 31 19 10 31
+1 41 11 15 42
+1 30 20 27 53
+2 25 17 19 17
+2 20 12 8  8
+2 35 16 9  28
+2 38 8  14 40
+2 26 18 18 51
+3 10 18 16 14
+3 9  10 18 11
+3 7  18 19 12
+3 8  19 20 5
+3 11 20 17 6
+;
+run;
+PROC SUMMARY NWAY DATA=da2.h6q3;
+CLASS rein;
+VAR cond1-cond4;
+OUTPUT OUT=new MEAN=cond1-cond4;
+RUN;
+DATA plot;
+SET new;
+ARRAY m{4} cond1-cond4;
+DO time=1 TO 4;
+response=m(time);
+OUTPUT;
+END;
+keep time response rein;
+RUN;
+AXIS1 LABEL=(ANGLE=90 H=1.2 'Response');
+AXIS2 OFFSET=(15) LABEL=(H=1.2 'Time');
+SYMBOL VALUE=DOT I=JOIN;
+TITLE 'Profile plot';
+PROC GPLOT DATA=plot;
+PLOT response*time=rein / VAXIS=AXIS1 HAXIS=AXIS2 HMINOR=0 VMINOR=1;
+RUN;
+PROC GLM DATA=da2.h6q3;
+CLASS rein;
+MODEL cond1-cond4=rein / NOUNI;
+MANOVA H=rein / PRINTE PRINTH;
+TITLE 'Overall Reinforcement Schedule Effect';
+RUN;
+PROC GLM DATA=da2.h6q3;
+CLASS rein;
+MODEL cond1-cond4=rein / NOUNI;
+CONTRAST 'Compare Schedule 1 v.s. Schedule 2' rein 0 +1 -1;
+CONTRAST 'Compare Schedule 1 & 2 v.s. Schedule 3' rein -1 -1 +2;
+MANOVA M=(+1 -1  0  0,
+   0 +1 -1  0,
+   0  0 +1 -1);
+RUN;
 
-data aver;
-set da2.h5q2;
-by t;
-retain count yave;
-if first.t then do;
-count=0;
-yave=0;
-end;
-count+1;
-yave+y;
-if last.t then do;
-y=yave/count;
-i=7;
-output;
-end;
-keep t i y;
-run;
-
-data da2.h5q2plot;
-set da2.h5q2 aver;
-run;
-
-proc sort data=da2.h5q2plot;
-by i;
-run;
-
-symbol interpol=join;
-proc gplot data=da2.h5q2plot;
-plot y*t=i;
-run;
-quit;
-
-proc nlin data=da2.h5q2 hougaard noitprint method=newton;
-parameters beta1=200
-beta2=850
-beta3=350;
-e=exp(-(t-beta2)/beta3);
-model y =beta1/(1+e);
-run;
-proc nlmixed data=da2.h5q2;
-parameters beta1=200
-beta2=850
-beta3=350
-resvar=40
-varu=900;
-e=exp(-(t-beta2)/beta3);
-model y ~ normal((beta1+u)/(1+e), resvar);
-random u ~ normal(0,varu) subject=i out=EBlups;
-predict beta1/(1+e) out=pred;
-predict (beta1+u)/(1+e) out=predB;
-estimate 'Beta_3=350?' beta3-350;
-ods output ParameterEstimates=estimates;
-run;
-
-proc sort data=pred;
-by i t;
-run;
-proc sort data=predB;
-by i t;
-run;
-data panelplot;
-merge predB(rename=(pred=PredB)) pred;
-by i t;
-length type $20;
-keep i t type resp;
-type='measurement';
-resp=y;
-output;
-type='cluster-specific';
-resp=predb;
-output;
-type='population-average';
-resp=pred;
-output;
-run;
-
-proc sgpanel data=panelplot;
-panelby i/spacing=5 rows=2 columns=3 novarname;
-vline t/response=resp group=type;
-colaxis fitpolicy=thin alternate;
-rowaxis alternate;
-run;
-
-proc print data=eblups;
-title 'Estimation of Random Effect';
-var i Estimate tValue Probt;
-run;
-
-title;
-
-/********************************************************/
-
-
-/*To reading the data*/
-data da2.h5q31;
-infile 'C:\Users\psy6b\Desktop\8320 datasets\ssttornado532001.dat';
-retain ss1-ss49;
-array ss{49} ss1-ss49;
-if _N_=1 then do; input ss1-ss49;end;
-loc+1;
-drop ss1-ss49;
-do t=1 to 49;
-sst=ss{t};
-input torn @;
-output;
-end;
-run;
-data da2.h5q32;
-infile 'C:\Users\psy6b\Desktop\8320 datasets\MOtornlatlon.dat';
-loc+1;
-input lat lon;
-run;
-proc sql;
-create table da2.h5q3
-as select * from da2.h5q31 as a, da2.h5q32 as b
-where a.loc=b.loc;
-run;
-quit;
-
-/*Fitting different models*/
-proc genmod data=da2.h5q3;
-class loc;
-model torn = sst sst*loc / dist=poisson link=log;
-output out=h5q3out1 resraw=Residual pred=Predicted lower=Lower upper=Upper;
-proc glimmix data=da2.h5q3 noitprint;
-class loc;
-model torn = sst sst*loc / dist=poisson link=log ddfm=betwithin solution;
-random intercept / subject=loc type=sp(exp)(lon lat);
-nloptions tech=newrap;
-covtest 'Random Int.' indep;
-output out=h5q3out2 pred(ilink)=predicted lcl(ilink)=lower ucl(ilink)=upper residual(ilink)=Residual;
-run;
-proc glimmix data=da2.h5q3 noitprint;
-class loc;
-model torn = sst sst*loc / dist=poisson link=log ddfm=betwithin solution;
-random sst / subject=loc type=sp(exp)(lon lat);
-nloptions tech=newrap;
-covtest 'Random Coef.' indep;
-output out=h5q3out3 pred(ilink)=predicted lcl(ilink)=lower ucl(ilink)=upper residual(ilink)=Residual;
-run;
-proc glimmix data=da2.h5q3 noitprint;
-class loc;
-model torn = sst sst*loc / dist=poisson link=log ddfm=betwithin solution;
-random intercept sst / subject=loc type=sp(exp)(lon lat);
-nloptions tech=newrap;
-covtest 'Random Int. & Coef.' indep;
-output out=h5q3out4 pred(ilink)=predicted lcl(ilink)=lower ucl(ilink)=upper residual(ilink)=Residual;
-run;
-
-
-/*Processing output*/
-proc sort data=h5q3out1;
-by loc;
-run;
-data h5q3eval1;
-set h5q3out1;
-by loc;
-keep loc torn predicted residual lat lon;
-retain sumtorn sumpred sumres;
-if first.loc then do;
-sumtorn=0;
-sumpred=0;
-sumres=0;
-end;
-sumtorn+torn;
-sumpred+predicted;
-sumres+residual;
-if last.loc then do;
-torn=sumtorn;
-predicted=sumpred;
-residual=sumres;
-output;
-end;
-run;
-proc sort data=h5q3out2;
-by loc;
-run;
-data h5q3eval2;
-set h5q3out2;
-by loc;
-keep loc torn predicted residual lat lon;
-retain sumtorn sumpred sumres;
-if first.loc then do;
-sumtorn=0;
-sumpred=0;
-sumres=0;
-end;
-sumtorn+torn;
-sumpred+predicted;
-sumres+residual;
-if last.loc then do;
-torn=sumtorn;
-predicted=sumpred;
-residual=sumres;
-output;
-end;
-run;
-proc sort data=h5q3out3;
-by loc;
-run;
-data h5q3eval3;
-set h5q3out3;
-by loc;
-keep loc torn predicted residual lat lon;
-retain sumtorn sumpred sumres;
-if first.loc then do;
-sumtorn=0;
-sumpred=0;
-sumres=0;
-end;
-sumtorn+torn;
-sumpred+predicted;
-sumres+residual;
-if last.loc then do;
-torn=sumtorn;
-predicted=sumpred;
-residual=sumres;
-output;
-end;
-run;
-proc sort data=h5q3out4;
-by loc;
-run;
-data h5q3eval4;
-set h5q3out4;
-by loc;
-keep loc torn predicted residual lat lon;
-retain sumtorn sumpred sumres;
-if first.loc then do;
-sumtorn=0;
-sumpred=0;
-sumres=0;
-end;
-sumtorn+torn;
-sumpred+predicted;
-sumres+residual;
-if last.loc then do;
-torn=sumtorn;
-predicted=sumpred;
-residual=sumres;
-output;
-end;
-run;
-data h5q3eval;
-set h5q3eval1(in=a) h5q3eval2(in=b) h5q3eval3(in=c) h5q3eval4(in=d);
-length model $23;
-if a then do;
-model='Independent';
-end;
-if b then do;
-model='Random Int.';
-end;
-if c then do;
-model='Random Coef.';
-end;
-if d then do;
-model='Random Int. & Coef.';
-end;
-label torn='Actual Measurements';
-run;
-
-
-
-/*Evaluating models*/
-proc sort data=h5q3eval;
-by torn;
-run;
-proc sgpanel data=h5q3eval noautolegend;
-panelby model/columns=2 rows=2 spacing=5;
-scatter x=torn y=predicted/ datalabel=loc;
-series x=torn y=torn;
-KEYLEGEND "Observations" "Reference Line";
-run;
-proc sql;
-title 'Model Comparation';
-select model,sum(residual*residual) label='Model Type' as SSR label='Sum of Squared Residual'
-from h5q3eval
-group by model;
-quit;
-
-/*Plotting the profile*/
-data panelplot2;
-set h5q3out2;
-length type $20;
-keep loc t type resp;
-t=t+1952;
-type='measurement';
-resp=torn;
-output;
-type='cluster-specific';
-resp=predicted;
-output;
-type='lower bound';
-resp=lower;
-output;
-type='upper bound';
-resp=upper;
-output;
-run;
-proc sgpanel data=panelplot2;
-where loc le 4 and loc ge 1;
-panelby loc/rows=2 columns=2 spacing=5;
-vline t/response=resp group=type;
-colaxis fitpolicy=thin alternate;
-rowaxis alternate;
-run;
-proc sgpanel data=panelplot2;
-where loc le 8 and loc ge 5;
-panelby loc/rows=2 columns=2 spacing=5;
-vline t/response=resp group=type;
-colaxis fitpolicy=thin alternate;
-rowaxis alternate;
-run;
-proc sgpanel data=panelplot2;
-where loc le 12 and loc ge 9;
-panelby loc/rows=2 columns=2 spacing=5;
-vline t/response=resp group=type;
-colaxis fitpolicy=thin alternate;
-rowaxis alternate;
-run;
-proc sgpanel data=panelplot2;
-where loc le 16 and loc ge 13;
-panelby loc/rows=2 columns=2 spacing=5;
-vline t/response=resp group=type;
-colaxis fitpolicy=thin alternate;
-rowaxis alternate;
-run;
-proc sgpanel data=panelplot2;
-where loc le 20 and loc ge 17;
-panelby loc/rows=2 columns=2 spacing=5;
-vline t/response=resp group=type;
-colaxis fitpolicy=thin alternate;
-rowaxis alternate;
-run;
 
 
 %endoutput(class)
 
-%write(h5re,store=class,type=listing) 
+%write(h6re,store=class,type=listing) 
 
-%write(h5re,store=class,type=graphic) 
+%write(h6re,store=class,type=graphic) 
 

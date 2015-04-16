@@ -1,0 +1,13 @@
+  Partial Correlation Coefficients from the Error SSCP Matrix of the
+    Variables Defined by the Specified Transformation / Prob > |r|
+ 
+         DF = 25          AGE_1          AGE_2          AGE_3
+ 
+         AGE_1         1.000000      -0.285945       0.074209
+                                        0.1567         0.7186
+ 
+         AGE_2        -0.285945       1.000000      -0.031669
+                         0.1567                        0.8779
+ 
+         AGE_3         0.074209      -0.031669       1.000000
+                         0.7186         0.8779

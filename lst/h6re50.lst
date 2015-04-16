@@ -1,0 +1,12 @@
+      Characteristic Roots and Vectors of: E Inverse * H, where
+ H = Contrast SSCP Matrix for Compare Schedule 1 & 2 v.s. Schedule 3
+                        E = Error SSCP Matrix
+ 
+           Variables have been transformed by the M Matrix
+ 
+Characteristic             Characteristic Vector  V'EV=1
+          Root   Percent          MVAR1          MVAR2          MVAR3
+ 
+    2.80326909    100.00     0.03454831     0.02736818    -0.00461007
+    0.00000000      0.00     0.02617305     0.00124065     0.02556856
+    0.00000000      0.00    -0.00345477     0.05136096     0.00000000

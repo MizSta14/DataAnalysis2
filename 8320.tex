@@ -59,7 +59,7 @@ $\blacktriangleright$ \textbf{1.\quad Solution.}
 \caption{Principal Component Proportion}\label{1}
 \end{figure}
 
-From Figure \ref{1}, the first 2 PCs have accounted for 65.25\% variability of the total.
+From Figure \ref{1}, the first 2 PCs have accounted for 60.25\% variability of the total.
 
 
 (c).
@@ -165,7 +165,7 @@ $$
 where the $F^*$ is the factor after rotating. So the $F^*$ should also have the restriction of length equal to 1, i.e. $var(F^*)=1$. This implies that $T^2=1$, and so $T=\pm1$. So rotation cannot change the value of loadings except the sign. Thus, there is no need to perform a rotation.
 
 
-(g). Because we choose to include only one factor in the model and the loadings and communality are high comparing to specific factor. That is to say, all variable perform like the only one common factor, so they should perform similarly to each other. Then the correlations between them should looks same.
+(g). Because in part (e), the loadings of different variable are not exactly same, so the ratio of any two loadings are you 1, as part (a). states. and from the part (d), we only include one factor, so the correlation coefficient directly determined by the loadings. Then the correlation coefficients should not be same. The test result is not so consistent with the conclusion of part (d) and part (e). But we cannot say either of them is wrong, it is very probability that the test is not power enough to prove the alternative hypothesis of different correlation coefficient. 
 
 
 
@@ -207,6 +207,255 @@ From the Figure \ref{9}, we can see that the factor pattern does not change too 
 \caption{Oblique Rotated Factors}\label{10}
 \end{figure}
 The overall result of principle factor method with oblique rotation is not so different from the result of other methods. It also only has some differences about factor loadings. The clusters and the interpretations of factors are same as the principle factor method with orthogonal rotation. However, for oblique rotation, we should also see the correlation between latent factors. In the problem the maximum correlation coefficient is 0.33129, which is not significant. So we can stop here. If the correlation between factors is significant, we can go on and perform a factor analysis to get the second order factor, which may contain more general information.
+
+$\blacktriangleright$ \textbf{3.\quad Solution.} 
+(a). The covariance matrices for spam and not-spam seem not same but we cannot perform most test because of the rank deficiency: the 41st attribute of not-spam is all 0.
+
+Given the different correlation matrix, we should use the quadratic discriminant analysis. 
+
+
+
+
+
+(b). Before all following analysis, we want to mention some index used in evaluating the performance of classifiers.
+\begin{itemize}
+\item \textbf{Precision}
+$$
+P=\frac{TP}{TP+FP}
+$$
+\item \textbf{Recall}
+$$
+R=\frac{TP}{TP+FN}
+$$
+\item \textbf{F-measure}
+$$
+F=\frac{2\cdot R\cdot P}{R+P}
+$$
+\item \textbf{Error Rate}
+$$
+ER=\frac{FP+FN}{P+N}
+$$
+\item \textbf{Missing Alarm}
+$$
+MA=1-R
+$$
+\item \textbf{False Alarm}\footnote{Here I choose false alarm instead of false positive rate because false alarm is more sensitive to the misclassification of negative case when positive cases are more rare. For example, we have 50 non-spam emails and 9 spam emails, and only one non-spam email is misclassified as spam, then the false positive rate is 2\% while false alarm is 10\%.}
+$$
+FA=1-P
+$$
+\end{itemize}
+
+For the first three index, the larger the better; they give us the ability of prediction of the classifier; for the last three index, the lower the better; they give us the probabilities of misclassification of the classifier.
+\begin{figure}[htbp]
+\centering\includegraphics[width=3.5in]{7-100.eps}
+\caption{Cross-validation for Linear Discriminant Funciton}\label{100}
+\end{figure}
+
+For cross-validation, we have
+$$
+TP=1272\quad FP=110\quad TN=2374\quad FN=345
+$$
+then we can compute that
+\ba
+&P=92.04\%\quad R=78.66\%\quad F=84.82\%\\
+&ER=11.09\%\quad MA=21.34\%\quad FA=7.95\%
+\ea
+\begin{figure}[htbp]
+\centering\includegraphics[width=3.5in]{7-11.eps}
+\caption{Test for Linear Discriminant Funciton}\label{11}
+\end{figure}
+
+For test sample, we have
+$$
+TP=147\quad FP=20\quad TN=284\quad FN=49
+$$
+then we can compute that
+\ba
+&P=88.02\%\quad R=75\%\quad F=80.99\%\\
+&ER=13.8\%\quad MA=25\%\quad FA=11.97605\%
+\ea
+It is very reasonable that the classifier has better performance on cross-validation than on testing sample, so the linear discriminant function is not bad.
+
+(c).\begin{figure}[htbp]
+\centering\includegraphics[width=3.5in]{7-12.eps}
+\caption{Cross-validation for Quadratic Discriminant Funciton}\label{12}
+\end{figure}
+
+For cross-validation, we have
+$$
+TP=1547\quad FP=644\quad TN=1851\quad FN=70
+$$
+then we can compute that
+\ba
+&P=70.61\%\quad R=95.67\%\quad F=81.25\%\\
+&ER=17.36\%\quad MA=4.33\%\quad FA=29.39\%
+\ea
+\begin{figure}[htbp]
+\centering\includegraphics[width=3.5in]{7-13.eps}
+\caption{Test for Quadratic Discriminant Funciton}\label{13}
+\end{figure}
+
+For test sample, we have
+$$
+TP=187\quad FP=95\quad TN=209\quad FN=9
+$$
+then we can compute that
+\ba
+&P=66.31\%\quad R=95.41\%\quad F=78.24\%\\
+&ER=20.8\%\quad MA=4.59\%\quad FA=33.69\%
+\ea
+
+To compare the linear classifier, the quadratic classifier has higher recall and lower missing alarm, which indicates that it is excellent in detecting spam email; while in the meantime the false alarm become pretty large; it misclassify over 30 non-spam emails as spam emails, which could be very harmful.
+
+(d).
+\begin{figure}[htbp]
+\centering\includegraphics[width=3.5in]{7-14.eps}
+\caption{Test for Step-selection Linear Discriminant Funciton}\label{14}
+\end{figure}
+
+For test sample, we have
+$$
+TP=184\quad FP=24\quad TN=280\quad FN=36
+$$
+then we can compute that
+\ba
+&P=88.46\%\quad R=83.64\%\quad F=85.98\%\\
+&ER=11.45\%\quad MA=16.36\%\quad FA=11.54\%
+\ea
+
+Comparing to the two discriminant functions above, the linear discriminant function after stepwise selection has become a very good model. Because it has the highest $F$ score, the lowest error rate and lowest false alarm for test sample so far, which are what we are concerned about most. And its missing alarm is much less than the linear discriminant function with all attributes.
+
+
+(e).\begin{table}
+\centering
+\begin{tabular}{|l|c|c|c|c|c|c|}
+\hline
+Model&P&R&F&ER\footnotemark[2]&MA&FA\\
+\hline
+2-Nearest Neighbors Classifier&99.44\%&99.79\%&99.61\%&8.46\%&0.21\%&0.56\%\\
+\hline
+3-Nearest Neighbors Classifier&94.34\%&93.11\%&93.72\%&5.32\%&6.89\%&5.66\%\\
+\hline
+5-Nearest Neighbors Classifier&92.82\%&89.54\%&91.14\%&7.07\%&10.46\%&7.18\%\\
+\hline
+1-Radius Kernal Classifier&99.94\%&98.69\%&99.31\%&0.83\%&1.31\%&0.06\%\\
+\hline
+10-Radius Kernal Classifier&90\%&13.38\%&23.30\%&34.8\%&86.62\%&10\%\\
+\hline
+\end{tabular}
+\caption{Performances on Training data}\label{tab1}
+\end{table}
+\footnotetext[2]{The computation of ER here and below is different from above, because non parametrical method allow classify a observation as other, which is neither false positive or false negative, but also treated as misclassification}
+\begin{table}
+\centering
+\begin{tabular}{|l|c|c|c|c|c|c|}
+\hline
+Model&P&R&F&ER&MA&FA\\
+\hline
+2-Nearest Neighbors Classifier&93.69\%&92.76\%&93.23\%&5.32\%&7.23\%&6.31\%\\
+\hline
+3-Nearest Neighbors Classifier&89.40\%&86.02\%&87.68\%&9.53\%&13.98\%&10.60\%\\
+\hline
+5-Nearest Neighbors Classifier&89.54\%&85.78\%&87.62\%&9.56\%&14.22\%&10.46\%\\
+\hline
+1-Radius Kernal Classifier&99.37\%&48.98\%&65.61\%&64.5\%&51.02\%&0.63\%\\
+\hline
+10-Radius Kernal Classifier&88.44\%&12.31\%&21.61\%&36.04\%&87.69\%&11.56\%\\
+\hline
+Logistic Regression\footnotemark[3]&90.43\%&86.73\%&88.54\%&8.8\%&13.27\%&9.57\%\\
+\hline
+\end{tabular}
+\caption{Performances on Cross-Validation}\label{tab2}
+\end{table}
+\footnotetext[3]{For logistic regression here, the result is the performance on test sample}
+The models we try are
+\begin{itemize}
+\item Nearest Neighbor Classifier, K=2,3,5;
+\item Kernel Method, R=1,10;
+\item Logistic Regression.
+\end{itemize}
+
+All result about the models are listed from Figure \ref{t1} to Figure \ref{t6}. And the performances of different models on training data and cross-validation are summarized in Table \ref{tab1} and Table \ref{tab2}.
+
+We have two basic goals:
+\begin{enumerate}
+\item to detect the spam email more efficiently, i.e. hope the recall as large as possible;
+\item not to misclassify a non-spam email as spam email, i.e., hope the false alarm as small as possible.
+\end{enumerate}
+We also want to maximize the F score and minimize the error rate. Accord to these criterions, it is not so hard to find out that the "best" model should be the 2-Nearest Neighbors Classifier: the highest recall and F-score, the lowest error rate and false alarm (except the 0.63\% of 1-Radius Kernel Classifier).
+
+It is also very interesting that when the number of neighbors increases, the nearest neighbor model performs more poorly both on training data and cross-validation. We should also notice that the kernel model fits the  training data better as the radius becomes larger, but it has already overfitted because of the worst performance on cross-validation. \begin{figure}[htbp]
+\begin{minipage}[t]{0.5\linewidth}
+\centering
+\includegraphics[width=3in]{7-15.eps}
+\end{minipage}
+\begin{minipage}[t]{0.5\linewidth}
+\centering
+\includegraphics[width=3in]{7-16.eps}
+\end{minipage}
+\caption{Confusion Table of 2-Nearest Neighbors Classifier}\label{t1}
+\end{figure}
+\begin{figure}[htbp]
+\centering\includegraphics[width=3.5in]{7-25.eps}
+\caption{Confusion Table of Logistic Regression}\label{t6}
+\end{figure}
+
+\begin{figure}[htbp]
+\begin{minipage}[t]{0.5\linewidth}
+\centering
+\includegraphics[width=3in]{7-17.eps}
+\end{minipage}
+\begin{minipage}[t]{0.5\linewidth}
+\centering
+\includegraphics[width=3in]{7-18.eps}
+\end{minipage}
+\caption{Confusion Table of 3-Nearest Neighbors Classifier}\label{t2}
+\end{figure}
+
+\begin{figure}[htbp]
+\begin{minipage}[t]{0.5\linewidth}
+\centering
+\includegraphics[width=3in]{7-19.eps}
+\end{minipage}
+\begin{minipage}[t]{0.5\linewidth}
+\centering
+\includegraphics[width=3in]{7-20.eps}
+\end{minipage}
+\caption{Confusion Table of 5-Nearest Neighbors Classifier}\label{t3}
+\end{figure}
+
+\begin{figure}[htbp]
+\begin{minipage}[t]{0.5\linewidth}
+\centering
+\includegraphics[width=3in]{7-21.eps}
+\end{minipage}
+\begin{minipage}[t]{0.5\linewidth}
+\centering
+\includegraphics[width=3in]{7-22.eps}
+\end{minipage}
+\caption{Confusion Table of 1-Radius Kernal Classifier}\label{t4}
+\end{figure}
+
+\begin{figure}[htbp]
+\begin{minipage}[t]{0.5\linewidth}
+\centering
+\includegraphics[width=3in]{7-23.eps}
+\end{minipage}
+\begin{minipage}[t]{0.5\linewidth}
+\centering
+\includegraphics[width=3in]{7-24.eps}
+\end{minipage}
+\caption{Confusion Table of 10-Radius Kernal Classifier}\label{t5}
+\end{figure}
+
+
+
+
+
+
+
+
+
 
 
 

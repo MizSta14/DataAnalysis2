@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  4 MAY 2015 19:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.5.25)  5 MAY 2015 00:55
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -636,11 +636,7 @@ File: eps/7-1-eps-converted-to.pdf Graphic file (type pdf)
 <use eps/7-1-eps-converted-to.pdf>
 Package pdftex.def Info: eps/7-1-eps-converted-to.pdf used on input line 58.
 (pdftex.def)             Requested size: 252.94499pt x 158.47374pt.
-
-
-LaTeX Warning: Reference `1' on page 1 undefined on input line 62.
-
-[1
+ [1
 
 {/usr/local/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./eps/7
 -1-eps-converted-to.pdf>]
@@ -655,16 +651,12 @@ df eps/7-2.eps>
 (epstopdf)             \includegraphics on input line 70.
 Package epstopdf Info: Output file is already uptodate.
 
-<eps/7-2-eps-converted-to.pdf, id=18, 720.6925pt x 369.38pt>
+<eps/7-2-eps-converted-to.pdf, id=19, 720.6925pt x 369.38pt>
 File: eps/7-2-eps-converted-to.pdf Graphic file (type pdf)
 
 <use eps/7-2-eps-converted-to.pdf>
 Package pdftex.def Info: eps/7-2-eps-converted-to.pdf used on input line 70.
 (pdftex.def)             Requested size: 361.34999pt x 185.20244pt.
-
-
-LaTeX Warning: Reference `2' on page 2 undefined on input line 73.
-
 Package epstopdf Info: Source file: <eps/7-3.eps>
 (epstopdf)                    date: 2015-05-04 18:16:58
 (epstopdf)                    size: 31762 bytes
@@ -675,25 +667,13 @@ Package epstopdf Info: Source file: <eps/7-3.eps>
 df eps/7-3.eps>
 (epstopdf)             \includegraphics on input line 77.
 Package epstopdf Info: Output file is already uptodate.
-<eps/7-3-eps-converted-to.pdf, id=19, 763.85374pt x 582.175pt>
+
+<eps/7-3-eps-converted-to.pdf, id=21, 763.85374pt x 582.175pt>
 File: eps/7-3-eps-converted-to.pdf Graphic file (type pdf)
 
 <use eps/7-3-eps-converted-to.pdf>
 Package pdftex.def Info: eps/7-3-eps-converted-to.pdf used on input line 77.
 (pdftex.def)             Requested size: 361.34999pt x 275.39894pt.
-
-
-LaTeX Warning: Reference `3' on page 2 undefined on input line 81.
-
-
-LaTeX Warning: Reference `4' on page 2 undefined on input line 83.
-
-
-LaTeX Warning: Reference `5' on page 2 undefined on input line 83.
-
-
-LaTeX Warning: Reference `4' on page 2 undefined on input line 83.
-
 Package epstopdf Info: Source file: <eps/7-4.eps>
 (epstopdf)                    date: 2015-05-04 18:17:07
 (epstopdf)                    size: 42963 bytes
@@ -704,7 +684,8 @@ Package epstopdf Info: Source file: <eps/7-4.eps>
 df eps/7-4.eps>
 (epstopdf)             \includegraphics on input line 87.
 Package epstopdf Info: Output file is already uptodate.
-<eps/7-4-eps-converted-to.pdf, id=20, 763.85374pt x 587.19376pt>
+
+<eps/7-4-eps-converted-to.pdf, id=26, 763.85374pt x 587.19376pt>
 File: eps/7-4-eps-converted-to.pdf Graphic file (type pdf)
 
 <use eps/7-4-eps-converted-to.pdf>
@@ -725,7 +706,7 @@ Package epstopdf Info: Source file: <eps/7-5.eps>
 df eps/7-5.eps>
 (epstopdf)             \includegraphics on input line 92.
 Package epstopdf Info: Output file is already uptodate.
-<eps/7-5-eps-converted-to.pdf, id=21, 762.85pt x 577.15625pt>
+<eps/7-5-eps-converted-to.pdf, id=27, 762.85pt x 577.15625pt>
 File: eps/7-5-eps-converted-to.pdf Graphic file (type pdf)
 
 <use eps/7-5-eps-converted-to.pdf>
@@ -751,7 +732,7 @@ Package epstopdf Info: Source file: <eps/77.eps>
 f eps/77.eps>
 (epstopdf)             \includegraphics on input line 99.
 Package epstopdf Info: Output file is already uptodate.
-<eps/77-eps-converted-to.pdf, id=22, 557.08125pt x 203.76125pt>
+<eps/77-eps-converted-to.pdf, id=28, 557.08125pt x 203.76125pt>
 File: eps/77-eps-converted-to.pdf Graphic file (type pdf)
 
 <use eps/77-eps-converted-to.pdf>
@@ -806,16 +787,12 @@ Package epstopdf Info: Source file: <eps/7-6.eps>
 df eps/7-6.eps>
 (epstopdf)             \includegraphics on input line 179.
 Package epstopdf Info: Output file is already uptodate.
- <eps/7-6-eps-converted-to.pdf, id=68, 670.505pt x 266.9975pt>
+ <eps/7-6-eps-converted-to.pdf, id=74, 670.505pt x 266.9975pt>
 File: eps/7-6-eps-converted-to.pdf Graphic file (type pdf)
 
 <use eps/7-6-eps-converted-to.pdf>
 Package pdftex.def Info: eps/7-6-eps-converted-to.pdf used on input line 179.
 (pdftex.def)             Requested size: 289.07999pt x 115.11223pt.
-
-
-LaTeX Warning: Reference `6' on page 6 undefined on input line 183.
-
 Package epstopdf Info: Source file: <eps/7-7.eps>
 (epstopdf)                    date: 2015-05-04 18:17:38
 (epstopdf)                    size: 83701 bytes
@@ -826,16 +803,13 @@ Package epstopdf Info: Source file: <eps/7-7.eps>
 df eps/7-7.eps>
 (epstopdf)             \includegraphics on input line 186.
 Package epstopdf Info: Output file is already uptodate.
-<eps/7-7-eps-converted-to.pdf, id=69, 658.46pt x 243.91125pt>
+
+<eps/7-7-eps-converted-to.pdf, id=76, 658.46pt x 243.91125pt>
 File: eps/7-7-eps-converted-to.pdf Graphic file (type pdf)
 
 <use eps/7-7-eps-converted-to.pdf>
 Package pdftex.def Info: eps/7-7-eps-converted-to.pdf used on input line 186.
 (pdftex.def)             Requested size: 289.07999pt x 107.08308pt.
-
-
-LaTeX Warning: Reference `7' on page 6 undefined on input line 189.
-
 Package epstopdf Info: Source file: <eps/7-8.eps>
 (epstopdf)                    date: 2015-05-04 18:17:46
 (epstopdf)                    size: 119426 bytes
@@ -846,35 +820,13 @@ Package epstopdf Info: Source file: <eps/7-8.eps>
 df eps/7-8.eps>
 (epstopdf)             \includegraphics on input line 192.
 Package epstopdf Info: Output file is already uptodate.
-<eps/7-8-eps-converted-to.pdf, id=70, 387.4475pt x 340.27126pt>
+
+<eps/7-8-eps-converted-to.pdf, id=78, 387.4475pt x 340.27126pt>
 File: eps/7-8-eps-converted-to.pdf Graphic file (type pdf)
 
 <use eps/7-8-eps-converted-to.pdf>
 Package pdftex.def Info: eps/7-8-eps-converted-to.pdf used on input line 192.
 (pdftex.def)             Requested size: 216.81pt x 190.4104pt.
-
-
-LaTeX Warning: Reference `8' on page 6 undefined on input line 195.
-
-Package epstopdf Info: Source file: <eps/7-9.eps>
-(epstopdf)                    date: 2015-05-04 18:17:54
-(epstopdf)                    size: 62346 bytes
-(epstopdf)             Output file: <eps/7-9-eps-converted-to.pdf>
-(epstopdf)                    date: 2015-05-04 18:23:10
-(epstopdf)                    size: 23965 bytes
-(epstopdf)             Command: <repstopdf --outfile=eps/7-9-eps-converted-to.p
-df eps/7-9.eps>
-(epstopdf)             \includegraphics on input line 199.
-Package epstopdf Info: Output file is already uptodate.
-<eps/7-9-eps-converted-to.pdf, id=71, 253.94875pt x 236.885pt>
-File: eps/7-9-eps-converted-to.pdf Graphic file (type pdf)
-
-<use eps/7-9-eps-converted-to.pdf>
-Package pdftex.def Info: eps/7-9-eps-converted-to.pdf used on input line 199.
-(pdftex.def)             Requested size: 180.67499pt x 168.54013pt.
-
-
-LaTeX Warning: Reference `9' on page 6 undefined on input line 202.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -890,6 +842,23 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [7 <./eps/7-7-eps-converted-to.pdf> <./eps/7-8-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <eps/7-9.eps>
+(epstopdf)                    date: 2015-05-04 18:17:54
+(epstopdf)                    size: 62346 bytes
+(epstopdf)             Output file: <eps/7-9-eps-converted-to.pdf>
+(epstopdf)                    date: 2015-05-04 18:23:10
+(epstopdf)                    size: 23965 bytes
+(epstopdf)             Command: <repstopdf --outfile=eps/7-9-eps-converted-to.p
+df eps/7-9.eps>
+(epstopdf)             \includegraphics on input line 199.
+Package epstopdf Info: Output file is already uptodate.
+
+<eps/7-9-eps-converted-to.pdf, id=101, 253.94875pt x 236.885pt>
+File: eps/7-9-eps-converted-to.pdf Graphic file (type pdf)
+
+<use eps/7-9-eps-converted-to.pdf>
+Package pdftex.def Info: eps/7-9-eps-converted-to.pdf used on input line 199.
+(pdftex.def)             Requested size: 180.67499pt x 168.54013pt.
 Package epstopdf Info: Source file: <eps/7-10.eps>
 (epstopdf)                    date: 2015-05-04 18:38:07
 (epstopdf)                    size: 78317 bytes
@@ -901,7 +870,7 @@ pdf eps/7-10.eps>
 (epstopdf)             \includegraphics on input line 206.
 Package epstopdf Info: Output file is already uptodate.
 
-<eps/7-10-eps-converted-to.pdf, id=93, 503.8825pt x 236.885pt>
+<eps/7-10-eps-converted-to.pdf, id=103, 503.8825pt x 236.885pt>
 File: eps/7-10-eps-converted-to.pdf Graphic file (type pdf)
 
 <use eps/7-10-eps-converted-to.pdf>
@@ -915,7 +884,24 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [8 <./eps/7-9-eps-converted-to.pdf> <./eps/7-10-eps-converted-to.pdf>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 213.
+Package epstopdf Info: Source file: <eps/7-100.eps>
+(epstopdf)                    date: 2015-05-04 20:19:23
+(epstopdf)                    size: 95038 bytes
+(epstopdf)             Output file: <eps/7-100-eps-converted-to.pdf>
+(epstopdf)                    date: 2015-05-04 20:49:10
+(epstopdf)                    size: 108476 bytes
+(epstopdf)             Command: <repstopdf --outfile=eps/7-100-eps-converted-to
+.pdf eps/7-100.eps>
+(epstopdf)             \includegraphics on input line 250.
+Package epstopdf Info: Output file is already uptodate.
+
+<eps/7-100-eps-converted-to.pdf, id=117, 523.9575pt x 439.6425pt>
+File: eps/7-100-eps-converted-to.pdf Graphic file (type pdf)
+
+<use eps/7-100-eps-converted-to.pdf>
+Package pdftex.def Info: eps/7-100-eps-converted-to.pdf used on input line 250.
+
+(pdftex.def)             Requested size: 252.94499pt x 212.24022pt.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -924,44 +910,430 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 [9]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 213.
+Package epstopdf Info: Source file: <eps/7-11.eps>
+(epstopdf)                    date: 2015-05-04 20:19:30
+(epstopdf)                    size: 115968 bytes
+(epstopdf)             Output file: <eps/7-11-eps-converted-to.pdf>
+(epstopdf)                    date: 2015-05-04 20:49:11
+(epstopdf)                    size: 128174 bytes
+(epstopdf)             Command: <repstopdf --outfile=eps/7-11-eps-converted-to.
+pdf eps/7-11.eps>
+(epstopdf)             \includegraphics on input line 264.
+Package epstopdf Info: Output file is already uptodate.
+ <eps/7-11-eps-converted-to.pdf, id=125, 527.9725pt x 516.93124pt>
+File: eps/7-11-eps-converted-to.pdf Graphic file (type pdf)
+
+<use eps/7-11-eps-converted-to.pdf>
+Package pdftex.def Info: eps/7-11-eps-converted-to.pdf used on input line 264.
+(pdftex.def)             Requested size: 252.94499pt x 247.65091pt.
+Package epstopdf Info: Source file: <eps/7-12.eps>
+(epstopdf)                    date: 2015-05-04 20:19:38
+(epstopdf)                    size: 96962 bytes
+(epstopdf)             Output file: <eps/7-12-eps-converted-to.pdf>
+(epstopdf)                    date: 2015-05-04 20:49:12
+(epstopdf)                    size: 110900 bytes
+(epstopdf)             Command: <repstopdf --outfile=eps/7-12-eps-converted-to.
+pdf eps/7-12.eps>
+(epstopdf)             \includegraphics on input line 280.
+Package epstopdf Info: Output file is already uptodate.
+
+<eps/7-12-eps-converted-to.pdf, id=126, 567.11874pt x 488.82625pt>
+File: eps/7-12-eps-converted-to.pdf Graphic file (type pdf)
+
+<use eps/7-12-eps-converted-to.pdf>
+Package pdftex.def Info: eps/7-12-eps-converted-to.pdf used on input line 280.
+(pdftex.def)             Requested size: 252.94499pt x 218.023pt.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[10 <./eps/7-100-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <eps/7-13.eps>
+(epstopdf)                    date: 2015-05-04 20:19:45
+(epstopdf)                    size: 116911 bytes
+(epstopdf)             Output file: <eps/7-13-eps-converted-to.pdf>
+(epstopdf)                    date: 2015-05-04 20:49:13
+(epstopdf)                    size: 131087 bytes
+(epstopdf)             Command: <repstopdf --outfile=eps/7-13-eps-converted-to.
+pdf eps/7-13.eps>
+(epstopdf)             \includegraphics on input line 294.
+Package epstopdf Info: Output file is already uptodate.
+
+<eps/7-13-eps-converted-to.pdf, id=135, 543.02875pt x 528.97626pt>
+File: eps/7-13-eps-converted-to.pdf Graphic file (type pdf)
+
+<use eps/7-13-eps-converted-to.pdf>
+Package pdftex.def Info: eps/7-13-eps-converted-to.pdf used on input line 294.
+(pdftex.def)             Requested size: 252.94499pt x 246.3992pt.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[11 <./eps/7-11-eps-converted-to.pdf>]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[12 <./eps/7-12-eps-converted-to.pdf> <./eps/7-13-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <eps/7-14.eps>
+(epstopdf)                    date: 2015-05-04 20:19:52
+(epstopdf)                    size: 113179 bytes
+(epstopdf)             Output file: <eps/7-14-eps-converted-to.pdf>
+(epstopdf)                    date: 2015-05-04 20:49:15
+(epstopdf)                    size: 128992 bytes
+(epstopdf)             Command: <repstopdf --outfile=eps/7-14-eps-converted-to.
+pdf eps/7-14.eps>
+(epstopdf)             \includegraphics on input line 312.
+Package epstopdf Info: Output file is already uptodate.
+
+<eps/7-14-eps-converted-to.pdf, id=156, 556.0775pt x 539.01375pt>
+File: eps/7-14-eps-converted-to.pdf Graphic file (type pdf)
+
+<use eps/7-14-eps-converted-to.pdf>
+Package pdftex.def Info: eps/7-14-eps-converted-to.pdf used on input line 312.
+(pdftex.def)             Requested size: 252.94499pt x 245.18584pt.
+
+Overfull \hbox (19.08325pt too wide) in paragraph at lines 331--346
+ [][] 
+ []
+
+
+Overfull \hbox (30.83313pt too wide) in paragraph at lines 351--368
+ [][] 
+ []
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[13 <./eps/7-14-eps-converted-to.pdf>]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[14]
+Package epstopdf Info: Source file: <eps/7-15.eps>
+(epstopdf)                    date: 2015-05-04 23:16:38
+(epstopdf)                    size: 99144 bytes
+(epstopdf)             Output file: <eps/7-15-eps-converted-to.pdf>
+(epstopdf)                    date: 2015-05-04 23:24:29
+(epstopdf)                    size: 109367 bytes
+(epstopdf)             Command: <repstopdf --outfile=eps/7-15-eps-converted-to.
+pdf eps/7-15.eps>
+(epstopdf)             \includegraphics on input line 390.
+Package epstopdf Info: Output file is already uptodate.
+ <eps/7-15-eps-converted-to.pdf, id=180, 533.995pt x 433.62pt>
+File: eps/7-15-eps-converted-to.pdf Graphic file (type pdf)
+
+<use eps/7-15-eps-converted-to.pdf>
+Package pdftex.def Info: eps/7-15-eps-converted-to.pdf used on input line 390.
+(pdftex.def)             Requested size: 216.81pt x 176.05844pt.
+
+Overfull \hbox (1.8077pt too wide) in paragraph at lines 390--391
+ [][] 
+ []
+
+Package epstopdf Info: Source file: <eps/7-16.eps>
+(epstopdf)                    date: 2015-05-04 23:17:31
+(epstopdf)                    size: 94112 bytes
+(epstopdf)             Output file: <eps/7-16-eps-converted-to.pdf>
+(epstopdf)                    date: 2015-05-04 23:24:30
+(epstopdf)                    size: 52767 bytes
+(epstopdf)             Command: <repstopdf --outfile=eps/7-16-eps-converted-to.
+pdf eps/7-16.eps>
+(epstopdf)             \includegraphics on input line 394.
+Package epstopdf Info: Output file is already uptodate.
+<eps/7-16-eps-converted-to.pdf, id=181, 519.9425pt x 448.67625pt>
+File: eps/7-16-eps-converted-to.pdf Graphic file (type pdf)
+
+<use eps/7-16-eps-converted-to.pdf>
+Package pdftex.def Info: eps/7-16-eps-converted-to.pdf used on input line 394.
+(pdftex.def)             Requested size: 216.81pt x 187.09402pt.
+
+Overfull \hbox (1.8077pt too wide) in paragraph at lines 394--395
+ [][] 
+ []
+
+
+Overfull \hbox (2.61107pt too wide) in paragraph at lines 388--396
+[][] [] 
+ []
+
+Package epstopdf Info: Source file: <eps/7-25.eps>
+(epstopdf)                    date: 2015-05-04 23:18:32
+(epstopdf)                    size: 35390 bytes
+(epstopdf)             Output file: <eps/7-25-eps-converted-to.pdf>
+(epstopdf)                    date: 2015-05-04 23:26:33
+(epstopdf)                    size: 22664 bytes
+(epstopdf)             Command: <repstopdf --outfile=eps/7-25-eps-converted-to.
+pdf eps/7-25.eps>
+(epstopdf)             \includegraphics on input line 399.
+Package epstopdf Info: Output file is already uptodate.
+<eps/7-25-eps-converted-to.pdf, id=182, 515.9275pt x 203.76125pt>
+File: eps/7-25-eps-converted-to.pdf Graphic file (type pdf)
+
+<use eps/7-25-eps-converted-to.pdf>
+Package pdftex.def Info: eps/7-25-eps-converted-to.pdf used on input line 399.
+(pdftex.def)             Requested size: 252.94499pt x 99.89673pt.
+Package epstopdf Info: Source file: <eps/7-17.eps>
+(epstopdf)                    date: 2015-05-04 23:17:36
+(epstopdf)                    size: 98365 bytes
+(epstopdf)             Output file: <eps/7-17-eps-converted-to.pdf>
+(epstopdf)                    date: 2015-05-04 23:24:31
+(epstopdf)                    size: 114111 bytes
+(epstopdf)             Command: <repstopdf --outfile=eps/7-17-eps-converted-to.
+pdf eps/7-17.eps>
+(epstopdf)             \includegraphics on input line 406.
+Package epstopdf Info: Output file is already uptodate.
+
+<eps/7-17-eps-converted-to.pdf, id=183, 519.9425pt x 457.71pt>
+File: eps/7-17-eps-converted-to.pdf Graphic file (type pdf)
+
+<use eps/7-17-eps-converted-to.pdf>
+Package pdftex.def Info: eps/7-17-eps-converted-to.pdf used on input line 406.
+(pdftex.def)             Requested size: 216.81pt x 190.86102pt.
+
+Overfull \hbox (1.8077pt too wide) in paragraph at lines 406--407
+ [][] 
+ []
+
+Package epstopdf Info: Source file: <eps/7-18.eps>
+(epstopdf)                    date: 2015-05-04 23:17:42
+(epstopdf)                    size: 96309 bytes
+(epstopdf)             Output file: <eps/7-18-eps-converted-to.pdf>
+(epstopdf)                    date: 2015-05-04 23:24:32
+(epstopdf)                    size: 52682 bytes
+(epstopdf)             Command: <repstopdf --outfile=eps/7-18-eps-converted-to.
+pdf eps/7-18.eps>
+(epstopdf)             \includegraphics on input line 410.
+Package epstopdf Info: Output file is already uptodate.
+<eps/7-18-eps-converted-to.pdf, id=184, 500.87125pt x 436.63126pt>
+File: eps/7-18-eps-converted-to.pdf Graphic file (type pdf)
+
+<use eps/7-18-eps-converted-to.pdf>
+Package pdftex.def Info: eps/7-18-eps-converted-to.pdf used on input line 410.
+(pdftex.def)             Requested size: 216.81pt x 189.00032pt.
+
+Overfull \hbox (1.8077pt too wide) in paragraph at lines 410--411
+ [][] 
+ []
+
+
+Overfull \hbox (2.61107pt too wide) in paragraph at lines 404--412
+[][] [] 
+ []
+
+Package epstopdf Info: Source file: <eps/7-19.eps>
+(epstopdf)                    date: 2015-05-04 23:17:48
+(epstopdf)                    size: 97878 bytes
+(epstopdf)             Output file: <eps/7-19-eps-converted-to.pdf>
+(epstopdf)                    date: 2015-05-04 23:24:34
+(epstopdf)                    size: 112648 bytes
+(epstopdf)             Command: <repstopdf --outfile=eps/7-19-eps-converted-to.
+pdf eps/7-19.eps>
+(epstopdf)             \includegraphics on input line 418.
+Package epstopdf Info: Output file is already uptodate.
+<eps/7-19-eps-converted-to.pdf, id=185, 500.87125pt x 434.62375pt>
+File: eps/7-19-eps-converted-to.pdf Graphic file (type pdf)
+
+<use eps/7-19-eps-converted-to.pdf>
+Package pdftex.def Info: eps/7-19-eps-converted-to.pdf used on input line 418.
+(pdftex.def)             Requested size: 216.81pt x 188.13135pt.
+
+Overfull \hbox (1.8077pt too wide) in paragraph at lines 418--419
+ [][] 
+ []
+
+Package epstopdf Info: Source file: <eps/7-20.eps>
+(epstopdf)                    date: 2015-05-04 23:17:56
+(epstopdf)                    size: 94910 bytes
+(epstopdf)             Output file: <eps/7-20-eps-converted-to.pdf>
+(epstopdf)                    date: 2015-05-04 23:24:35
+(epstopdf)                    size: 51565 bytes
+(epstopdf)             Command: <repstopdf --outfile=eps/7-20-eps-converted-to.
+pdf eps/7-20.eps>
+(epstopdf)             \includegraphics on input line 422.
+Package epstopdf Info: Output file is already uptodate.
+<eps/7-20-eps-converted-to.pdf, id=186, 495.8525pt x 431.6125pt>
+File: eps/7-20-eps-converted-to.pdf Graphic file (type pdf)
+
+<use eps/7-20-eps-converted-to.pdf>
+Package pdftex.def Info: eps/7-20-eps-converted-to.pdf used on input line 422.
+(pdftex.def)             Requested size: 216.81pt x 188.71803pt.
+
+Overfull \hbox (1.8077pt too wide) in paragraph at lines 422--423
+ [][] 
+ []
+
+
+Overfull \hbox (2.61107pt too wide) in paragraph at lines 416--424
+[][] [] 
+ []
+
+Package epstopdf Info: Source file: <eps/7-21.eps>
+(epstopdf)                    date: 2015-05-04 23:18:03
+(epstopdf)                    size: 97156 bytes
+(epstopdf)             Output file: <eps/7-21-eps-converted-to.pdf>
+(epstopdf)                    date: 2015-05-04 23:26:28
+(epstopdf)                    size: 53295 bytes
+(epstopdf)             Command: <repstopdf --outfile=eps/7-21-eps-converted-to.
+pdf eps/7-21.eps>
+(epstopdf)             \includegraphics on input line 430.
+Package epstopdf Info: Output file is already uptodate.
+<eps/7-21-eps-converted-to.pdf, id=187, 502.87875pt x 451.6875pt>
+File: eps/7-21-eps-converted-to.pdf Graphic file (type pdf)
+
+<use eps/7-21-eps-converted-to.pdf>
+Package pdftex.def Info: eps/7-21-eps-converted-to.pdf used on input line 430.
+(pdftex.def)             Requested size: 216.81pt x 194.73874pt.
+
+Overfull \hbox (1.8077pt too wide) in paragraph at lines 430--431
+ [][] 
+ []
+
+Package epstopdf Info: Source file: <eps/7-22.eps>
+(epstopdf)                    date: 2015-05-04 23:18:16
+(epstopdf)                    size: 100820 bytes
+(epstopdf)             Output file: <eps/7-22-eps-converted-to.pdf>
+(epstopdf)                    date: 2015-05-04 23:26:29
+(epstopdf)                    size: 54597 bytes
+(epstopdf)             Command: <repstopdf --outfile=eps/7-22-eps-converted-to.
+pdf eps/7-22.eps>
+(epstopdf)             \includegraphics on input line 434.
+Package epstopdf Info: Output file is already uptodate.
+<eps/7-22-eps-converted-to.pdf, id=188, 497.86pt x 435.6275pt>
+File: eps/7-22-eps-converted-to.pdf Graphic file (type pdf)
+
+<use eps/7-22-eps-converted-to.pdf>
+Package pdftex.def Info: eps/7-22-eps-converted-to.pdf used on input line 434.
+(pdftex.def)             Requested size: 216.81pt x 189.70914pt.
+
+Overfull \hbox (1.8077pt too wide) in paragraph at lines 434--435
+ [][] 
+ []
+
+
+Overfull \hbox (2.61107pt too wide) in paragraph at lines 428--436
+[][] [] 
+ []
+
+Package epstopdf Info: Source file: <eps/7-23.eps>
+(epstopdf)                    date: 2015-05-04 23:18:22
+(epstopdf)                    size: 98747 bytes
+(epstopdf)             Output file: <eps/7-23-eps-converted-to.pdf>
+(epstopdf)                    date: 2015-05-04 23:26:31
+(epstopdf)                    size: 53708 bytes
+(epstopdf)             Command: <repstopdf --outfile=eps/7-23-eps-converted-to.
+pdf eps/7-23.eps>
+(epstopdf)             \includegraphics on input line 442.
+Package epstopdf Info: Output file is already uptodate.
+<eps/7-23-eps-converted-to.pdf, id=189, 497.86pt x 442.65375pt>
+File: eps/7-23-eps-converted-to.pdf Graphic file (type pdf)
+
+<use eps/7-23-eps-converted-to.pdf>
+Package pdftex.def Info: eps/7-23-eps-converted-to.pdf used on input line 442.
+(pdftex.def)             Requested size: 216.81pt x 192.76895pt.
+
+Overfull \hbox (1.8077pt too wide) in paragraph at lines 442--443
+ [][] 
+ []
+
+Package epstopdf Info: Source file: <eps/7-24.eps>
+(epstopdf)                    date: 2015-05-04 23:18:27
+(epstopdf)                    size: 98823 bytes
+(epstopdf)             Output file: <eps/7-24-eps-converted-to.pdf>
+(epstopdf)                    date: 2015-05-04 23:26:32
+(epstopdf)                    size: 114061 bytes
+(epstopdf)             Command: <repstopdf --outfile=eps/7-24-eps-converted-to.
+pdf eps/7-24.eps>
+(epstopdf)             \includegraphics on input line 446.
+Package epstopdf Info: Output file is already uptodate.
+<eps/7-24-eps-converted-to.pdf, id=190, 496.85625pt x 435.6275pt>
+File: eps/7-24-eps-converted-to.pdf Graphic file (type pdf)
+
+<use eps/7-24-eps-converted-to.pdf>
+Package pdftex.def Info: eps/7-24-eps-converted-to.pdf used on input line 446.
+(pdftex.def)             Requested size: 216.81pt x 190.09467pt.
+
+Overfull \hbox (1.8077pt too wide) in paragraph at lines 446--447
+ [][] 
+ []
+
+
+Overfull \hbox (2.61107pt too wide) in paragraph at lines 440--448
+[][] [] 
+ []
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 462.
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[15 <./eps/7-15-eps-converted-to.pdf> <./eps/7-16-eps-converted-to.pdf> <./eps/
+7-25-eps-converted-to.pdf>]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[16 <./eps/7-17-eps-converted-to.pdf> <./eps/7-18-eps-converted-to.pdf> <./eps/
+7-19-eps-converted-to.pdf> <./eps/7-20-eps-converted-to.pdf>]
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 14.49998pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[17 <./eps/7-21-eps-converted-to.pdf> <./eps/7-22-eps-converted-to.pdf> <./eps/
+7-23-eps-converted-to.pdf> <./eps/7-24-eps-converted-to.pdf>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 462.
  (./8320.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 213.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 213.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 462.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 462.
 Package rerunfilecheck Info: File `8320.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 213.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 462.
  ) 
 Here is how much of TeX's memory you used:
- 9611 strings out of 493117
- 140399 string characters out of 6135433
- 240200 words of memory out of 5000000
- 12861 multiletter control sequences out of 15000+600000
- 17703 words of font info for 68 fonts, out of 8000000 for 9000
+ 9720 strings out of 493117
+ 143048 string characters out of 6135433
+ 244269 words of memory out of 5000000
+ 12925 multiletter control sequences out of 15000+600000
+ 19428 words of font info for 75 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 36i,12n,75p,673b,448s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 36i,14n,75p,673b,446s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
 ></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb>
 </usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><
 /usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></u
 sr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></u
-sr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr
-/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/l
-ocal/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/loca
-l/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local
-/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/t
-exlive/2014/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on 8320.pdf (9 pages, 638884 bytes).
+sr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr
+/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/l
+ocal/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/loc
+al/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/
+texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/tex
+live/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texl
+ive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texliv
+e/2014/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
+Output written on 8320.pdf (17 pages, 2046090 bytes).
 PDF statistics:
- 153 PDF objects out of 1000 (max. 8388607)
- 107 compressed objects within 2 object streams
- 23 named destinations out of 1000 (max. 500000)
- 56 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 296 PDF objects out of 1000 (max. 8388607)
+ 207 compressed objects within 3 object streams
+ 47 named destinations out of 1000 (max. 500000)
+ 136 words of extra memory for PDF output out of 10000 (max. 10000000)
 

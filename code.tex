@@ -42,7 +42,142 @@
 
 
 \begin{Sascode}[store=class]
-libname da2 'C:\Users\psy6b\Desktop\8320 datasets'; ods graphics on; options ls=70 ps=35;data da2.h6q2;infile 'C:\Users\psy6b\Desktop\8320 datasets\PothoffRoy1964.dat';input ID Gender $ Age8 Age10 Age12 Age14;run;PROC GLM;     CLASS gender;     MODEL AGE8--AGE14 = gender / NOUNI ;     REPEATED AGE POLYNOMIAL  / SUMMARY PRINTM PRINTE;RUN;data unidata;set da2.h6q2;array m{4} age8--age14;keep id Gender age measure;do i=0 to 3;age=8+i*2;measure=m(i+1);output;end;run;proc mixed data=unidata;class Gender age;model measure=gender|age/ solution;repeated /subject=ID type=cs;run;proc mixed data=unidata;class Gender;model measure=gender|age/ solution;repeated /subject=ID type=cs;run;data da2.h6q3;input Rein Cond1-Cond4;datalines;1 29 20 21 181 24 15 10 8 1 31 19 10 311 41 11 15 421 30 20 27 532 25 17 19 172 20 12 8  8 2 35 16 9  282 38 8  14 402 26 18 18 513 10 18 16 143 9  10 18 113 7  18 19 123 8  19 20 5 3 11 20 17 6 ;run;PROC SUMMARY NWAY DATA=da2.h6q3;CLASS rein;VAR cond1-cond4;OUTPUT OUT=new MEAN=cond1-cond4;RUN;DATA plot;SET new;ARRAY m{4} cond1-cond4;DO time=1 TO 4;response=m(time);OUTPUT;END;keep time response rein;RUN;AXIS1 LABEL=(ANGLE=90 H=1.2 'Response');AXIS2 OFFSET=(15) LABEL=(H=1.2 'Time');SYMBOL VALUE=DOT I=JOIN;TITLE 'Profile plot';PROC GPLOT DATA=plot;PLOT response*time=rein / VAXIS=AXIS1 HAXIS=AXIS2 HMINOR=0 VMINOR=1;RUN;PROC GLM DATA=da2.h6q3;CLASS rein;MODEL cond1-cond4=rein / NOUNI;MANOVA H=rein / PRINTE PRINTH;TITLE 'Overall Reinforcement Schedule Effect';RUN;PROC GLM DATA=da2.h6q3;CLASS rein;MODEL cond1-cond4=rein / NOUNI;CONTRAST 'Compare Schedule 1 v.s. Schedule 2' rein 0 +1 -1;CONTRAST 'Compare Schedule 1 & 2 v.s. Schedule 3' rein -1 -1 +2;MANOVA M=(+1 -1  0  0, 		   0 +1 -1  0,		   0  0 +1 -1);RUN;
+libname da2 'C:\Users\psy6b\Desktop\8320 datasets'; 
+ods graphics on; 
+options ls=65 ps=35;
+title;
+
+data da2.h7q1;
+infile 'C:\Users\psy6b\Desktop\8320 datasets\decathlon.dat';
+input run100 Ljump shot Hjump run400 hurdle discus polevlt javelin run1500 score;
+race_100=-race_100;
+race_400=-race_400;
+hurdles=-hurdles;
+run_1500=-run_1500;
+run;
+proc univariate data=da2.h7q1 plots;
+var score;
+run;
+data da2.h7q1;
+set da2.h7q1;
+if score>6000;
+run;
+proc princomp data=da2.h7q1 out=q1out; 
+var run100--run1500;
+run;
+proc rank data=q1out out=q1out descending;
+var score;
+ranks posn;
+run;
+data labels;
+set q1out;
+retain xsys ysys '2'; 
+y=prin1;
+x=prin2; 
+text=put(posn,2.);
+keep xsys ysys x y text;
+run;
+proc gplot data=q1out;
+plot prin1*prin2 / annotate=labels; symbol v=none;
+run;
+goptions reset=symbol; 
+proc gplot data=q1out;
+plot score*(prin1 prin2); 
+run;
+proc corr data=q1out; 
+var score prin1 prin2;
+run;
+
+
+
+
+
+
+data da2.h7q2(type=corr);
+infile 'C:\Users\psy6b\Desktop\8320 datasets\pain.dat' missover;
+input _type_ $ _name_ $ p1-p9;
+run;
+data pain(type=corr);
+set da2.h7q2;
+run;
+proc factor data=pain method=ml n=2 scree; 
+var p1-p9;
+title 'Maximum Likelihood with 2 Factors';
+run;
+proc factor data=pain method=ml n=3 rotate=varimax; 
+var p1-p9;
+title 'Maximum Likelihood with 3 factors';
+run;
+PROC FACTOR DATA=pain PRIORS=SMC PREPLOT PLOT
+ROTATE=varimax REORDER OUTSTAT=fact_all n=3;
+TITLE 'Principal factor with SMC and varimax';
+RUN;
+PROC FACTOR DATA=pain PRIORS=SMC PREPLOT PLOT
+ROTATE=promax REORDER OUTSTAT=fact_all n=3;
+TITLE 'Principal factor with SMC and PROMAX';
+run;
+title;
+
+data da2.h7q4;
+infile 'C:\Users\psy6b\Desktop\8320 datasets\spamdetect_train.dat' dsd;
+input attr1-attr57 spam;
+run;
+data da2.h7q4test;
+infile 'C:\Users\psy6b\Desktop\8320 datasets\spamdetect_test.dat' dsd;
+input attr1-attr57 spam;
+run;
+PROC DISCRIM DATA=da2.h7q4 METHOD=NORMAL POOL=YES CROSSVALIDATE outstat=spam;
+CLASS spam;
+PRIORS PROP;
+VAR attr1-attr57;
+RUN;
+PROC DISCRIM DATA=spam TESTDATA=da2.h7q4test TESTOUT=tout;
+CLASS spam;
+VAR attr1-attr57;
+RUN;
+PROC DISCRIM DATA=da2.h7q4 METHOD=NORMAL POOL=NO CROSSVALIDATE outstat=spam2;
+CLASS spam;
+PRIORS PROP;
+VAR attr1-attr57;
+RUN;
+PROC DISCRIM DATA=spam2 TESTDATA=da2.h7q4test TESTOUT=tout2;
+CLASS spam;
+VAR attr1-attr57;
+RUN;
+proc stepdisc data=da2.h7q4 short METHOD=STEPWISE SLENTRY=.15 SLSTAY=.15;
+class spam;
+var attr1-attr57;
+%put &_stdvar;
+run;
+proc discrim DATA=da2.h7q4 outstat=spam3 noprint;
+CLASS spam;
+var &_stdvar;
+run;
+PROC DISCRIM DATA=spam3 TESTDATA=da2.h7q4test TESTOUT=tout3;
+CLASS spam;
+var &_stdvar;
+RUN;
+title 'Model 1';
+PROC DISCRIM DATA=da2.h7q4 METHOD=npar K=2 CROSSVALIDATE;
+CLASS spam;
+PRIORS PROP;
+VAR attr1-attr57;
+RUN;
+title 'Model 2';
+PROC DISCRIM DATA=da2.h7q4 METHOD=npar K=3 CROSSVALIDATE;
+CLASS spam;
+PRIORS PROP;
+VAR attr1-attr57;
+RUN;
+title 'Model 3';
+PROC DISCRIM DATA=da2.h7q4 METHOD=npar K=5 CROSSVALIDATE;
+CLASS spam;
+PRIORS PROP;
+VAR attr1-attr57;
+RUN;
+
+
+
 
 \end{Sascode}
 

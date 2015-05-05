@@ -50,89 +50,122 @@
 
 
 $\blacktriangleright$ \textbf{1.\quad Solution.} 
-(a). We can know that $n_1=16$, $n_2=11$ and $p=4$. Then to test the hypothesis
-$$
-H_0:\bm{\mu}_1-\bm{\mu}_2=\bm{0}\qquad\text{v.s.}\qquad H_A:\bm{\mu}_1-\bm{\mu}_2\not=\bm{0}
-$$
-The statistic is
-$$
-F=\frac{n_1+n_2-p-1}{(n_1+n_2-2)\cdot p}T^2=\frac{16+11-4-1}{(16+11-2)\cdot 4}\cdot16.5=3.63\sim f_{4,22}
-$$
-Because $F=3.63>f_{0.95,4,22}=2.816708$ with P-value=0.0237. We will reject the null hypothesis, so the mean profiles are significantly different.
+(a). Because PCA is not invariant with respect to changes in scale, that is, the variable which is measured under larger scale will have larger variance, then produce a large eigenvalue when performing singular value decomposition. So standardization avoids the problems of having one variable with large variance unduly influencing the determination of factor loadings, and the correlation matrix is the covariance matrix of standardized variable.
 
-(b). To test the parallel profiles, the hypotheses are
-$$
-H_0:\bm{C}(\bm{y}-\bm{z})=0\quad\text{v.s.}\quad H_A: \bm{C}(\bm{y}-\bm{z})\not=0
-$$where $\bm{C}=\lma 1 &-1 &0 &0\\ 0 &1 &-1 &0\\ 0 &0 &1 &-1\rma$. 
+(b). Before PCA, we should investigate the data roughly, and we find that there may be an outlier which have the total score less than 6000. We have no idea why cause this abnormality, but we should take it out of the following analysis because the PCA is very sensitive to outliers. Then we do a PCA based on the 10 single scores.
 
-The statistics are
-$$
-F=\frac{n_1+n_2-c-1}{(n_1+n_2-2)c}T^2=2.699\sim f_{3,23}
-$$
-Because $F=2.699<f_{0.95,3,23}=3.027998$ with P-value=0.06934349. We cannot reject the null hypothesis, so there is not significant interaction effect, i.e., the mean profiles are parallel.
+\begin{figure}[htbp]
+\centering\includegraphics[width=3.5in]{7-1.eps}
+\caption{Principal Component Proportion}\label{1}
+\end{figure}
 
-(c). Since the mean profiles are parallel, then we want to test whether they are identical or not. Then the $\bm{C}$ matrix becomes 
-$
-\bm{C}=\lma 1 &1 &1 &1\rma
-$.
-This test should give us the same result of part (a).
+From Figure \ref{1}, the first 2 PCs have accounted for 65.25\% variability of the total.
 
-We also want to test whether there is a significant time effect, i.e. each profile is horizontal respectively. Then the hypotheses are
-$$
-H_0:\bm{C\mu}_1=0\quad\text{v.s.}\quad H_A:\bm{C\mu}_1\not=0
-$$
-where $\bm{C}=\lma 1 &-1 &0 &0\\ 0 &1 &-1 &0\\ 0 &0 &1 &-1\rma$.
+
+(c).
+Because the first 2 PCs account for more than 50\% variability of the data, and the only these 2 PCs have the eigenvalues more than 1.
+
+(d). 
+\begin{figure}[htbp]
+\centering\includegraphics[width=5in]{7-2.eps}
+\caption{First 5 Principal Components}\label{2}
+\end{figure}
+According to the part of PC table (Figure \ref{2}), the first principal component may be a kind of overall means of all scores, not exactly equal to the average because of some slightly different weights; and the second principal component may be the comparison between the scores of running add long jump and those of throwing add pole vault. 
+
+
+(e). \begin{figure}[htbp]
+\centering\includegraphics[width=5in]{7-3.eps}
+\caption{1st PC v.s. 2nd PC}\label{3}
+\end{figure}
+
+From the scatter plot Figure \ref{3}, the data points have already been labeled as the their rank. So we can see that most high rank athletes (here higher rank means higher total score but smaller value of the rank) have comparably high 1st PC score. However, it is hard to see that whether there is any pattern of 2nd PC score relative to the ranks of athletes. 
+
+Hence, to make the relationship between PC scores and the ranks (or the total scores) more clearly, we can plot the total score versus two PC scores respectively(Figure \ref{4} and Figure \ref{5}). From Figure \ref{4}, we can see that the 1st PC score has positive relationship with total score indeed, and we also believe that there should be no significant relationship between 2nd PC score and total score.
+\begin{figure}[htbp]
+\begin{minipage}[t]{0.5\linewidth}
+\centering
+\includegraphics[width=3in]{7-4.eps}
+\caption{Total Score v.s. 1st PC}\label{4}
+\end{minipage}
+\begin{minipage}[t]{0.5\linewidth}
+\centering
+\includegraphics[width=3in]{7-5.eps}
+\caption{Total Score v.s. 2nd PC}\label{5}
+\end{minipage}
+\end{figure}
+
+
+(f). \begin{figure}[htbp]
+\centering\includegraphics[width=4in]{77.eps}
+\caption{Correlation Matrix among PCs}
+\end{figure}
+
+To compute the Pearson correlation coefficients among the total score, 1st PC score and 2nd PC score. The correlation coefficient between total score and 1st PC score is 0.96158 while that between total score and 2nd PC score is only 0.16194. This is in accordance with the result of last part. Thus, we may guess that the total score should be measured in a way like 1st PC, i.e., a kind of overall mean, not some comparisons.
 
 
 
 
 $\blacktriangleright$ \textbf{2.\quad Solution.} 
-(a). Mauchly's test examines the form of the common covariance matrix. A spherical matrix has equal variances and covariances equal to zero. The common covariance matrix of the transformed within-subject variables must be spherical. So the purpose of Mauchly test is to help us decide which output to use. If we can use the univariate output, we may have more power to reject the null hypothesis in favor of the alternative hypothesis. However, the univariate approach is appropriate only when the sphericity assumption is not violated. If the sphericity assumption is violated, then in most situations you are better off staying with the multivariate output.
+(a). Because $X_i$ are standardized random variables(zero mean and one standard deviation), then the covariance of $X_i$ is exactly the correlation of $X_i$. So
+\ba
+corr(X_i,X_k)&=cov(X_i,X_k)=cov(a_iF+e_i,a_kF+e_K)\\
+&=a_ia_kvar(F)+a_icov(F,e_k)+a_kcov(e_i,F)+cov(e_i,e_k)=a_ia_k\\
+corr(X_j,X_k)&=cov(X_j,X_k)=cov(a_jF+e_j,a_kF+e_K)\\
+&=a_ja_kvar(F)+a_jcov(F,e_k)+a_kcov(e_j,F)+cov(e_j,e_k)=a_ja_k\\
+\ea
+where $i,j,k$ are mutually different. Thus the ratio of pair of rows $(i,j)$ is always
+$$
+\frac{corr(X_i,X_k)}{corr(X_j,X_k)}=\frac{a_i}{a_j}
+$$
+for all $k\not=i,j$.
 
-From the SAS output (Figure \ref{h6re7}), the second line shows that the Mauchly's criterion is 0.7343, $\chi^2$ value is 7.29 with degree of freedom 5, and the P-value is 0.1997$>$0.05. Thus, we cannot reject the null hypothesis of sphericity, that is, the sphericity assumption has not been violated. Then we should use univariate approach to make inferences, because it is more powerful to reject the null hypothesis.
-\Listing[store=class,
-         caption={Mauchly's Sphericity Test}]{h6re7}
-         
+
+(b). 
+$$
+corr(\bm{X})=\lma a_1\\a_2\\a_3\\a_4\\a_5\\a_6\rma\lma a_1&a_2&a_3&a_4&a_5&a_6\rma+var(\bm{e})
+$$
+
+(c). 
+$$
+\bm{X}=\bm{a}F+\bm{e}
+$$
+where 
+\begin{itemize}
+\item $\bm{X}=\lma X_1&X_2&\cdots&X_6\rma'\sim \text{N}(\bm{0},corr(\bm{X}))$
+\item $F\sim\text{N}(0,1)$
+\item $\bm{a}=\lma a_1&a_2&\cdots&a_6\rma'$
+\item $\bm{e}=\lma e_1&e_2&\cdots&e_6\rma'\sim \text{N}(\bm{0},\bm{\Psi})$
+\item $F$ and $\bm{e}$ are independent.
+\end{itemize}
 
 
-(b). \begin{enumerate}[(i).]
-\item To test the parallel profiles, the null hypothesis is
+(d). For my perspective, only one factor should be included. Because
+\begin{enumerate}
+\item only the eigenvalue of the 1st factor is larger than 1, no matter how many factor we include in the analysis, and the proportion of variability accounted by the 1st factor is at least 100\%.
+\item to test the hypothesis
 $$
-H_0: \mu_{11}-\mu_{21}=\mu_{12}-\mu_{22}=\mu_{13}-\mu_{23}=\mu_{14}-\mu_{24}
+H_0:\text{ 1 Factor is sufficient}
 $$
-In Figure \ref{h6re9}, the Wilks' Lambda value is 0.7399, the F value is 2.70, the degree of freedom of numerator is 3, the degree of freedom of denominator is 23, and the P-value is 0.0696$>$0.05. So we cannot reject the null hypothesis, that is, the mean profiles are parallel, or we can say that there is no significant interaction effect.
-\Listing[store=class,
-         caption={Parallel Profiles Test}]{h6re9}
-\item To test the parallel profiles, the null hypothesis is
-$$
-H_0: \mu_{11}=\mu_{12}=\mu_{13}=\mu_{14}
-$$
-In Figure \ref{h6re8}, the Wilks' Lambda value is 0.1948, the F value is 31.69, the degree of freedom of numerator is 3, the degree of freedom of denominator is 23, and the P-value is less than 0.0001$<$0.05. So we will reject the null hypothesis, that is, the mean profiles are not horizontal, or we can say that there is a significant age effect.
-\Listing[store=class,
-         caption={Horizontal Profiles Test}]{h6re8}
-\item To test the parallel profiles, the null hypothesis is
-$$
-H_0: \bm{\mu}_1-\bm{\mu}_2=\bm{0}
-$$
-In Figure \ref{h6re10}, there is only one approach for this test. The F value is 9.29, the degree of freedom of numerator is 1, the degree of freedom of denominator is 25, and the P-value is 0.0054$<$0.05. So we will reject the null hypothesis, that is, the mean profiles are not identical, or we can say that there is a significant gender effect.
-\Listing[store=class,
-         caption={Coincident Profiles Test}]{h6re10}
+the P-value is 0.9805, so we cannot reject the null hypothesis, that is, more factors are not necessary.
+\item the AIC and BIC of one factor are lower than those of two factors.
 \end{enumerate}
 
+(e). The result of "Factor Pattern" can give the information about factor loadings of different variable, i.e. the $a_i$ in the model in part (c). For example, the variable C has a loading of 0.95611(a very high loading) in Factor1, and the variable F has a loading of 0.87081(a moderately to high loading) in Factor1, and so on. All variables have a at least moderately to high loading in Factor1, and the loadings are not different so much.
 
-(c). From the SAS output (Figure \ref{h6re11}), we can see the F value of interaction is 2.36 with P-value=0.0797$>$0.05. So we cannot reject the null hypothesis of no interaction. Because of no interaction, it is appropriate to test the main effect. The F value of age is 35.35 with P-value less than 0.0001. So we can conclude that there is a significant effect of age.
-\Listing[store=class,
-         caption={Univariate Approach}]{h6re11}
-         
-(d). From the SAS output (Figure \ref{h6re12}), the Greenhouse-Geisser adjustment is 0.8672, and the Huynh-Feldt adjustment is 09769.
-\Listing[store=class,
-         caption={Univariate Approach Adjustment}]{h6re12}
-         
-(e). From the final SAS output of PROC MIXED (Figure \ref{h6re26}), we have the exactly same result that there is no significant interaction, but the gender effect and age effect are both significant  as univariate approach shows, especially the P-values of these three effects. This also support the result of Mauchly's test that the sphericity assumption is valid, which ensures the univariate approach is appropriate.
-\Listing[store=class,
-         caption={Result of PROC MIXED}]{h6re26}
+In addition, we can know how much proportion of variance of each variable is accounted by the communality from the "Factor Pattern" output or "Final Communality" output. For example, 
+$$
+\text{Communality of C}=a_1^2=0.95611^2=0.9141
+$$
+which means 91.41\% variability of C comes from common factor and only 8.69\% variability come from specific factor.
+
+(f). No. If the rotation is help, let $T$ become the rotation operator. Then we can have that
+$$
+F^*=TF
+$$
+where the $F^*$ is the factor after rotating. So the $F^*$ should also have the restriction of length equal to 1, i.e. $var(F^*)=1$. This implies that $T^2=1$, and so $T=\pm1$. So rotation cannot change the value of loadings except the sign. Thus, there is no need to perform a rotation.
 
 
+(g). Because we choose to include only one factor in the model and the loadings and communality are high comparing to specific factor. That is to say, all variable perform like the only one common factor, so they should perform similarly to each other. Then the correlations between them should looks same.
 
 
 
@@ -142,41 +175,39 @@ In Figure \ref{h6re10}, there is only one approach for this test. The F value is
 
 
 $\blacktriangleright$ \textbf{3.\quad Solution.} 
-(a). From the plot (Figure \ref{h6re}), firstly we can see that there are some intersections among the profiles, which means that there may be some significant interaction between reinforcement schedules and conditions. Then we can see that the profile of schedule 1 is parallel with the profile of schedule 2, and the difference is so small that they may behave in same way. Finally, the behavior of schedule 3 seems totally different from the other two's.
-\Graphic[store=class, scale=0.7,
-         caption={Plots of Mean Profiles}]{h6re}
+(a). \begin{figure}[htbp]
+\centering\includegraphics[width=4in]{7-6.eps}
+\caption{Likelihood Tests}\label{6}
+\end{figure}
 
-(b). From the SAS output (Figure \ref{h6re44}), P-value of the test is 0.0119$<$0.05, so we can say that there is a significant schedule effect. The next step we should do is to find where the differences lie, so we will follow up with several post-hoc tests in part (c).
-\Listing[store=class,
-         caption={Overall Reinforcement Schedule Effect}]{h6re44}
+No. From the second test in Figure \ref{6}, the P-value less than 0.0001 means we should reject the null hypothesis, that is, two factors is not sufficient.
 
-(b). We will begin with the multivariate test of schedule 1 versus the average of schedule 2. The null hypothesis is
-$$
-H_0:\bm{LBM}=\bm{0}
-$$
-where $\bm{L}=\lma 1&-1&0\rma$, and
-$$\bm{M}=\lma1&0&0\\-1&1&0\\0&-1&1\\0&0&-1\rma$$.
-From the SAS output (Figure \ref{h6re49}), P-value of the test is 0.9979$>$0.05, so we cannot reject $H_0$ that schedule 1 and schedule 2 behave the same.
-\Listing[store=class,
-         caption={Overall Reinforcement Schedule Effect}]{h6re49}
-         
-We will begin with the multivariate test of schedule 3 versus the average of schedule 1 and 2. The null hypothesis is
-$$
-H_0:\bm{LBM}=\bm{0}
-$$
-where $\bm{L}=\lma -1 -1 +2\rma$, and $\bm{M}$ is same as above.
+(b). \begin{figure}[htbp]
+\centering\includegraphics[width=4in]{7-7.eps}
+\caption{Likelihood Tests}\label{7}
+\end{figure}
+Yes. From the second test in Figure \ref{7}, the P-value=0.1100 means we do not reject the null hypothesis, that is, 3 factors is sufficient.
 
-From the SAS output (Figure \ref{h6re51}), P-value of the test is 0.0030$<$0.05, so we will reject $H_0$ that schedule 3 behaves like the other 2 schedules under different conditions.
-\Listing[store=class,
-         caption={Overall Reinforcement Schedule Effect}]{h6re51}
+\begin{figure}[htbp]
+\centering\includegraphics[width=3in]{7-8.eps}
+\caption{Rotated Factors}\label{8}
+\end{figure}
+From the Figure \ref{8}, we can see that $p1,p3,p4,p8,p9$ have high loadings in factor 1, and all there statements have mentioned doctor. So maybe the factor 1 is a "doctor factor". $p6,p7$ have high loadings in factor 2, and all these statements is about themselves without some specific reasons. So maybe the factor 2 is a "subjective personal factor". $p2,p5$ have high loadings in factor 3, and all these statements is also about themselves but more reasonable. So maybe the factor 3 is a "objective personal factor".
 
 
+(c). \begin{figure}[htbp]
+\centering\includegraphics[width=2.5in]{7-9.eps}
+\caption{Rotated Factors}\label{9}
+\end{figure}
+From the Figure \ref{9}, we can see that the factor pattern does not change too much between MLE and principle factor method; the clusters are still same: $\{p3,p8,p4,p1,p9\},\{p5,p2\},\{p6,p7\}$, only the loadings change slightly. But the interpretation becomes a little different. Because principle factor method uses the philosophy of PCA, so the factor interpretation may be like the interpretation of PCs. That is, factor 1 is the overall mean of $\{p3,p8,p4,p1,p9\}$, factor 2 is the overall mean of $\{p5,p2\}$ and factor 3 is the overall mean of $\{p6,p7\}$.
 
 
-%\Listing[store=class,
-%  caption={Regression Analysis}]{resultl}
+(d). \begin{figure}[htbp]
+\centering\includegraphics[width=4in]{7-10.eps}
+\caption{Oblique Rotated Factors}\label{10}
+\end{figure}
+The overall result of principle factor method with oblique rotation is not so different from the result of other methods. It also only has some differences about factor loadings. The clusters and the interpretations of factors are same as the principle factor method with orthogonal rotation. However, for oblique rotation, we should also see the correlation between latent factors. In the problem the maximum correlation coefficient is 0.33129, which is not significant. So we can stop here. If the correlation between factors is significant, we can go on and perform a factor analysis to get the second order factor, which may contain more general information.
 
-%\Graphic[store=class, scale=0.9,
-%  caption={Graphs for Regression Analysis}]{resultg}
+
 
 \end{document}

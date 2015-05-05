@@ -18,25 +18,3 @@
 /* Start program with a null title. */
 title;
 
-%write(h6re7,store=class,type=listing) 
-
-%write(h6re9,store=class,type=listing) 
-
-%write(h6re8,store=class,type=listing) 
-
-%write(h6re10,store=class,type=listing) 
-
-%write(h6re11,store=class,type=listing) 
-
-%write(h6re12,store=class,type=listing) 
-
-%write(h6re26,store=class,type=listing) 
-
-%write(h6re,store=class,type=graphic) 
-
-%write(h6re44,store=class,type=listing) 
-
-%write(h6re49,store=class,type=listing) 
-
-%write(h6re51,store=class,type=listing) 
-
